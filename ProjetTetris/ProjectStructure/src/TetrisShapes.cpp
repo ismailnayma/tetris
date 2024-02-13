@@ -223,4 +223,65 @@ std::array<std::array<std::array<std::array<int, TetrisShapes::SIZE>, TetrisShap
 }
 ;
 
+std::vector<std::vector<std::vector<Position>>> TetrisShapes::createShapes() {
+    std::vector<std::vector<std::vector<Position>>> shapes;
+
+    // O Shape
+    shapes.push_back({
+        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
+        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
+        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
+        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}
+    });
+
+    // I Shape
+    shapes.push_back({
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)},
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)}
+    });
+
+    // S Shape
+    shapes.push_back({
+        {Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)},
+        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
+        {Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)},
+        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}
+    });
+
+    // Z Shape
+    shapes.push_back({
+        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
+        {Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)},
+        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
+        {Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)}
+    });
+
+    // L Shape
+    shapes.push_back({
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 1)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, -1)},
+        {Position(-1, -1), Position(0, -1), Position(0, 0), Position(0, 1)},
+        {Position(-1, 1), Position(-1, 0), Position(0, 0), Position(1, 0)}
+    });
+
+    // J Shape
+    shapes.push_back({
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, -1)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, 1)},
+        {Position(-1, 1), Position(0, -1), Position(0, 0), Position(0, 1)},
+        {Position(-1, -1), Position(-1, 0), Position(0, 0), Position(1, 0)}
+    });
+
+    // T Shape
+    shapes.push_back({
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 0)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, 1)},
+        {Position(0, -1), Position(0, 0), Position(0, 1), Position(-1, 0)},
+        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, -1)}
+    });
+
+    return shapes;
+}
 
