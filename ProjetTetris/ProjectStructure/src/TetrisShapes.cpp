@@ -223,65 +223,71 @@ std::array<std::array<std::array<std::array<int, TetrisShapes::SIZE>, TetrisShap
 }
 ;
 
+#include "TetrisShapes.h"
+
 std::vector<std::vector<std::vector<Position>>> TetrisShapes::createShapes() {
-    std::vector<std::vector<std::vector<Position>>> shapes;
+    std::vector<std::vector<std::vector<Position>>> shapes(NUM_BRICK_TYPES);
 
     // O Shape
-    shapes.push_back({
-        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
-        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
-        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)},
-        {Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}
-    });
+    shapes[O_SHAPE] = {
+        {{Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}},
+        {{Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}},
+        {{Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}},
+        {{Position(0, 0), Position(0, 1), Position(1, 0), Position(1, 1)}}
+    };
 
     // I Shape
-    shapes.push_back({
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)},
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)}
-    });
+    shapes[I_SHAPE] = {
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)}},
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(0, 2)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(2, 0)}}
+    };
 
     // S Shape
-    shapes.push_back({
-        {Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)},
-        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
-        {Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)},
-        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}
-    });
+    shapes[S_SHAPE] = {
+        {{Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)}},
+        {{Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}},
+        {{Position(-1, 0), Position(0, 0), Position(0, 1), Position(1, 1)}},
+        {{Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}}
+    };
 
     // Z Shape
-    shapes.push_back({
-        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
-        {Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)},
-        {Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)},
-        {Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)}
-    });
+    shapes[Z_SHAPE] = {
+        {{Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}},
+        {{Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)}},
+        {{Position(0, -1), Position(0, 0), Position(1, 0), Position(1, 1)}},
+        {{Position(1, -1), Position(0, 0), Position(1, 0), Position(0, 1)}}
+    };
 
     // L Shape
-    shapes.push_back({
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 1)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, -1)},
-        {Position(-1, -1), Position(0, -1), Position(0, 0), Position(0, 1)},
-        {Position(-1, 1), Position(-1, 0), Position(0, 0), Position(1, 0)}
-    });
+    shapes[L_SHAPE] = {
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 1)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, -1)}},
+        {{Position(-1, -1), Position(0, -1), Position(0, 0), Position(0, 1)}},
+        {{Position(-1, 1), Position(-1, 0), Position(0, 0), Position(1, 0)}}
+    };
 
     // J Shape
-    shapes.push_back({
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, -1)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, 1)},
-        {Position(-1, 1), Position(0, -1), Position(0, 0), Position(0, 1)},
-        {Position(-1, -1), Position(-1, 0), Position(0, 0), Position(1, 0)}
-    });
+    shapes[J_SHAPE] = {
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(1, -1)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(1, 1)}},
+        {{Position(-1, 1), Position(0, -1), Position(0, 0), Position(0, 1)}},
+        {{Position(-1, -1), Position(-1, 0), Position(0, 0), Position(1, 0)}}
+    };
 
     // T Shape
-    shapes.push_back({
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 0)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, 1)},
-        {Position(0, -1), Position(0, 0), Position(0, 1), Position(-1, 0)},
-        {Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, -1)}
-    });
+    shapes[T_SHAPE] = {
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(1, 0)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, 1)}},
+        {{Position(0, -1), Position(0, 0), Position(0, 1), Position(-1, 0)}},
+        {{Position(-1, 0), Position(0, 0), Position(1, 0), Position(0, -1)}}
+    };
 
     return shapes;
 }
+
+#include "TetrisShapes.h"
+
+
 
