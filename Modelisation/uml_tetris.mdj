@@ -2881,7 +2881,7 @@
 											"top": 508,
 											"width": 181.771484375,
 											"height": 13,
-											"text": "-deletedLines: in",
+											"text": "-deletedLines: int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -2983,7 +2983,7 @@
 											"top": 591,
 											"width": 181.771484375,
 											"height": 13,
-											"text": "+getDeletedLines()",
+											"text": "+getDeletedLines(): int",
 											"horizontalAlignment": 0
 										}
 									],
@@ -7383,7 +7383,7 @@
 							},
 							"name": "deletedLines",
 							"visibility": "private",
-							"type": "in"
+							"type": "int"
 						}
 					],
 					"operations": [
@@ -7458,7 +7458,18 @@
 							"_parent": {
 								"$ref": "AAAAAAGNmZLtQxshRh8="
 							},
-							"name": "getDeletedLines"
+							"name": "getDeletedLines",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAGNrp9SzWz9vOg=",
+									"_parent": {
+										"$ref": "AAAAAAGNqJP9aG1GNM8="
+									},
+									"type": "int",
+									"direction": "return"
+								}
+							]
 						}
 					]
 				},
