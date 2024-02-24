@@ -3,8 +3,8 @@
 
 class Position {
 private:
-    int posX; // X-coordinate
-    int posY; // Y-coordinate
+    int posX; // column of the board (0 starting from the left bottom)
+    int posY; // line of the board ( 0 starting from de top)
 
 public:
     // Constructor with explicit initialization
