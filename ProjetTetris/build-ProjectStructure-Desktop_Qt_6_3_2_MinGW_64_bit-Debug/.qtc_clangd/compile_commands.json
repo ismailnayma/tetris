@@ -12987,10 +12987,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\TetrisShapes.cpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ShapesRotation.cpp"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/TetrisShapes.cpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ShapesRotation.cpp"
 },
 {
     "arguments": [
@@ -13073,10 +13073,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\TetrisShapes.h"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ShapesRotation.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/TetrisShapes.h"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ShapesRotation.h"
 },
 {
     "arguments": [

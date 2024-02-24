@@ -5,8 +5,8 @@ add_executable(ProjectStructure
     main.cpp
     MyClass.h
     MyClass.cpp
-    TetrisShapes.h
-    TetrisShapes.cpp
+    ShapesRotation.h
+    ShapesRotation.cpp
     position.hpp
     enum.hpp
 )
