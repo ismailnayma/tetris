@@ -7,8 +7,9 @@ add_executable(ProjectStructure
     MyClass.cpp
     ShapesRotation.h
     ShapesRotation.cpp
-    position.hpp
+    Position.hpp
     enum.hpp
+    Brick.hpp
 )
 
 install(TARGETS ProjectStructure
