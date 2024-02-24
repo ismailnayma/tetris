@@ -1,47 +1,27 @@
-#ifndef TETRISSHAPES_H
-#define TETRISSHAPES_H
+#ifndef ShapesRotation_H
+#define ShapesRotation_H
 
 #include <array>
 
-class TetrisShapes {
+
+
+
+#endif // ShapesRotation_H
+class ShapesRotation {
 private:
-
-    static TetrisShapes* tetrisShapesinstance;
-    static constexpr int NUM_BRICK_TYPES = 7;
-    static constexpr int NUM_ROTATIONS = 4;
-    static constexpr int SIZE = 4;
-    std::array<std::array<std::array<std::array<int, SIZE>, SIZE>, NUM_ROTATIONS>, NUM_BRICK_TYPES> shapes;
-
-    TetrisShapes() : shapes(createShapes()) {}
-    std::array<std::array<std::array<std::array<int, SIZE>, SIZE>, NUM_ROTATIONS>, NUM_BRICK_TYPES>  createShapes();
-
-
-public:
-    TetrisShapes(TetrisShapes &other)= delete;
-    void operator=(const TetrisShapes &)= delete;
-    static TetrisShapes* getInstance();
-    const std::array<std::array<int, SIZE>, SIZE>& getShape(int kind, int orientation) const;
-   // ~TetrisShapes();
-
-};
-
-
-#endif // TETRISSHAPES_H
-class TetrisShapes {
-private:
-    static TetrisShapes* tetrisShapesInstance;
+    static ShapesRotation* ShapesRotationInstance;
 
     std::vector<std::vector<std::vector<Position>>> shapes;
 
-    TetrisShapes() : shapes(createShapes()) {}
+    ShapesRotation() : shapes(createShapes()) {}
     std::vector<std::vector<std::vector<Position>>> createShapes();
 
 public:
-    TetrisShapes(const TetrisShapes&) = delete;
-    TetrisShapes& operator=(const TetrisShapes&) = delete;
-    static TetrisShapes* getInstance();
+    ShapesRotation(const ShapesRotation&) = delete;
+    ShapesRotation& operator=(const ShapesRotation&) = delete;
+    static ShapesRotation* getInstance();
     const std::vector<std::vector<Position>>& getShape(TetrisShapeType kind, TetrisRotation orientation) const;
-    // ~TetrisShapes();
+    // ~ShapesRotation();
 };
 
 #include <vector>
