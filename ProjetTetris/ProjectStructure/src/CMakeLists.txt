@@ -8,6 +8,7 @@ add_executable(ProjectStructure
     TetrisShapes.h
     TetrisShapes.cpp
     position.hpp
+    enum.hpp
 )
 
 install(TARGETS ProjectStructure
