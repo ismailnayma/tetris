@@ -9,7 +9,7 @@ class Brick {
 private:
     TypeShape shape;
     Orientation orientation;
-    Position position;
+    Position boardPosition;
 
 public:
 
@@ -20,7 +20,7 @@ public:
      * @param o Initial orientation of the brick.
      * @param p Initial position of the brick.
      */
-    Brick(TypeShape s, Orientation o, Position p) : shape(s), orientation(o), position(p) {}
+    Brick(TypeShape s, Orientation o, Position p) : shape(s), orientation(o), boardPosition(p) {}
 
     /**
      * @brief Getter for the orientation of the brick.
@@ -42,16 +42,16 @@ public:
      * @brief Getter for the position of the brick.
      * @return The current position.
      */
-    Position getPosition() const {
-        return position;
+    Position getBoardPosition() const {
+        return boardPosition;
     }
 
     /**
      * @brief Setter for the position of the brick.
      * @param p The new position to set.
      */
-    void setPosition(Position p) {
-        position = p;
+    void setBoardPosition(Position p) {
+        boardPosition = p;
     }
 
     /**

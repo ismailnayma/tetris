@@ -200,5 +200,21 @@ void Board::updateArea(bool addBrick) {
 
 
 std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
-    // Implémenter la méthode getBrickBoardPositions
+    std::vector<Position> brickBoardPositions;
+
+    // Get the vector of positions for the given brick type and orientation from ShapesRotation
+    const std::vector<Position>& brickPositions = shapesRotation->getBrickPositions(brick.getTypeShape(), brick.getOrientation());
+
+    // Calculate the corresponding board positions
+    for (const Position& brickPos : brickPositions) {
+        int boardPosX = brick.getBoardPosition().getPosX() + brickPos.getPosX();
+        int boardPosY = brick.getBoardPosition().getPosY() + brickPos.getPosY();
+
+        // Use emplace_back to construct a new Position object directly at the end of the vector.
+        // The arguments (boardPosX, boardPosY) are utilized to construct the Position object without the need for temporary object copies.
+        brickBoardPositions.emplace_back(boardPosX, boardPosY);
+
+    }
+
+    return brickBoardPositions;
 }
