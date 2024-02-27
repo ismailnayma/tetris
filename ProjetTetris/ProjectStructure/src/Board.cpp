@@ -16,13 +16,19 @@ bool Board::setCurrentBrick(const Brick& brick) {
 
 
 bool Board::moveCurrentBrick(Direction direction) {
-    switch(direction){
+    Position newCurBrickPos = currentBrick.getPosition();
+    switch(direction) {
     case Direction::RIGHT:
+        newCurBrickPos.setPosX(newCurBrickPos.getPosX() + 1);
+        break;
     case Direction::DOWN:
+        newCurBrickPos.setPosY(newCurBrickPos.getPosY() + 1);
+        break;
     case Direction::LEFT:
+        newCurBrickPos.setPosX(newCurBrickPos.getPosX() - 1);
+        break;
+        // Ajoutez d'autres cas si nécessaire
     }
-
-    // Implémenter la méthode moveCurrentBrick
 }
 
 bool Board::rotateCurrentBrick(Direction direction) {
