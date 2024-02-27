@@ -35,6 +35,24 @@ public:
     int getPosY() const {
         return posY;
     }
+
+    /**
+     * @brief Setter for the column position.
+     * @param x The new column position.
+     */
+    void setPosX(int x) {
+        posX = x;
+    }
+
+    /**
+     * @brief Setter for the line position.
+     * @param y The new line position.
+     */
+    void setPosY(int y) {
+        posY = y;
+    }
+
+
 };
 
 #endif // POSITION_HPP
