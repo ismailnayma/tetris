@@ -95,9 +95,26 @@ int Board::dropCurrentBrick() {
 }
 
 
-bool Board::isCurrentBrickFallen() const {
-    // Implémenter la méthode isCurrentBrickFallen
+bool Board::isCurrentBrickFallen() {
+    // Create a new position one unit below the current brick's position
+    Position newCurBrickPos(currentBrick.getPosition().getPosX(), currentBrick.getPosition().getPosY() + 1);
+
+    // Create a new brick with the updated position
+    Brick newCurBrick(currentBrick.getTypeShape(), currentBrick.getOrientation(), newCurBrickPos);
+
+    // Temporarily remove the current brick from the area to check for collisions with the new one
+    removeCurrentBrickOnArea();
+
+    // Check if the new brick cannot be moved down = if there is collision
+    bool cannotBeMovedDown = isCollision(newCurBrick);
+
+    // Redraw the current brick on the area
+    updateArea();
+
+    // Return true if the brick cannot be moved down = the brick is fallen, false otherwise
+    return cannotBeMovedDown;
 }
+
 
 int Board::deletePossibleLines() {
     // Implémenter la méthode deletePossibleLines
