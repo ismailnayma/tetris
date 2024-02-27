@@ -19,8 +19,7 @@ private:
     const ShapesRotation* shapesRotation;
 
     bool isCollision(const Brick& brick) const;
-    void removeCurrentBrickOnArea();
-    void updateArea();
+    void updateArea(bool addBrick);
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
     bool handleBrickAdjustment(const Brick& newCurBrick);
 

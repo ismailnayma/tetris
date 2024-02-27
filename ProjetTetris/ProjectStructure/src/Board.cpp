@@ -66,18 +66,18 @@ bool Board::rotateCurrentBrick(Rotation rotation) {
 
 // Helper function for handling area brick removal, collision check, and area update
 bool Board::handleBrickAdjustment(const Brick& newCurBrick) {
-    // Remove the old brick from the area to check collision with the new one
-    removeCurrentBrickOnArea();
+    // Remove the current brick from the boardArea to check collision with the new one
+    updateArea(false);
 
     // Check for collision with the new brick
     if (!isCollision(newCurBrick)) { // If there is no collision, the current brick can be moved or rotated
         currentBrick = newCurBrick;
-        updateArea(); // Draw the new brick on the boardArea
+        updateArea(true); // Add the new current brick on the boardArea
         return true;
     }
 
-    // If there is a collision with the new brick, redraw the old current brick
-    updateArea();
+    // If there is a collision with the new current brick, redraw the old current brick
+    updateArea(true);
     return false;
 }
 
@@ -103,13 +103,14 @@ bool Board::isCurrentBrickFallen() {
     Brick newCurBrick(currentBrick.getTypeShape(), currentBrick.getOrientation(), newCurBrickPos);
 
     // Temporarily remove the current brick from the area to check for collisions with the new one
-    removeCurrentBrickOnArea();
+    updateArea(false);
+
 
     // Check if the new brick cannot be moved down = if there is collision
     bool cannotBeMovedDown = isCollision(newCurBrick);
 
-    // Redraw the current brick on the area
-    updateArea();
+    // Add the current brick to the boardArea
+    updateArea(true);
 
     // Return true if the brick cannot be moved down = the brick is fallen, false otherwise
     return cannotBeMovedDown;
@@ -174,26 +175,29 @@ bool Board::isCollision(const Brick& brick) const {
     return false;
 }
 
-void Board::removeCurrentBrickOnArea() {
+void Board::updateArea(bool addBrick) {
     // Get the positions on the board that the current brick occupies
     std::vector<Position> brickBoardPositions = getBrickBoardPositions(currentBrick);
 
-    // Remove the current brick's positions from the boardArea
+    // Update the boardArea based on the addBrick parameter
     for (const Position& pos : brickBoardPositions) {
         int posX = pos.getPosX();
         int posY = pos.getPosY();
 
         // Check if the position is within the board boundaries
         if (posX >= 0 && posX < boardWidth && posY >= 0 && posY < boardHeight) {
-            // Clear the shape from the position on the board
-            boardArea[posY][posX] = std::nullopt;
+            if (addBrick) {
+                // Set the shape at the position on the board to the type of the current brick
+                boardArea[posY][posX] = currentBrick.getTypeShape();
+            } else {
+                // Clear the shape from the position on the board
+                boardArea[posY][posX] = std::nullopt;
+            }
         }
     }
 }
 
-void Board::updateArea() {
-    // Implémenter la méthode updateArea
-}
+
 
 std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     // Implémenter la méthode getBrickBoardPositions
