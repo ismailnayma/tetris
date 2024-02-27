@@ -10,6 +10,8 @@ add_executable(ProjectStructure
     Position.hpp
     enum.hpp
     Brick.hpp
+    Board.h
+    Board.cpp
 )
 
 install(TARGETS ProjectStructure
