@@ -149,7 +149,29 @@ int Board::deletePossibleLines() {
 
 
 bool Board::isCollision(const Brick& brick) const {
-    // Implémenter la méthode isCollision
+    // Get the positions on the board that the brick occupies
+    std::vector<Position> brickBoardPositions = getBrickBoardPositions(brick);
+
+    // Check if any of the positions collide with existing shapes on the board
+    for (const Position& pos : brickBoardPositions) {
+        int posX = pos.getPosX();
+        int posY = pos.getPosY();
+
+        // Check if the position is within the board boundaries
+        if (posX < 0 || posX >= boardWidth || posY < 0 || posY >= boardHeight) {
+            // The position is outside the board boundaries, indicating a collision
+            return true;
+        }
+
+        // Check if the position is occupied by an existing shape on the board
+        if (boardArea[posY][posX].has_value()) {
+            // The position is occupied, indicating a collision
+            return true;
+        }
+    }
+
+    // No collision detected
+    return false;
 }
 
 void Board::removeCurrentBrickOnArea() {
