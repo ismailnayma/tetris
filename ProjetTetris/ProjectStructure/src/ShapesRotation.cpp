@@ -17,7 +17,7 @@ ShapesRotation* ShapesRotation::getInstance()
     return ShapesRotationInstance;
 }
 
-const std::vector<Position> &ShapesRotation::getShape(TypeShape kind, Orientation orientation) const {
+const std::vector<Position> &ShapesRotation::getBrickPositions(TypeShape kind, Orientation orientation) const {
     // Try to find the TypeShape in the first map
     auto it1 = shapes.find(kind);
 

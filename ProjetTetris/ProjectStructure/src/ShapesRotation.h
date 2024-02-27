@@ -43,7 +43,7 @@ public:
      * @param orientation The orientation of the shape.
      * @return The vector of positions for the given shape and orientation.
      */
-    const std::vector<Position> & getShape(TypeShape kind, Orientation orientation) const;
+    const std::vector<Position> & getVectorPosition(TypeShape kind, Orientation orientation) const;
 
     // Destructor is not needed as we are using a singleton pattern
     // ~ShapesRotation();
