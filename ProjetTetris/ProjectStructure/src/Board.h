@@ -10,12 +10,12 @@
 
 class Board {
 private:
-    int boardHeight;
     int boardWidth;
-    Position startPosition;
+    int boardHeight;
     std::vector<std::vector<TypeShape>> boardArea;
+    const Position startPosition;
     Brick currentBrick;
-    ShapesRotation shapesRotation;
+    const ShapesRotation* shapesRotation;
 
     bool isCollision(const Brick& brick) const;
     void removeCurrentBrickOnArea();
@@ -23,7 +23,7 @@ private:
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
 
 public:
-    Board(int height, int width);
+    Board(int width = 10, int height = 20); //=default constructors
 
     bool setCurrentBrick(const Brick& brick);
     bool moveCurrentBrick(Direction direction);

@@ -12,6 +12,7 @@ private:
     int posY; ///< Represents the line of the board (0 starting from the top).
 
 public:
+    Position() = default;
     /**
      * @brief Constructor for the Position class.
      * @param x The column position.

@@ -12,6 +12,8 @@ private:
     Position position;
 
 public:
+
+    Brick() = default;
     /**
      * @brief Constructor for the Brick class.
      * @param s TypeShape of the brick.
