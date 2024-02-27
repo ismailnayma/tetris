@@ -21,13 +21,14 @@ private:
     void removeCurrentBrickOnArea();
     void updateArea();
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
+    bool handleBrickAdjustment(const Brick& newCurBrick);
 
 public:
     Board(int width = 10, int height = 20); //=default constructors
 
     bool setCurrentBrick(const Brick& brick);
     bool moveCurrentBrick(Direction direction);
-    bool rotateCurrentBrick(Direction direction);
+    bool rotateCurrentBrick(Rotation rotation);
     int dropCurrentBrick();
     bool isCurrentBrickFallen() const;
     int deletePossibleLines();
