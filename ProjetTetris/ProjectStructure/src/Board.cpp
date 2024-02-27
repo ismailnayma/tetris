@@ -17,7 +17,9 @@ bool Board::setCurrentBrick(const Brick& brick) {
 
 bool Board::moveCurrentBrick(Direction direction) {
     Position newCurBrickPos = currentBrick.getPosition();
-    switch(direction) {
+
+    // Move the current brick position based on the specified direction
+    switch (direction) {
     case Direction::RIGHT:
         newCurBrickPos.setPosX(newCurBrickPos.getPosX() + 1);
         break;
@@ -27,9 +29,26 @@ bool Board::moveCurrentBrick(Direction direction) {
     case Direction::LEFT:
         newCurBrickPos.setPosX(newCurBrickPos.getPosX() - 1);
         break;
-        // Ajoutez d'autres cas si nécessaire
     }
+
+    // Create a new brick with the updated position, representing the moved brick on the board
+    Brick newCurBrick(currentBrick.getTypeShape(), currentBrick.getOrientation(), newCurBrickPos);
+
+    // Remove the old brick from the area to check collision with the new one
+    removeCurrentBrickOnArea();
+
+    // Check for collision with the new brick
+    if (!isCollision(newCurBrick)) { // If there is no collision, the current brick can be moved
+        currentBrick = newCurBrick;
+        updateArea();                // Draw the new brick on the boardArea
+        return true;
+    }
+
+    // If collision occurs, redraw the old current brick
+    updateArea();
+    return false;
 }
+
 
 bool Board::rotateCurrentBrick(Direction direction) {
     // Implémenter la méthode rotateCurrentBrick
