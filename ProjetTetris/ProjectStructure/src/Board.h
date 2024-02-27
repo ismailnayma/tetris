@@ -7,12 +7,13 @@
 #include "ShapesRotation.h"
 #include <iostream>
 #include <vector>
+#include <optional>
 
 class Board {
 private:
     int boardWidth;
     int boardHeight;
-    std::vector<std::vector<TypeShape>> boardArea;
+    std::vector<std::vector<std::optional<TypeShape>>> boardArea;
     const Position startPosition;
     Brick currentBrick;
     const ShapesRotation* shapesRotation;
@@ -30,7 +31,7 @@ public:
     bool moveCurrentBrick(Direction direction);
     bool rotateCurrentBrick(Rotation rotation);
     int dropCurrentBrick();
-    bool isCurrentBrickFallen() const;
+    bool isCurrentBrickFallen();
     int deletePossibleLines();
 
 };
