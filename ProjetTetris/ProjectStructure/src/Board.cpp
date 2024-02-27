@@ -83,8 +83,17 @@ bool Board::handleBrickAdjustment(const Brick& newCurBrick) {
 
 
 int Board::dropCurrentBrick() {
-    // Implémenter la méthode dropCurrentBrick
+    int dropDistance = 0;
+
+    // Move the current brick down as long as there is no collision
+    while (moveCurrentBrick(Direction::DOWN)) {
+        dropDistance++;
+    }
+
+    // Return the distance the brick was able to drop
+    return dropDistance;
 }
+
 
 bool Board::isCurrentBrickFallen() const {
     // Implémenter la méthode isCurrentBrickFallen
