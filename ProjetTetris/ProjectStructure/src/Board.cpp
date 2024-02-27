@@ -44,7 +44,7 @@ bool Board::moveCurrentBrick(Direction direction) {
         return true;
     }
 
-    // If collision occurs, redraw the old current brick
+    // If there is collision with the new brick, redraw the old current brick
     updateArea();
     return false;
 }
