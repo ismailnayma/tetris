@@ -5,8 +5,8 @@
 192	954	7313460297172308	tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj	d9e50c0eda79d94
 488	5171	7313460337143340	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/benchmark/catch_chronometer.cpp.obj	b6640e3949d288e4
 0	145	0	clean	e2cd0d3f4dc3529
-9036	11345	7305089544945781	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/interfaces/catch_interfaces_exception.cpp.obj	e4cae60b7180ca5b
 182	4076	7313461941237241	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/reporters/catch_reporter_event_listener.cpp.obj	c3b2840ed94d455c
+9036	11345	7305089544945781	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/interfaces/catch_interfaces_exception.cpp.obj	e4cae60b7180ca5b
 134	909	7313460297172308	src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj	2d93fda3199aeaf
 339	4921	7313460336601045	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/benchmark/detail/catch_benchmark_function.cpp.obj	42bd08bfa94927d5
 7020	11077	7305089542063379	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/reporters/catch_reporter_xml.cpp.obj	b15bd585bb0a3caa
@@ -113,4 +113,4 @@
 34267	37427	7305089806007987	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/matchers/catch_matchers_container_properties.cpp.obj	fb3ce8167372ab19
 60809	77626	7305090207484475	tests/ProjectStructureTests.exe	af8826fc1162bfaf
 60259	60809	7305090039716149	_deps/catch2-build/src/libCatch2Maind.a	3b43e820211aa86d
-18	7970	7313520635725896	build.ninja	5b893226253fffe1
+18	7970	7313541038651760	build.ninja	5b893226253fffe1
