@@ -33,7 +33,7 @@ public:
     bool isCurrentBrickFallen();
     int deletePossibleLines();
     Position getStartPosition() const;
-
+    std::vector<std::vector<std::optional<TypeShape>>> getBoardArea() const;
 };
 
 

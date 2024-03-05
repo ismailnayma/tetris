@@ -71,3 +71,7 @@ Score Game::getGameScore() const{
 Level Game::getGameLevel() const{
     return gameLevel;
 }
+
+Board Game::getGameBoard() const{
+    return gameBoard;
+}

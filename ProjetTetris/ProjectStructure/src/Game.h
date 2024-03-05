@@ -25,6 +25,7 @@ public:
     State getGameState() const;
     Score getGameScore() const;
     Level getGameLevel() const;
+    Board getGameBoard() const;
 
 
 

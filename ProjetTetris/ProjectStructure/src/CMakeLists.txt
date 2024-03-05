@@ -20,6 +20,11 @@ add_executable(ProjectStructure
     Observer.h
     Observable.h
     Observable.cpp
+    ConsoleView.h
+    ConsoleController.h
+    ConsoleView.cpp
+    ConsoleController.cpp
+
 )
 
 install(TARGETS ProjectStructure
