@@ -11,7 +11,7 @@ Board::Board(int width, int height)
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {
-    return !isCollision(brick) ? (currentBrick = brick, true) : false;
+    return !isCollision(brick) ? (currentBrick = brick,updateArea(true), true) : false;
 }
 
 
