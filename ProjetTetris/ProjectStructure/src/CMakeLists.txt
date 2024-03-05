@@ -17,6 +17,9 @@ add_executable(ProjectStructure
     Level.hpp
     Game.h
     Game.cpp
+    Observer.h
+    Observable.h
+    Observable.cpp
 )
 
 install(TARGETS ProjectStructure

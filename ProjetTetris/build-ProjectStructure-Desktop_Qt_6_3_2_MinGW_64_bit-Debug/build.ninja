@@ -150,6 +150,12 @@ build src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj: CXX_COMPILER__ProjectStr
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
 
+build src/CMakeFiles/ProjectStructure.dir/Observable.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Observable.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\Observable.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProjectStructure
@@ -158,7 +164,7 @@ build src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj: CXX_COMPILER__ProjectStr
 #############################################
 # Link the executable src\ProjectStructure.exe
 
-build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj src/CMakeFiles/ProjectStructure.dir/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj
+build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj src/CMakeFiles/ProjectStructure.dir/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj src/CMakeFiles/ProjectStructure.dir/Observable.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir

@@ -12,6 +12,7 @@ void Game::start(){
     if(!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())){
     throw std::out_of_range("Error starting the game, the brick has a collision");
     }
+    notifyObservers();
 }
 
 void Game::moveCurrentBrick(Direction direction){
@@ -27,6 +28,7 @@ void Game::moveCurrentBrick(Direction direction){
             }
         }
     }
+    notifyObservers();
 }
 
 void Game::rotateCurrentBrick(Rotation rotation){
@@ -41,6 +43,7 @@ void Game::rotateCurrentBrick(Rotation rotation){
             }
         }
     }
+    notifyObservers();
 }
 
 void Game::dropCurrentBrick(){
@@ -54,13 +57,17 @@ void Game::dropCurrentBrick(){
             gameState=State::GAMEOVER;
         }
     }
+    notifyObservers();
 }
+
 bool Game::isGameOver(){
     return gameState==State::GAMEOVER;
 }
+
 Score Game::getGameScore() const{
     return gameScore;
 }
+
 Level Game::getGameLevel() const{
     return gameLevel;
 }
