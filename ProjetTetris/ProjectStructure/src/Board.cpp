@@ -5,7 +5,7 @@
 Board::Board(int width, int height)
     : boardWidth(width),
     boardHeight(height),
-    startPosition(Position(5, 0)),
+    startPosition(Position(5, 2)),
     shapesRotation(ShapesRotation::getInstance()) {
     // Initialiser d'autres membres si nécessaire
 }
@@ -174,6 +174,7 @@ bool Board::isCollision(const Brick& brick) const {
     // No collision detected
     return false;
 }
+
 
 void Board::updateArea(bool addBrick) {
     // Get the positions on the board that the current brick occupies
