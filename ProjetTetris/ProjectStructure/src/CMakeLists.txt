@@ -14,6 +14,7 @@ add_executable(ProjectStructure
     Board.cpp
     BrickBag.hpp
     Score.hpp
+    Level.hpp
 )
 
 install(TARGETS ProjectStructure
