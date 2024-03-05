@@ -8,6 +8,7 @@ Game::Game(int width, int height, int level)
 
 void Game::start(){
     gameState = State::PLAYING;
+    //Set the first board currentBrick from the game brickBag
     if(!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())){
     throw std::out_of_range("Error starting the game, the brick has a collision");
     }
@@ -16,6 +17,7 @@ void Game::start(){
 void Game::moveCurrentBrick(Direction direction){
     int dropDistance = 0;
     if(gameBoard.moveCurrentBrick(direction)){
+        //If the current brick is fallen update the Board, Score,Level and State
         if(gameBoard.isCurrentBrickFallen()){
             int deletedLines = gameBoard.deletePossibleLines();
             gameLevel.updateLevel(deletedLines);
@@ -42,6 +44,7 @@ void Game::rotateCurrentBrick(Rotation rotation){
 }
 
 void Game::dropCurrentBrick(){
+    //retrieves the distance dropped
     int dropDistance = gameBoard.dropCurrentBrick();
     if(gameBoard.isCurrentBrickFallen()){
         int deletedLines = gameBoard.deletePossibleLines();
