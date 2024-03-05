@@ -16,7 +16,7 @@ bool Board::setCurrentBrick(const Brick& brick) {
 
 
 bool Board::moveCurrentBrick(Direction direction) {
-    Position newCurBrickPos = currentBrick.getPosition();
+    Position newCurBrickPos = currentBrick.getBoardPosition();
 
     // Move the current brick position based on the specified direction
     switch (direction) {
@@ -58,7 +58,7 @@ bool Board::rotateCurrentBrick(Rotation rotation) {
     // 'newCurBrickOrientation' now holds the new orientation after rotation
 
     // Create a new brick with the updated orientation, representing the rotated brick on the board
-    Brick newCurBrick(currentBrick.getTypeShape(), newCurBrickOrientation, currentBrick.getPosition());
+    Brick newCurBrick(currentBrick.getTypeShape(), newCurBrickOrientation, currentBrick.getBoardPosition());
 
     //handle area current brick removal, collision check, and area update
     return handleBrickAdjustment(newCurBrick);
@@ -97,7 +97,7 @@ int Board::dropCurrentBrick() {
 
 bool Board::isCurrentBrickFallen() {
     // Create a new position one unit below the current brick's position
-    Position newCurBrickPos(currentBrick.getPosition().getPosX(), currentBrick.getPosition().getPosY() + 1);
+    Position newCurBrickPos(currentBrick.getBoardPosition().getPosX(), currentBrick.getBoardPosition().getPosY() + 1);
 
     // Create a new brick with the updated position
     Brick newCurBrick(currentBrick.getTypeShape(), currentBrick.getOrientation(), newCurBrickPos);
