@@ -219,3 +219,7 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
 
     return brickBoardPositions;
 }
+
+Position Board::getStartPosition() const{
+    return startPosition;
+}

@@ -113,4 +113,5 @@
 34267	37427	7305089806007987	_deps/catch2-build/src/CMakeFiles/Catch2.dir/catch2/matchers/catch_matchers_container_properties.cpp.obj	fb3ce8167372ab19
 60809	77626	7305090207484475	tests/ProjectStructureTests.exe	af8826fc1162bfaf
 60259	60809	7305090039716149	_deps/catch2-build/src/libCatch2Maind.a	3b43e820211aa86d
-18	7970	7313559016419080	build.ninja	5b893226253fffe1
+18	7970	7313598850108135	build.ninja	5b893226253fffe1
+1	119	0	clean	e2cd0d3f4dc3529

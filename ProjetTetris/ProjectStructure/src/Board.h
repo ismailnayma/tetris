@@ -32,6 +32,7 @@ public:
     int dropCurrentBrick();
     bool isCurrentBrickFallen();
     int deletePossibleLines();
+    Position getStartPosition() const;
 
 };
 
