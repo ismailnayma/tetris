@@ -8,7 +8,7 @@ class ConsoleController {
     ConsoleView consoleView;
 
 public:
-    ConsoleController( Game& model,ConsoleView consoleView );
+    ConsoleController( Game& model,ConsoleView & consoleView );
 
 
 

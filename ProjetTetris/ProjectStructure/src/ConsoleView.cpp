@@ -1,4 +1,6 @@
 #include "ConsoleView.h"
+#include "iostream"
+
 void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea){
     for (const auto& row : boardArea) {
             for (const auto& cell : row) {

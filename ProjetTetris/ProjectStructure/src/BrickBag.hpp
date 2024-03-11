@@ -20,10 +20,10 @@ class BrickBag {
     }
 
 public:
-    BrickBag(Position start = Position(5, 2)) : startPosition(start), randomEngine(std::random_device{}()) {
+    BrickBag(Position start = Position(4, 1)) : startPosition(start), randomEngine(std::random_device{}()) {
         for (int i = 0; i < 7; ++i) {
             TypeShape type = static_cast<TypeShape>(i);
-            Orientation orientation = Orientation::DOWN;  // Initialize with a default orientation
+            Orientation orientation = Orientation::UP;  // Initialize with a default orientation
             bricks.emplace_back(type, orientation, startPosition);
         }
         shuffleBricks();

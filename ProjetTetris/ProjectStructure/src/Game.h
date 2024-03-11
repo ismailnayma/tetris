@@ -15,6 +15,8 @@ class Game : public Observable {
     Score gameScore;
     Level gameLevel;
 
+    void updateGame(int dropDistance);
+
 public:
     Game(int width = 10, int height = 20, int level = 1);
     void start();
