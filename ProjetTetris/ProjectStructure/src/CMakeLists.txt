@@ -22,6 +22,8 @@ add_executable(ProjectStructure
     ConsoleController.h
     ConsoleView.cpp
     ConsoleController.cpp
+    MyClass.cpp
+    MyClass.h
 
 )
 
