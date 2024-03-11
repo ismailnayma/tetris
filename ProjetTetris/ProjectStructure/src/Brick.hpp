@@ -3,7 +3,6 @@
 
 #include "enum.hpp"
 #include "position.hpp"
-#include <iostream>
 
 class Brick {
 private:

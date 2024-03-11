@@ -5,7 +5,6 @@
 Board::Board(int width, int height)
     : boardWidth(width),
     boardHeight(height),
-    startPosition(Position(5, 2)),
     shapesRotation(ShapesRotation::getInstance()) {
     // Initialiser d'autres membres si nécessaire
 }
@@ -218,10 +217,6 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     }
 
     return brickBoardPositions;
-}
-
-Position Board::getStartPosition() const{
-    return startPosition;
 }
 
 std::vector<std::vector<std::optional<TypeShape>>> Board::getBoardArea() const {

@@ -27,8 +27,6 @@ public:
     Level getGameLevel() const;
     Board getGameBoard() const;
 
-
-
 };
 
 

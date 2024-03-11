@@ -9,7 +9,7 @@ class Level {
     int deletedLines;
     void setSpeed(int level){
 
-        switch (level) {
+        switch (actualLevel) {
         case 1:
             speed = 60;
             break;

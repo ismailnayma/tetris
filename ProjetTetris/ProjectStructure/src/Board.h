@@ -5,7 +5,6 @@
 #include "position.hpp"
 #include "Brick.hpp"
 #include "ShapesRotation.h"
-#include <iostream>
 #include <vector>
 #include <optional>
 
@@ -14,7 +13,6 @@ private:
     int boardWidth;
     int boardHeight;
     std::vector<std::vector<std::optional<TypeShape>>> boardArea;
-    const Position startPosition;
     Brick currentBrick;
     const ShapesRotation* shapesRotation;
 
@@ -32,7 +30,6 @@ public:
     int dropCurrentBrick();
     bool isCurrentBrickFallen();
     int deletePossibleLines();
-    Position getStartPosition() const;
     std::vector<std::vector<std::optional<TypeShape>>> getBoardArea() const;
 };
 

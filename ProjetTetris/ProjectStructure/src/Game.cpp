@@ -2,7 +2,7 @@
 
 Game::Game(int width, int height, int level)
     :gameBoard(Board(width,height)),
-      gameBrickBag(gameBoard.getStartPosition()),
+      gameBrickBag(),
       gameState(State::READY),
       gameLevel(level){}
 
