@@ -3,10 +3,11 @@ cmake_minimum_required(VERSION 3.5)
 
 add_executable(ProjectStructure
     main.cpp
-    ShapesRotation.h
-    ShapesRotation.cpp
-    Position.hpp
-    enum.hpp
+    model/ShapesRotation.h
+    model/ShapesRotation.cpp
+    model/Position.h
+    model/Position.cpp
+    model/Enums.h
     Brick.hpp
     Board.h
     Board.cpp
