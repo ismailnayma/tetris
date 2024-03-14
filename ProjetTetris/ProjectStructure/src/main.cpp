@@ -1,5 +1,5 @@
 #include <iostream>
-#include "console/ConsoleController.h"
+#include "controller/ConsoleController.h"
 using namespace std;
 
 int main()

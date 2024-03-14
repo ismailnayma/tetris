@@ -180,17 +180,17 @@ build src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj: CXX_COMPILER_
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\util
 
-build src/CMakeFiles/ProjectStructure.dir/console/ConsoleView.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleView.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\console\ConsoleView.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/view/ConsoleView.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/view/ConsoleView.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\view\ConsoleView.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\console
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\view
 
-build src/CMakeFiles/ProjectStructure.dir/console/ConsoleController.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleController.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\console\ConsoleController.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/controller/ConsoleController.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/controller/ConsoleController.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\controller\ConsoleController.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\console
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\controller
 
 build src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/MyClass.cpp || cmake_object_order_depends_target_ProjectStructure
   DEP_FILE = src\CMakeFiles\ProjectStructure.dir\MyClass.cpp.obj.d
@@ -206,7 +206,7 @@ build src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj: CXX_COMPILER__Project
 #############################################
 # Link the executable src\ProjectStructure.exe
 
-build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Position.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Brick.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/BrickBag.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Level.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Score.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Game.cpp.obj src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj src/CMakeFiles/ProjectStructure.dir/console/ConsoleView.cpp.obj src/CMakeFiles/ProjectStructure.dir/console/ConsoleController.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj
+build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Position.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Brick.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/BrickBag.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Level.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Score.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Game.cpp.obj src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj src/CMakeFiles/ProjectStructure.dir/view/ConsoleView.cpp.obj src/CMakeFiles/ProjectStructure.dir/controller/ConsoleController.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
@@ -310,6 +310,69 @@ build tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj: CXX_COM
   OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
   OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src
 
+build tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/testBoard.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\testBoard.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Board.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Board.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Brick.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Brick.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Brick.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/BrickBag.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\BrickBag.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Game.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Game.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Level.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Level.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Level.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Position.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Position.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Position.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Score.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Score.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\Score.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/ShapesRotation.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model\ShapesRotation.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\model
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProjectStructureTests
@@ -318,7 +381,7 @@ build tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj: CXX_COM
 #############################################
 # Link the executable tests\ProjectStructureTests.exe
 
-build tests/ProjectStructureTests.exe: CXX_EXECUTABLE_LINKER__ProjectStructureTests_Debug tests/CMakeFiles/ProjectStructureTests.dir/testMyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj | _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a || _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a
+build tests/ProjectStructureTests.exe: CXX_EXECUTABLE_LINKER__ProjectStructureTests_Debug tests/CMakeFiles/ProjectStructureTests.dir/testMyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Brick.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Level.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Position.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Score.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp.obj | _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a || _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = _deps/catch2-build/src/libCatch2Maind.a  _deps/catch2-build/src/libCatch2d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir

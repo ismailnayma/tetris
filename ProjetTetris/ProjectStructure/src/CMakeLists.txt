@@ -23,10 +23,10 @@ add_executable(ProjectStructure
     util/Observer.h
     util/Observable.h
     util/Observable.cpp
-    console/ConsoleView.h
-    console/ConsoleController.h
-    console/ConsoleView.cpp
-    console/ConsoleController.cpp
+    view/ConsoleView.h
+    view/ConsoleView.cpp
+    controller/ConsoleController.h
+    controller/ConsoleController.cpp
     MyClass.cpp
     MyClass.h
 
