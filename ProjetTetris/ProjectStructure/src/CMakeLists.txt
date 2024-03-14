@@ -15,9 +15,9 @@ add_executable(ProjectStructure
     Level.hpp
     Game.h
     Game.cpp
-    Observer.h
-    Observable.h
-    Observable.cpp
+    util/Observer.h
+    util/Observable.h
+    util/Observable.cpp
     ConsoleView.h
     ConsoleController.h
     ConsoleView.cpp

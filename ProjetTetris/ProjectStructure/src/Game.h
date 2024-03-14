@@ -6,7 +6,7 @@
 #include "Score.hpp"
 #include "Level.hpp"
 #include "enum.hpp"
-#include "Observable.h"
+#include "util/Observable.h"
 
 class Game : public Observable {
     State gameState;
