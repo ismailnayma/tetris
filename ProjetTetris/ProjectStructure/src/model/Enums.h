@@ -10,7 +10,7 @@ enum class TypeShape {
     L_SHAPE,
     J_SHAPE,
     T_SHAPE,
-    COUNT_SIZE
+    TYPESHAPE_NUMBER
 };
 
 // Enum for Orientation

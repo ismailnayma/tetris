@@ -6,8 +6,8 @@ void BrickBag::shuffleBricks() {
     currentBrickIndex = 0;  // Reset the index after shuffling
 }
 
-BrickBag::BrickBag(Position start) : numElements(static_cast<int>(TypeShape::COUNT_SIZE)), randomEngine(std::random_device{}()) {
-    for (int i = 0; i < numElements; ++i) {
+BrickBag::BrickBag(Position start) : randomEngine(std::random_device{}()) {
+    for (int i = 0; i < static_cast<int>(TypeShape::TYPESHAPE_NUMBER); ++i) {
         TypeShape type = static_cast<TypeShape>(i);
         Orientation orientation = Orientation::UP;  // Initialize with a default orientation
         bricks.emplace_back(type, orientation, start);
