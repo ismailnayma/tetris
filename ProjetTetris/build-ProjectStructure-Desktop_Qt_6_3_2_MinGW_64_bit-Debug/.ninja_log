@@ -138,3 +138,7 @@
 128	904	7321290542050605	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Position.cpp.obj	8daa7ffb9430db34
 76	3296	7321292526637237	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj	fa6229d899e92edf
 104	4389	7321290577723370	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj	56ade2aa8835b3ac
+64	3175	7321298227700734	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+3177	17250	7321298367872342	tests/ProjectStructureTests.exe	7265d3d404721a6f
+69	3402	7321304295083645	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+3404	17664	7321304437317636	tests/ProjectStructureTests.exe	7265d3d404721a6f
