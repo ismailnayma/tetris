@@ -248,7 +248,7 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     return brickBoardPositions;
 }
 
-std::vector<std::vector<std::optional<TypeShape>>> Board::getBoardArea() const {
+const std::vector<std::vector<std::optional<TypeShape>>>& Board::getBoardArea() const {
     return boardArea;
 }
 
