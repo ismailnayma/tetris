@@ -138,17 +138,41 @@ build src/CMakeFiles/ProjectStructure.dir/model/Position.cpp.obj: CXX_COMPILER__
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
 
-build src/CMakeFiles/ProjectStructure.dir/Board.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Board.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\Board.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/model/Brick.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Brick.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\Brick.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
 
-build src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Game.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\Game.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Board.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\Board.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
+
+build src/CMakeFiles/ProjectStructure.dir/model/BrickBag.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/BrickBag.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\BrickBag.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
+
+build src/CMakeFiles/ProjectStructure.dir/model/Level.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Level.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\Level.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
+
+build src/CMakeFiles/ProjectStructure.dir/model/Score.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Score.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\Score.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
+
+build src/CMakeFiles/ProjectStructure.dir/model/Game.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Game.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\model\Game.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\model
 
 build src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/util/Observable.cpp || cmake_object_order_depends_target_ProjectStructure
   DEP_FILE = src\CMakeFiles\ProjectStructure.dir\util\Observable.cpp.obj.d
@@ -156,17 +180,17 @@ build src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj: CXX_COMPILER_
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
   OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\util
 
-build src/CMakeFiles/ProjectStructure.dir/ConsoleView.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleView.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\ConsoleView.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/console/ConsoleView.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleView.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\console\ConsoleView.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\console
 
-build src/CMakeFiles/ProjectStructure.dir/ConsoleController.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleController.cpp || cmake_object_order_depends_target_ProjectStructure
-  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\ConsoleController.cpp.obj.d
+build src/CMakeFiles/ProjectStructure.dir/console/ConsoleController.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleController.cpp || cmake_object_order_depends_target_ProjectStructure
+  DEP_FILE = src\CMakeFiles\ProjectStructure.dir\console\ConsoleController.cpp.obj.d
   FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir
-  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir
+  OBJECT_FILE_DIR = src\CMakeFiles\ProjectStructure.dir\console
 
 build src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj: CXX_COMPILER__ProjectStructure_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/MyClass.cpp || cmake_object_order_depends_target_ProjectStructure
   DEP_FILE = src\CMakeFiles\ProjectStructure.dir\MyClass.cpp.obj.d
@@ -182,7 +206,7 @@ build src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj: CXX_COMPILER__Project
 #############################################
 # Link the executable src\ProjectStructure.exe
 
-build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Position.cpp.obj src/CMakeFiles/ProjectStructure.dir/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/Game.cpp.obj src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj src/CMakeFiles/ProjectStructure.dir/ConsoleView.cpp.obj src/CMakeFiles/ProjectStructure.dir/ConsoleController.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj
+build src/ProjectStructure.exe: CXX_EXECUTABLE_LINKER__ProjectStructure_Debug src/CMakeFiles/ProjectStructure.dir/main.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/ShapesRotation.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Position.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Brick.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/BrickBag.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Level.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Score.cpp.obj src/CMakeFiles/ProjectStructure.dir/model/Game.cpp.obj src/CMakeFiles/ProjectStructure.dir/util/Observable.cpp.obj src/CMakeFiles/ProjectStructure.dir/console/ConsoleView.cpp.obj src/CMakeFiles/ProjectStructure.dir/console/ConsoleController.cpp.obj src/CMakeFiles/ProjectStructure.dir/MyClass.cpp.obj
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = src\CMakeFiles\ProjectStructure.dir

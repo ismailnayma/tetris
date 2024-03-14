@@ -13030,10 +13030,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Board.cpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Brick.cpp"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Board.cpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Brick.cpp"
 },
 {
     "arguments": [
@@ -13073,10 +13073,182 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Game.cpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Board.cpp"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Game.cpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Board.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-DQT_QML_DEBUG",
+        "-g",
+        "-std=gnu++20",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DQ_CREATOR_RUN",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt23\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\BrickBag.cpp"
+    ],
+    "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/BrickBag.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-DQT_QML_DEBUG",
+        "-g",
+        "-std=gnu++20",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DQ_CREATOR_RUN",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt23\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Level.cpp"
+    ],
+    "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Level.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-DQT_QML_DEBUG",
+        "-g",
+        "-std=gnu++20",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DQ_CREATOR_RUN",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt23\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Score.cpp"
+    ],
+    "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Score.cpp"
+},
+{
+    "arguments": [
+        "clang",
+        "-Wno-documentation-unknown-command",
+        "-Wno-unknown-warning-option",
+        "-Wno-unknown-pragmas",
+        "-nostdinc",
+        "-nostdinc++",
+        "-DQT_QML_DEBUG",
+        "-g",
+        "-std=gnu++20",
+        "-fsyntax-only",
+        "-m64",
+        "--target=x86_64-w64-mingw32",
+        "-DQ_CREATOR_RUN",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\x86_64-w64-mingw32",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\lib\\gcc\\x86_64-w64-mingw32\\11.2.0\\include\\c++\\backward",
+        "-isystem",
+        "C:\\Qt23\\Tools\\QtCreator\\bin\\clang\\lib\\clang\\14.0.3\\include",
+        "-isystem",
+        "C:\\Qt23\\Tools\\mingw1120_64\\x86_64-w64-mingw32\\include",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedMingwHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders",
+        "-I",
+        "C:\\Qt23\\Tools\\QtCreator\\share\\qtcreator\\cplusplus\\wrappedQtHeaders\\QtCore",
+        "-fmessage-length=0",
+        "-fdiagnostics-show-note-include-stack",
+        "-fretain-comments-from-system-headers",
+        "-fmacro-backtrace-limit=0",
+        "-ferror-limit=1000",
+        "-x",
+        "c++",
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Game.cpp"
+    ],
+    "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Game.cpp"
 },
 {
     "arguments": [
@@ -13159,10 +13331,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ConsoleView.cpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\console\\ConsoleView.cpp"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleView.cpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleView.cpp"
 },
 {
     "arguments": [
@@ -13202,10 +13374,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ConsoleController.cpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\console\\ConsoleController.cpp"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleController.cpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleController.cpp"
 },
 {
     "arguments": [
@@ -13417,10 +13589,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Brick.hpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Brick.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Brick.hpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Brick.h"
 },
 {
     "arguments": [
@@ -13460,10 +13632,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Board.h"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Board.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Board.h"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Board.h"
 },
 {
     "arguments": [
@@ -13503,10 +13675,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\BrickBag.hpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\BrickBag.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/BrickBag.hpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/BrickBag.h"
 },
 {
     "arguments": [
@@ -13546,10 +13718,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Score.hpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Level.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Score.hpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Level.h"
 },
 {
     "arguments": [
@@ -13589,10 +13761,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Level.hpp"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Score.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Level.hpp"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Score.h"
 },
 {
     "arguments": [
@@ -13632,10 +13804,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\Game.h"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\model\\Game.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/Game.h"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/model/Game.h"
 },
 {
     "arguments": [
@@ -13761,10 +13933,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ConsoleView.h"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\console\\ConsoleView.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleView.h"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleView.h"
 },
 {
     "arguments": [
@@ -13804,10 +13976,10 @@
         "-ferror-limit=1000",
         "-x",
         "c++-header",
-        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\ConsoleController.h"
+        "C:\\esi_2024\\Q4\\DEV4\\ProjetTetris\\ProjectStructure\\src\\console\\ConsoleController.h"
     ],
     "directory": "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/.qtc_clangd",
-    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/ConsoleController.h"
+    "file": "C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/console/ConsoleController.h"
 },
 {
     "arguments": [

@@ -8,21 +8,25 @@ add_executable(ProjectStructure
     model/Position.h
     model/Position.cpp
     model/Enums.h
-    Brick.hpp
-    Board.h
-    Board.cpp
-    BrickBag.hpp
-    Score.hpp
-    Level.hpp
-    Game.h
-    Game.cpp
+    model/Brick.h
+    model/Brick.cpp
+    model/Board.h
+    model/Board.cpp
+    model/BrickBag.h
+    model/BrickBag.cpp
+    model/Level.h
+    model/Level.cpp
+    model/Score.h
+    model/Score.cpp
+    model/Game.h
+    model/Game.cpp
     util/Observer.h
     util/Observable.h
     util/Observable.cpp
-    ConsoleView.h
-    ConsoleController.h
-    ConsoleView.cpp
-    ConsoleController.cpp
+    console/ConsoleView.h
+    console/ConsoleController.h
+    console/ConsoleView.cpp
+    console/ConsoleController.cpp
     MyClass.cpp
     MyClass.h
 
