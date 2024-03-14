@@ -7,7 +7,7 @@
 
 
 
-Board::Board(int width, int height)
+Board::Board(int width, int height, int filledLines)
     : boardWidth(width),
     boardHeight(height),
     shapesRotation(ShapesRotation::getInstance()) {
@@ -18,7 +18,41 @@ Board::Board(int width, int height)
         boardArea[i].resize(width);
     }
 
+    /*
+
+    if(filledLines < 0 || filledLines > height/2){
+        //
+    } else {
+        for(int i = 0; i<filledLines; ++i){
+            for(int j = 0; j<boardArea[i].size(); ++j){
+
+            }
+
+        }
+    }
+
+
+
+
+    boardArea.resize(height);
+    for (int i = 0; i < height; ++i) {
+        boardArea[i].resize(width, std::nullopt); // Remplir toutes les cases avec std::nullopt
+    }
+
+
+    // Retirer aléatoirement des cases de chaque ligne
+    for (int i = 0; i < filledLines; ++i) {
+        std::vector<int> indices(width);
+        std::iota(indices.begin(), indices.end(), 0); // Remplir le vecteur avec 0, 1, 2, ..., width-1
+        std::random_shuffle(indices.begin(), indices.end()); // Mélanger les indices de manière aléatoire
+        for (int j = 0; j < width; ++j) {
+            boardArea[i][indices[j]] = std::nullopt; // Retirer aléatoirement une case de la ligne
+        }
+    }
+
+*/
 }
+
 
 
 bool Board::setCurrentBrick(const Brick& brick) {
@@ -160,7 +194,6 @@ int Board::deletePossibleLines() {
 }
 
 
-
 bool Board::isCollision(const Brick& brick) const {
     std::cout << "Je suis dans isCollision" << std::endl;
 
@@ -248,8 +281,16 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     return brickBoardPositions;
 }
 
-const std::vector<std::vector<std::optional<TypeShape>>>& Board::getBoardArea() const {
+std::vector<std::vector<std::optional<TypeShape>>>& Board::getBoardArea()  {
     return boardArea;
+}
+
+const int& Board::getBoardHeight(){
+    return boardHeight;
+}
+
+const int& Board::getBoardWidth(){
+    return boardWidth;
 }
 
 
