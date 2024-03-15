@@ -21,7 +21,7 @@ Board::Board(int width, int height, int filledLines)
     }
 
     // Initialiser le générateur de nombres aléatoires avec une graine basée sur l'horloge système
-    std::srand(std::time(nullptr));
+   /* std::srand(std::time(nullptr));
 
 
     for (int i = height-1; i > height - filledLines-1; --i) {
@@ -57,7 +57,7 @@ Board::Board(int width, int height, int filledLines)
         }
     }
 
-
+    */
 }
 
 
