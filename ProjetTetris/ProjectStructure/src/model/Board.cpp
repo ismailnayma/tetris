@@ -1,13 +1,15 @@
 // Board.cpp
 #include "Board.h"
-#include "iostream"
+#include <iostream>"
 #include <vector>
 #include <vector>
 #include <optional>
 
+#include <cstdlib> // Pour rand
+#include <ctime>   // Pour time
 
 
-Board::Board(int width, int height)
+Board::Board(int width, int height, int filledLines)
     : boardWidth(width),
     boardHeight(height),
     shapesRotation(ShapesRotation::getInstance()) {
@@ -18,7 +20,46 @@ Board::Board(int width, int height)
         boardArea[i].resize(width);
     }
 
+    // Initialiser le générateur de nombres aléatoires avec une graine basée sur l'horloge système
+    std::srand(std::time(nullptr));
+
+
+    for (int i = height-1; i > height - filledLines-1; --i) {
+        // Remplir chaque case avec une probabilité de 50% d'être remplie
+        for (int j = 0; j < width; ++j) {
+            bool isFilled = (std::rand() % 2 == 0); // 50% de chance d'être remplie
+            if (isFilled) {
+                // Remplir la case avec quelque chose (par exemple, un type de forme)
+                // Ici, nous utilisons std::nullopt pour indiquer que la case est vide
+                boardArea[i][j] = std::nullopt;
+            }
+        }
+    }
+
+
+    if (filledLines > 0) {
+        // Remplir le nombre de lignes spécifié
+        for (int i = 0; i < filledLines; ++i) {
+            int row = std::rand() % height; // Choisir aléatoirement une ligne
+            int col = std::rand() % width;  // Choisir aléatoirement une colonne
+            boardArea[row][col] = std::nullopt; // S'assurer qu'il y a au moins une case vide par ligne
+        }
+    }
+
+    if(filledLines < 0 || filledLines > height/2){
+        //exception
+    } else {
+        for(int i = 0; i<filledLines; ++i){
+            for(int j = 0; j<boardArea[i].size(); ++j){
+
+            }
+
+        }
+    }
+
+
 }
+
 
 
 bool Board::setCurrentBrick(const Brick& brick) {
@@ -160,7 +201,6 @@ int Board::deletePossibleLines() {
 }
 
 
-
 bool Board::isCollision(const Brick& brick) const {
     std::cout << "Je suis dans isCollision" << std::endl;
 
@@ -248,8 +288,16 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     return brickBoardPositions;
 }
 
-std::vector<std::vector<std::optional<TypeShape>>> Board::getBoardArea() const {
+std::vector<std::vector<std::optional<TypeShape>>>& Board::getBoardArea()  {
     return boardArea;
+}
+
+const int& Board::getBoardHeight(){
+    return boardHeight;
+}
+
+const int& Board::getBoardWidth(){
+    return boardWidth;
 }
 
 

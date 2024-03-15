@@ -22,7 +22,7 @@ private:
     bool handleBrickAdjustment(const Brick& newCurBrick);
 
 public:
-    Board(int width = 10, int height = 20); //=default constructors
+    Board(int width = 10, int height = 20, int filledLines = 0); //=default constructors
 
     bool setCurrentBrick(const Brick& brick);
     bool moveCurrentBrick(Direction direction);
@@ -30,7 +30,11 @@ public:
     int dropCurrentBrick();
     bool isCurrentBrickFallen();
     int deletePossibleLines();
-    std::vector<std::vector<std::optional<TypeShape>>> getBoardArea() const;
+    std::vector<std::vector<std::optional<TypeShape>>>& getBoardArea();
+    const int& getBoardHeight();
+    const int& getBoardWidth();
+
+
 };
 
 

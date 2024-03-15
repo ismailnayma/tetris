@@ -1,0 +1,21 @@
+# ninja log v5
+0	142	7321429134533616	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	814afb6f25419d3d
+0	142	7321429134533616	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir	814afb6f25419d3d
+143	10205	7321429235195300	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	6a88e996789e3b72
+143	10205	7321429235195300	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download	6a88e996789e3b72
+10206	10316	0	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dba3dd37a15105de
+10206	10316	0	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update	dba3dd37a15105de
+10316	10365	7321429236750540	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f94a54c10ffc2abb
+10316	10365	7321429236750540	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch	f94a54c10ffc2abb
+10365	10411	7321429237193071	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	efd8f312fb8e1e90
+10365	10411	7321429237193071	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure	efd8f312fb8e1e90
+10412	10458	7321429237689726	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	35ac8414ec7d2d9b
+10412	10458	7321429237689726	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build	35ac8414ec7d2d9b
+10458	10502	7321429238195884	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	d5c13398fc58dbfd
+10458	10502	7321429238195884	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install	d5c13398fc58dbfd
+10503	10546	7321429238526449	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	8142c4daebf0a3aa
+10503	10546	7321429238526449	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test	8142c4daebf0a3aa
+10546	10605	7321429239188991	CMakeFiles/catch2-populate-complete	bb4b23f9ed29e7ac
+10546	10605	7321429239188991	catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	bb4b23f9ed29e7ac
+10546	10605	7321429239188991	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete	bb4b23f9ed29e7ac
+10546	10605	7321429239188991	C:/Users/paras/Desktop/PROJET DEV4 TETRIS/60085_55996_tetris/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_5_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-done	bb4b23f9ed29e7ac
