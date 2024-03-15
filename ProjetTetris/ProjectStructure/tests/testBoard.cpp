@@ -32,3 +32,5 @@ TEST_CASE("Set current brick", "[board]") {
 
 
 }
+
+
