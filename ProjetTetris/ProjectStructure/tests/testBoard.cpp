@@ -36,6 +36,28 @@ TEST_CASE("Set current brick", "[board]") {
     REQUIRE(boardArea[2][1].value() == TypeShape::L_SHAPE);
 
 
+}
+
+TEST_CASE("Move current brick", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
+    REQUIRE(board.setCurrentBrick(brick) == true);
+    SECTION("left collision out of board"){
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::LEFT));
+    }
+    SECTION("down ok"){
+    REQUIRE(board.moveCurrentBrick(Direction::DOWN));
+    }
+    SECTION("right ok"){
+    REQUIRE(board.moveCurrentBrick(Direction::RIGHT));
+    }
+    std::vector<std::vector<std::optional<TypeShape>>> area;
+    area.resize(board.getBoardWidth());
+    for (int i = 0; i < board.getBoardHeight(); ++i) {
+        area[i].resize(board.getBoardWidth());
+    }
+
+
 
 }
 
