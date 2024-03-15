@@ -1,6 +1,6 @@
 // Board.cpp
 #include "Board.h"
-#include <iostream>"
+#include <iostream>
 #include <vector>
 #include <vector>
 #include <optional>
@@ -53,7 +53,6 @@ Board::Board(int width, int height, int filledLines)
             for(int j = 0; j<boardArea[i].size(); ++j){
 
             }
-
         }
     }
 
@@ -300,4 +299,7 @@ const int& Board::getBoardWidth(){
     return boardWidth;
 }
 
+void Board::setBoardArea(std::vector<std::vector<std::optional<TypeShape>>> area){
+    boardArea = area;
+}
 

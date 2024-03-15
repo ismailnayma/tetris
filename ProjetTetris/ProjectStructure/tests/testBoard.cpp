@@ -22,6 +22,7 @@ TEST_CASE("Board initialization", "[board]") {
 
 
 TEST_CASE("Set current brick", "[board]") {
+
     Board board;
     Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
     REQUIRE(board.setCurrentBrick(brick) == true); // Check if the brick can be successfully set
@@ -30,9 +31,10 @@ TEST_CASE("Set current brick", "[board]") {
 
     // Check if the brick is set correctly on the board
     REQUIRE(boardArea[0][0].value() == TypeShape::L_SHAPE);
-    REQUIRE(boardArea[1][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[1][0].value() == TypeShape::L_SHAPE); //Position(0,1) correspond to [1][0] in the boardArea
     REQUIRE(boardArea[2][0].value() == TypeShape::L_SHAPE);
     REQUIRE(boardArea[2][1].value() == TypeShape::L_SHAPE);
+
 
 
 }

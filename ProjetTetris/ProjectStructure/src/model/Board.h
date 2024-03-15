@@ -20,6 +20,7 @@ private:
     void updateArea(bool addBrick);
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
     bool handleBrickAdjustment(const Brick& newCurBrick);
+    void setBoardArea(std::vector<std::vector<std::optional<TypeShape>>> area);
 
 public:
     Board(int width = 10, int height = 20, int filledLines = 0); //=default constructors
