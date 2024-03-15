@@ -1,10 +1,12 @@
 // Board.cpp
 #include "Board.h"
-#include "iostream"
+#include <iostream>"
 #include <vector>
 #include <vector>
 #include <optional>
 
+#include <cstdlib> // Pour rand
+#include <ctime>   // Pour time
 
 
 Board::Board(int width, int height, int filledLines)
@@ -18,10 +20,34 @@ Board::Board(int width, int height, int filledLines)
         boardArea[i].resize(width);
     }
 
-    /*
+    // Initialiser le générateur de nombres aléatoires avec une graine basée sur l'horloge système
+    std::srand(std::time(nullptr));
+
+
+    for (int i = height-1; i > height - filledLines-1; --i) {
+        // Remplir chaque case avec une probabilité de 50% d'être remplie
+        for (int j = 0; j < width; ++j) {
+            bool isFilled = (std::rand() % 2 == 0); // 50% de chance d'être remplie
+            if (isFilled) {
+                // Remplir la case avec quelque chose (par exemple, un type de forme)
+                // Ici, nous utilisons std::nullopt pour indiquer que la case est vide
+                boardArea[i][j] = std::nullopt;
+            }
+        }
+    }
+
+
+    if (filledLines > 0) {
+        // Remplir le nombre de lignes spécifié
+        for (int i = 0; i < filledLines; ++i) {
+            int row = std::rand() % height; // Choisir aléatoirement une ligne
+            int col = std::rand() % width;  // Choisir aléatoirement une colonne
+            boardArea[row][col] = std::nullopt; // S'assurer qu'il y a au moins une case vide par ligne
+        }
+    }
 
     if(filledLines < 0 || filledLines > height/2){
-        //
+        //exception
     } else {
         for(int i = 0; i<filledLines; ++i){
             for(int j = 0; j<boardArea[i].size(); ++j){
@@ -32,25 +58,6 @@ Board::Board(int width, int height, int filledLines)
     }
 
 
-
-
-    boardArea.resize(height);
-    for (int i = 0; i < height; ++i) {
-        boardArea[i].resize(width, std::nullopt); // Remplir toutes les cases avec std::nullopt
-    }
-
-
-    // Retirer aléatoirement des cases de chaque ligne
-    for (int i = 0; i < filledLines; ++i) {
-        std::vector<int> indices(width);
-        std::iota(indices.begin(), indices.end(), 0); // Remplir le vecteur avec 0, 1, 2, ..., width-1
-        std::random_shuffle(indices.begin(), indices.end()); // Mélanger les indices de manière aléatoire
-        for (int j = 0; j < width; ++j) {
-            boardArea[i][indices[j]] = std::nullopt; // Retirer aléatoirement une case de la ligne
-        }
-    }
-
-*/
 }
 
 

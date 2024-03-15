@@ -131,3 +131,7 @@
 23022	26953	7321532426514221	_deps/catch2-build/src/libCatch2d.a	662a7e3f4a615d2f
 26955	27007	7321532427124842	_deps/catch2-build/src/libCatch2Maind.a	7e71f27265840ce9
 27007	30827	7321532465114653	tests/ProjectStructureTests.exe	30381cb8eb9f08c
+24	2839	7322136000065198	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj	2a3bab6fe14544f4
+18	2855	7322136000209295	src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj	1a667097afb0b783
+2856	3363	7322136005394914	src/ProjectStructure.exe	3a958c750b5ce96b
+2841	9387	7322136065375571	tests/ProjectStructureTests.exe	30381cb8eb9f08c

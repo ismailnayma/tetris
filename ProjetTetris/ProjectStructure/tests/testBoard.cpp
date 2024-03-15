@@ -15,6 +15,8 @@ TEST_CASE("Board initialization", "[board]") {
                 REQUIRE_FALSE(cell.has_value());
             }
         }
+
+
 }
 
 
