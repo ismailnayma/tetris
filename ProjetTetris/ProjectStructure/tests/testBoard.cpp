@@ -35,8 +35,7 @@ TEST_CASE("Set current brick", "[board]") {
 
 }
 
-<<<<<<< HEAD
-=======
+
 TEST_CASE("Move current brick", "[board]") {
     // Création d'un plateau de jeu rempli et une brique courante
     Board board;
@@ -90,5 +89,4 @@ TEST_CASE("Move current brick", "[board]") {
 */
 }
 
->>>>>>> refs/remotes/origin/main
 
