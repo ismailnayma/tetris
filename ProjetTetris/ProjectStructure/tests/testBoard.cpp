@@ -42,11 +42,11 @@ TEST_CASE("Set current brick", "[board]") {
 
 
 TEST_CASE("Move current Brick left out of bounds", "[board]") {
-
     Board board;
     Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
     board.setCurrentBrick(brick);
-    REQUIRE_FALSE(board.moveCurrentBrick(Direction::LEFT)); // Check that the brick cannot be translated to the left
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::LEFT)); // Check that the brick cannot be translated to the bc out of bounds
+
 
     //check that the brick didn't move on the bordArea
     auto boardArea = board.getBoardArea();
@@ -58,6 +58,27 @@ TEST_CASE("Move current Brick left out of bounds", "[board]") {
     //check the currentBrick's parameters, its board position isn't supposed to be changed
     REQUIRE(board.currentBrick.getBoardPosition() ==  Position(0,1));
 }
+
+
+
+TEST_CASE("Move current Brick right out of bounds", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(8, 1));
+    board.setCurrentBrick(brick);
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::RIGHT)); // Check that the brick cannot be translated to the right bc out of bounds
+
+    //check that the brick didn't move on the bordArea
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[0][8].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[1][8].value() == TypeShape::L_SHAPE); //Position(1, 8) correspond to [1][8] in the boardArea
+    REQUIRE(boardArea[2][8].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[2][9].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its board position isn't supposed to be changed
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(8,1));
+}
+
+
 
 
 

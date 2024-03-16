@@ -155,3 +155,5 @@
 2323	3921	7322836831617060	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	92390cb7c817df2b
 2522	4125	7322836833692690	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj	78cdd9db3dae8072
 4125	9762	7322836889791554	tests/ProjectStructureTests.exe	30381cb8eb9f08c
+10	1313	7322841848711859	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	92390cb7c817df2b
+1314	7875	7322841914127194	tests/ProjectStructureTests.exe	30381cb8eb9f08c
