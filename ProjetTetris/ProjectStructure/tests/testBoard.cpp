@@ -60,7 +60,7 @@ TEST_CASE("Move current Brick left out of bounds", "[board]") {
 }
 
 
-
+//MOVE CURRENT BRICK OUT OF BOUNDS
 TEST_CASE("Move current Brick right out of bounds", "[board]") {
     Board board;
     Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(8, 1));
