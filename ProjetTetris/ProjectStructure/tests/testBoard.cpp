@@ -100,7 +100,7 @@ TEST_CASE("Move current Brick down out of bounds", "[board]") {
 
 //MOVE CURRENT BRICK IN THE BOUNDS BUT COLLISION
 
-TEST_CASE("Move current Brick right collision", "[board]") {
+TEST_CASE("Move current Brick collision", "[board]") {
     Board board;
 
     std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
@@ -110,27 +110,60 @@ TEST_CASE("Move current Brick right collision", "[board]") {
         testBoardArea[i].resize(board.getBoardWidth());
     }
 
-    //we place a brick on the testBoardArea
-    testBoardArea[1][1] = TypeShape::L_SHAPE;
+    //we place a brick on the testBoardArea in order to check collisions
+    testBoardArea[4][4] = TypeShape::L_SHAPE;
 
-    //set the true boardArea
     board.setBoardArea(testBoardArea);
 
-    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(2, 1));
-    board.setCurrentBrick(brick);
+    //MOVE LEFT
+    Brick brickLeft(TypeShape::L_SHAPE, Orientation::UP, Position(5, 4));
+    board.setCurrentBrick(brickLeft);
+
     REQUIRE_FALSE(board.moveCurrentBrick(Direction::LEFT)); // Check that the brick cannot be translated to the left bc collision
 
     //check that the brick didn't move on the bordArea
     auto boardArea = board.getBoardArea();
-    REQUIRE(boardArea[0][2].value() == TypeShape::L_SHAPE);
-    REQUIRE(boardArea[1][2].value() == TypeShape::L_SHAPE); //Position(2, 1) correspond to [1][2] in the boardArea
-    REQUIRE(boardArea[2][2].value() == TypeShape::L_SHAPE);
-    REQUIRE(boardArea[2][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[3][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[4][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][6].value() == TypeShape::L_SHAPE);
 
     //check the currentBrick's parameters, its board position isn't supposed to be changed
-    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(2,1));
-}
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(5,4));
 
+
+    //MOVE RIGHT
+    Brick brickRight(TypeShape::L_SHAPE, Orientation::UP, Position(3, 4));
+    board.setCurrentBrick(brickRight);
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::RIGHT)); // Check that the brick cannot be translated to the right bc collision
+
+    //check that the brick didn't move on the bordArea
+    boardArea = board.getBoardArea();
+    REQUIRE(boardArea[3][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[4][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][4].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its board position isn't supposed to be changed
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(3,4));
+
+
+    //MOVE DOWN
+    Brick brickDown(TypeShape::I_SHAPE, Orientation::UP, Position(4, 1));
+    board.setCurrentBrick(brickDown);
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::DOWN)); // Check that the brick cannot be translated down bc collision
+
+    //check that the brick didn't move on the bordArea
+    boardArea = board.getBoardArea();
+    REQUIRE(boardArea[0][4].value() == TypeShape::I_SHAPE);
+    REQUIRE(boardArea[1][4].value() == TypeShape::I_SHAPE);
+    REQUIRE(boardArea[2][4].value() == TypeShape::I_SHAPE);
+    REQUIRE(boardArea[3][4].value() == TypeShape::I_SHAPE);
+
+    //check the currentBrick's parameters, its board position isn't supposed to be changed
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(4,1));
+
+}
 
 
 

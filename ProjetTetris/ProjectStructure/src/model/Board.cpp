@@ -304,13 +304,4 @@ void Board::setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>
     boardArea = area;
 }
 
-/*
-Board& Board::operator=(const Board& other) {
-    if (this != &other) { // compares the adresses
-        boardWidth = other.boardWidth;
-        boardHeight = other.boardHeight;
-        boardArea = other.boardArea;
-    }
-    return *this;
-}
-*/
+
