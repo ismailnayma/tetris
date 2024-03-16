@@ -333,7 +333,7 @@ TEST_CASE("Drop current Brick, filled boardArea", "[board]") {
 
     Brick brick(TypeShape::L_SHAPE, Orientation::DOWN, Position(7, 5));
     board.setCurrentBrick(brick);
-    REQUIRE(board.dropCurrentBrick() == 1); //drop distance should be 17
+    REQUIRE(board.dropCurrentBrick() == 1); //drop distance should be 1
 
 
     //check that the brick was successfully dropped
@@ -346,6 +346,39 @@ TEST_CASE("Drop current Brick, filled boardArea", "[board]") {
     //check the currentBrick's parameters, its board position is supposed to change
     REQUIRE(board.currentBrick.getBoardPosition() ==  Position(7,6));
 }
+
+TEST_CASE("Drop current Brick, collision", "[board]") {
+    Board board;
+
+    std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
+    // Initialize the testBoardArea vector with the same width and height as boardArea
+    testBoardArea.resize(board.getBoardHeight());
+    for (int i = 0; i < testBoardArea.size(); ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+    }
+
+    //we place a brick on the testBoardArea in order to check collisions
+    testBoardArea[6][6] = TypeShape::L_SHAPE;
+
+    board.setBoardArea(testBoardArea);
+
+    Brick brick(TypeShape::L_SHAPE, Orientation::DOWN, Position(7, 6));
+    board.setCurrentBrick(brick);
+    REQUIRE(board.dropCurrentBrick() == 0); //drop distance should be 0 bc colission
+
+
+    //check that the brick was successfully dropped
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[5][6].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][7].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[6][7].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[7][7].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its board position isn't supposed to change
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(7,6));
+}
+
+
 
 
 
