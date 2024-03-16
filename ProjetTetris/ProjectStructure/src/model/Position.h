@@ -19,6 +19,10 @@ public:
     int getPosY() const;
     void setPosX(int x);
     void setPosY(int y);
+
+
+    // Surcharge de l'opérateur ==
+    bool operator==(const Position& other) const;
 };
 
 #endif // POSITION_H

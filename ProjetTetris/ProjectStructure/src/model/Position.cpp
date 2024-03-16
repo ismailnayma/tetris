@@ -19,3 +19,9 @@ void Position::setPosX(int x) {
 void Position::setPosY(int y) {
     posY = y;
 }
+
+
+// Implémentation de l'opérateur ==
+bool Position::operator==(const Position& other) const {
+    return posX == other.posX && posY == other.posY;
+}
