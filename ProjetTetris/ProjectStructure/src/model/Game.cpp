@@ -1,8 +1,8 @@
 #include "Game.h"
 #include "iostream"
 
-Game::Game(int width, int height, int level)
-    :gameBoard(Board(width,height)),
+Game::Game(int width, int height, int level, bool emptyBoard)
+    :gameBoard(Board(width,height,emptyBoard)),
       gameBrickBag(Position(width/2,1)),
       gameState(State::READY),
       gameLevel(level){}
