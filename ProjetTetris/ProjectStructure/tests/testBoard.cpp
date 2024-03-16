@@ -79,6 +79,22 @@ TEST_CASE("Move current Brick right out of bounds", "[board]") {
 }
 
 
+TEST_CASE("Move current Brick down out of bounds", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 18));
+    board.setCurrentBrick(brick);
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::DOWN)); // Check that the brick cannot be translated down bc out of bounds
+
+    //check that the brick didn't move on the bordArea
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[17][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[18][0].value() == TypeShape::L_SHAPE); //Position(0,18) correspond to [18][0] in the boardArea
+    REQUIRE(boardArea[19][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[19][1].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its board position isn't supposed to be changed
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(0,18));
+}
 
 
 
