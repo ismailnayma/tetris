@@ -299,7 +299,18 @@ const int& Board::getBoardWidth(){
     return boardWidth;
 }
 
-void Board::setBoardArea(std::vector<std::vector<std::optional<TypeShape>>> area){
+// Implémentation de la méthode setBoardArea
+void Board::setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area) {
     boardArea = area;
 }
 
+/*
+Board& Board::operator=(const Board& other) {
+    if (this != &other) { // compares the adresses
+        boardWidth = other.boardWidth;
+        boardHeight = other.boardHeight;
+        boardArea = other.boardArea;
+    }
+    return *this;
+}
+*/
