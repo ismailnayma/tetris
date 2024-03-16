@@ -1,7 +1,5 @@
 #include "Position.h"
 
-Position::Position() : posX(0), posY(0) {}
-
 Position::Position(int x, int y) : posX(x), posY(y) {}
 
 int Position::getPosX() const {
@@ -18,4 +16,10 @@ void Position::setPosX(int x) {
 
 void Position::setPosY(int y) {
     posY = y;
+}
+
+
+// Implémentation de l'opérateur ==
+bool Position::operator==(const Position& other) const {
+    return posX == other.posX && posY == other.posY;
 }

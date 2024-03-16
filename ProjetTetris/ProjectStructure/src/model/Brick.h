@@ -11,8 +11,8 @@ private:
     Position boardPosition;
 
 public:
-    Brick() = default;
-    Brick(TypeShape s, Orientation o, Position p);
+
+    Brick(TypeShape s = TypeShape::I_SHAPE, Orientation o = Orientation::UP, Position p = Position());
 
     Orientation getOrientation() const;
     void setOrientation(Orientation o);

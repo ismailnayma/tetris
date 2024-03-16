@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 8.0.1, 2024-03-15T17:46:21. -->
+=======
+<!-- Written by QtCreator 12.0.2, 2024-03-16T14:33:15. -->
+>>>>>>> refs/remotes/origin/main
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -67,6 +71,7 @@
     <value type="bool" key="AutoTest.Framework.QtQuickTest">true</value>
     <value type="bool" key="AutoTest.Framework.QtTest">true</value>
    </valuemap>
+<<<<<<< HEAD
    <valuemap type="QVariantMap" key="AutoTest.CheckStates">
     <value type="Qt::CheckState" key="1@C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/testBoard.cpp:Board initialization">Checked</value>
     <value type="Qt::CheckState" key="1@C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/testBoard.cpp:C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/testBoard.cpp">Checked</value>
@@ -76,6 +81,9 @@
     <value type="Qt::CheckState" key="1@C:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/testMyClass.cpp:Test of MyClass">Checked</value>
     <value type="Qt::CheckState" key="1@C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp:C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/catch_template_test_macros.hpp">Checked</value>
    </valuemap>
+=======
+   <valuemap type="QVariantMap" key="AutoTest.CheckStates"/>
+>>>>>>> refs/remotes/origin/main
    <value type="int" key="AutoTest.RunAfterBuild">0</value>
    <value type="bool" key="AutoTest.UseGlobal">true</value>
    <valuemap type="QVariantMap" key="ClangTools">
@@ -113,6 +121,7 @@
 -DCMAKE_C_COMPILER:FILEPATH=%{Compiler:Executable:C}
 -DCMAKE_CXX_COMPILER:FILEPATH=%{Compiler:Executable:Cxx}
 -DCMAKE_CXX_FLAGS_INIT:STRING=%{Qt:QML_DEBUG_FLAG}</value>
+    <value type="QString" key="CMake.Source.Directory">C:\Users\paras\Desktop\PROJET DEV4 TETRIS\60085_55996_tetris\ProjetTetris\ProjectStructure</value>
     <value type="int" key="EnableQmlDebugging">0</value>
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">C:\esi_2024\Q4\DEV4\ProjetTetris\build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -151,6 +160,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">Debug</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeBuildConfiguration</value>
    </valuemap>
+<<<<<<< HEAD
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="CMake.Build.Type">Release</value>
     <value type="QString" key="CMake.Initial.Parameters">-DCMAKE_GENERATOR:STRING=Ninja
@@ -333,6 +343,9 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">CMakeProjectManager.CMakeBuildConfiguration</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.BuildConfigurationCount">5</value>
+=======
+   <value type="qlonglong" key="ProjectExplorer.Target.BuildConfigurationCount">1</value>
+>>>>>>> refs/remotes/origin/main
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.0">
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <value type="qlonglong" key="ProjectExplorer.BuildStepList.StepsCount">0</value>
