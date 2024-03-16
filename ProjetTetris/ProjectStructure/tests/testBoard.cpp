@@ -215,6 +215,28 @@ TEST_CASE("Rotate current Brick out of right bound", "[board]") {
 }
 
 
+TEST_CASE("Rotate current Brick out of bottom bounds", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 18));
+    board.setCurrentBrick(brick);
+
+    // Check that the brick cannot be rotated bc out of bounds
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE));
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::CLOCKWISE));
+
+    //check that the brick didn't move on the bordArea
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[17][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[18][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[19][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[19][1].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its orientation isn't supposed to change
+    REQUIRE(board.currentBrick.getOrientation() ==  Orientation::UP);
+}
+
+
+
 
 
 
