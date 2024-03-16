@@ -448,6 +448,42 @@ TEST_CASE("DeleteLines -> 2 consecutive lines deleted", "[board]") {
 }
 
 
+TEST_CASE("DeleteLines -> 2 non consecutive lines deleted", "[board]") {
+    Board board;
+
+    std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
+    // Initialize the testBoardArea vector with the same width and height as boardArea
+    testBoardArea.resize(board.getBoardHeight());
+    for (int i = 0; i < testBoardArea.size(); ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+    }
+
+    for (int i = 0; i < 4; ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+        for(int j = 0; j < board.getBoardWidth(); ++j){
+            testBoardArea[board.getBoardHeight()-1-i][j] = TypeShape::L_SHAPE;
+        }
+    }
+
+    testBoardArea[19][1] = std::nullopt;
+    testBoardArea[19][9] = std::nullopt;
+    testBoardArea[17][1] = std::nullopt;
+    testBoardArea[15][1] = TypeShape::L_SHAPE;
+
+    board.setBoardArea(testBoardArea);
+
+    REQUIRE(board.deletePossibleLines() == 2); //all the lines from the board have to be deleted
+
+    auto boardArea = board.getBoardArea();
+    REQUIRE(!boardArea[19][1].has_value());
+    REQUIRE(!boardArea[18][1].has_value());
+    REQUIRE(!boardArea[19][9].has_value());
+    REQUIRE(boardArea[17][1].value() == TypeShape::L_SHAPE);
+}
+
+
+
+
 
 
 

@@ -166,3 +166,8 @@
 1086	4936	7322992672676354	tests/ProjectStructureTests.exe	30381cb8eb9f08c
 10	1380	7322994964836599	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	92390cb7c817df2b
 1380	5223	7322995003000586	tests/ProjectStructureTests.exe	30381cb8eb9f08c
+52	2064	7323011765782491	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj	2a3bab6fe14544f4
+33	2072	7323011765898901	src/CMakeFiles/ProjectStructure.dir/model/Board.cpp.obj	1a667097afb0b783
+48	2240	7323011767562625	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	92390cb7c817df2b
+2072	2529	7323011770318961	src/ProjectStructure.exe	3a958c750b5ce96b
+2241	8458	7323011829521234	tests/ProjectStructureTests.exe	30381cb8eb9f08c
