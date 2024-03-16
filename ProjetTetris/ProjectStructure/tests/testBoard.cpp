@@ -379,6 +379,38 @@ TEST_CASE("Drop current Brick, collision", "[board]") {
 }
 
 
+// Deleted lines
+TEST_CASE("DeleteLines -> empty boardArea", "[board]") {
+    Board board;
+    REQUIRE(board.deletePossibleLines() == 0); //0 deleted lines bc empty board area
+}
+
+TEST_CASE("DeleteLines -> 0 lines deleted", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::DOWN, Position(7, 5));
+    board.setCurrentBrick(brick);
+    REQUIRE(board.deletePossibleLines() == 0); //0 deleted lines bc empty board area
+}
+
+
+
+TEST_CASE("bruh", "[board]") {
+    Board board;
+
+    std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
+    // Initialize the testBoardArea vector with the same width and height as boardArea
+    testBoardArea.resize(board.getBoardHeight());
+    for (int i = 0; i < testBoardArea.size(); ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+        for(int j = 0; j < board.getBoardWidth(); ++j){
+            testBoardArea[i][j] = TypeShape::L_SHAPE;
+        }
+    }
+
+    board.setBoardArea(testBoardArea);
+    REQUIRE(board.deletePossibleLines() == board.getBoardHeight()); //all the lines from the board have to be deleted
+}
+
 
 
 

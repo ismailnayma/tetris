@@ -169,36 +169,40 @@ bool Board::isCurrentBrickFallen() {
 }
 
 
-
 int Board::deletePossibleLines() {
     int linesDeleted = 0;
 
     // Iterate through each row from bottom to top of the board
     for (int row = boardHeight - 1; row >= 0; --row) {
+
         // Check if all cells in the row are occupied (complete)
+        bool isRowComplete = true;
         for (int col = 0; col < boardWidth; ++col) {
-            // If any cell is unoccupied, the row is not complete, so break the loop
+            // Si une cellule n'est pas occupée, la ligne n'est pas complète
             if (!boardArea[row][col].has_value()) {
+                isRowComplete = false;
                 break;
             }
+        }
 
-            // Erase the complete row from the boardArea
+        // Si la ligne est complète, supprimez-la
+        if (isRowComplete) {
+            // Supprime la ligne complète du boardArea
             boardArea.erase(boardArea.begin() + row);
 
-            // Add a new empty row at the beginning of the boardArea vector to maintain correct row indexes
             boardArea.insert(boardArea.begin(), std::vector<std::optional<TypeShape>>(boardWidth));
 
-            // Increment the count of deleted lines
+            // Incrémente le nombre de lignes supprimées
             ++linesDeleted;
 
-            // To ensure that the new shifted row at actual index row is also checked in the next iteration.
+            // Incrémente row pour vérifier la ligne décalée lors de la prochaine itération
             ++row;
+
         }
     }
 
     return linesDeleted;
 }
-
 
 bool Board::isCollision(const Brick& brick) const {
     std::cout << "Je suis dans isCollision" << std::endl;
