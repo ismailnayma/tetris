@@ -2,6 +2,7 @@
 #include "Board.h"
 #include <iostream>
 #include <vector>
+#include <random>
 #include <vector>
 #include <optional>
 
@@ -9,7 +10,7 @@
 #include <ctime>   // Pour time
 
 
-Board::Board(int width, int height, int filledLines)
+Board::Board(int width, int height, bool emptyBoard)
     : boardWidth(width),
     boardHeight(height),
     shapesRotation(ShapesRotation::getInstance()) {
@@ -20,46 +21,37 @@ Board::Board(int width, int height, int filledLines)
         boardArea[i].resize(width);
     }
 
-    // Initialiser le générateur de nombres aléatoires avec une graine basée sur l'horloge système
-   /* std::srand(std::time(nullptr));
-
-
-    for (int i = height-1; i > height - filledLines-1; --i) {
-        // Remplir chaque case avec une probabilité de 50% d'être remplie
-        for (int j = 0; j < width; ++j) {
-            bool isFilled = (std::rand() % 2 == 0); // 50% de chance d'être remplie
-            if (isFilled) {
-                // Remplir la case avec quelque chose (par exemple, un type de forme)
-                // Ici, nous utilisons std::nullopt pour indiquer que la case est vide
-                boardArea[i][j] = std::nullopt;
-            }
+    if(!emptyBoard){
+        for (int i = (height / 3) * 2; i < height; ++i) {
+                for (int j = 0; j < width; ++j) {
+                    if(j==0){
+                        boardArea[i][j] = TypeShape::O_SHAPE;
+                    }else if(j==width-1){
+                        boardArea[i][j] = std::nullopt;
+                    }else{
+                        boardArea[i][j] = generateRandomPiece();
+                    }
+                }
         }
     }
 
 
-    if (filledLines > 0) {
-        // Remplir le nombre de lignes spécifié
-        for (int i = 0; i < filledLines; ++i) {
-            int row = std::rand() % height; // Choisir aléatoirement une ligne
-            int col = std::rand() % width;  // Choisir aléatoirement une colonne
-            boardArea[row][col] = std::nullopt; // S'assurer qu'il y a au moins une case vide par ligne
-        }
-    }
-
-    if(filledLines < 0 || filledLines > height/2){
-        //exception
-    } else {
-        for(int i = 0; i<filledLines; ++i){
-            for(int j = 0; j<boardArea[i].size(); ++j){
-
-            }
-        }
-    }
-
-    */
 }
 
 
+std::optional<TypeShape> Board::generateRandomPiece() {
+    static std::random_device rd;
+    static std::mt19937 gen(rd());
+    static std::uniform_int_distribution<int> disEmpty(0, 1);
+    //if we want to have a random TypeShape
+    //static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER)-1);
+    if (disEmpty(gen) == 0) {
+        return std::nullopt;
+    } else {
+        return TypeShape::O_SHAPE;
+       // return static_cast<TypeShape>(disShape(gen));
+    }
+}
 
 bool Board::setCurrentBrick(const Brick& brick) {
     std::cout<< "je suis dans setCurrentBricj dans board"<< std::endl;

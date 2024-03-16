@@ -223,6 +223,33 @@ TEST_CASE("Rotation of Current Brick", "[board]") {
 
     board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
     REQUIRE(board.currentBrick.getOrientation() == Orientation::UP);
+<<<<<<< HEAD
+=======
+
+}
+
+TEST_CASE("Move current brick", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
+    REQUIRE(board.setCurrentBrick(brick) == true);
+    SECTION("left collision out of board"){
+    REQUIRE_FALSE(board.moveCurrentBrick(Direction::LEFT));
+    }
+    SECTION("down ok"){
+    REQUIRE(board.moveCurrentBrick(Direction::DOWN));
+    }
+    SECTION("right ok"){
+    REQUIRE(board.moveCurrentBrick(Direction::RIGHT));
+    }
+    std::vector<std::vector<std::optional<TypeShape>>> area;
+    area.resize(board.getBoardWidth());
+    for (int i = 0; i < board.getBoardHeight(); ++i) {
+        area[i].resize(board.getBoardWidth());
+    }
+
+
+
+>>>>>>> a11fea26689137ee07a20b9219d4c4adc5a25489
 }
 
 TEST_CASE("Out of Bounds Rotation of Current Brick to the Left", "[board]") {
