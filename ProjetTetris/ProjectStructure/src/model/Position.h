@@ -12,8 +12,7 @@ private:
     int posY; ///< Represents the line of the board (0 starting from the top).
 
 public:
-    Position();
-    Position(int x, int y);
+    Position(int x = 0, int y = 0);
 
     int getPosX() const;
     int getPosY() const;

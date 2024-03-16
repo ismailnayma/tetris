@@ -16,16 +16,27 @@ TEST_CASE("Board initialization", "[board]") {
                 REQUIRE_FALSE(cell.has_value());
             }
         }
+}
 
+
+TEST_CASE("Set default current brick", "[board]") {
+    Board board;
+    //default
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::UP);
+    REQUIRE(board.currentBrick.getTypeShape() == TypeShape::I_SHAPE);
+    REQUIRE(board.currentBrick.getBoardPosition() == Position(0, 0));
+
+    auto boardArea = board.getBoardArea();
+    REQUIRE(!boardArea[0][0].has_value());
 
 }
 
 
 TEST_CASE("Set current brick", "[board]") {
-
     Board board;
+
     Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
-    REQUIRE(board.setCurrentBrick(brick) == true); // Check if the brick can be successfully set
+    REQUIRE(board.setCurrentBrick(brick)); // Check if the brick can be successfully set
 
     auto boardArea = board.getBoardArea();
 
@@ -35,7 +46,9 @@ TEST_CASE("Set current brick", "[board]") {
     REQUIRE(boardArea[2][0].value() == TypeShape::L_SHAPE);
     REQUIRE(boardArea[2][1].value() == TypeShape::L_SHAPE);
 
-
+    Brick brick2(TypeShape::I_SHAPE, Orientation::UP, Position(0, 1));
+    REQUIRE_FALSE(board.setCurrentBrick(brick)); // Cannot be placed
+    REQUIRE(board.currentBrick.getTypeShape() == TypeShape::L_SHAPE);
 
 }
 
@@ -533,6 +546,19 @@ TEST_CASE("DeleteLines -> 2 non consecutive lines deleted", "[board]") {
 }
 
 
+TEST_CASE("isCurrentBrickFallen", "[board]") {
+    Board board;
+
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 1));
+    board.setCurrentBrick(brick);
+    REQUIRE(!board.isCurrentBrickFallen());
+
+    Brick brick2(TypeShape::L_SHAPE, Orientation::UP, Position(0, 18));
+    board.setCurrentBrick(brick2);
+
+    REQUIRE(board.isCurrentBrickFallen());
+
+}
 
 
 
