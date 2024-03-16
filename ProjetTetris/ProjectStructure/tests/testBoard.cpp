@@ -237,6 +237,64 @@ TEST_CASE("Rotate current Brick out of bottom bounds", "[board]") {
 
 
 
+TEST_CASE("Rotate current Brick collision", "[board]") {
+    Board board;
+
+    std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
+    // Initialize the testBoardArea vector with the same width and height as boardArea
+    testBoardArea.resize(board.getBoardHeight());
+    for (int i = 0; i < testBoardArea.size(); ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+    }
+
+    //we place a brick on the testBoardArea in order to check collisions
+    testBoardArea[4][4] = TypeShape::L_SHAPE;
+
+    board.setBoardArea(testBoardArea);
+
+    //CASE 1
+
+    Brick brickLeft(TypeShape::L_SHAPE, Orientation::UP, Position(5, 4));
+    board.setCurrentBrick(brickLeft);
+
+    // Check that the brick cannot be rotated bc collisions
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE));
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::CLOCKWISE));
+
+    //check that the brick didn't move on the bordArea
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[3][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[4][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][5].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][6].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its orientation isn't supposed to change
+    REQUIRE(board.currentBrick.getOrientation() ==  Orientation::UP);
+
+
+
+    //CASE 2
+
+    Brick brickRight(TypeShape::L_SHAPE, Orientation::UP, Position(3, 4));
+    board.setCurrentBrick(brickRight);
+
+    // Check that the brick cannot be rotated bc collisions
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE));
+    REQUIRE_FALSE(board.rotateCurrentBrick(Rotation::CLOCKWISE));
+
+    //check that the brick didn't move on the bordArea
+    boardArea = board.getBoardArea();
+    REQUIRE(boardArea[3][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[4][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][3].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[5][4].value() == TypeShape::L_SHAPE);
+
+    //check the currentBrick's parameters, its orientation isn't supposed to change
+    REQUIRE(board.currentBrick.getOrientation() ==  Orientation::UP);
+
+}
+
+
 
 
 
