@@ -39,6 +39,24 @@ TEST_CASE("Set current brick", "[board]") {
 
 }
 
+//move Current brick
+
+TEST_CASE("Move current Brick", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(4, 4));
+    board.setCurrentBrick(brick);
+
+    board.moveCurrentBrick(Direction::LEFT);
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(3, 4));
+
+    board.moveCurrentBrick(Direction::DOWN);
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(3, 5));
+
+    board.moveCurrentBrick(Direction::RIGHT);
+    REQUIRE(board.currentBrick.getBoardPosition() ==  Position(4, 5));
+}
+
+
 //MOVE CURRENT BRICK OUT OF BOUNDS
 
 TEST_CASE("Move current Brick left out of bounds", "[board]") {
@@ -165,6 +183,39 @@ TEST_CASE("Move current Brick collision", "[board]") {
 
 }
 
+//Rotate current brick
+
+TEST_CASE("Rotate current Brick", "[board]") {
+    Board board;
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(4, 4));
+    board.setCurrentBrick(brick);
+
+    board.rotateCurrentBrick(Rotation::CLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::RIGHT);
+
+    board.rotateCurrentBrick(Rotation::CLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::DOWN);
+
+    board.rotateCurrentBrick(Rotation::CLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::LEFT);
+
+    board.rotateCurrentBrick(Rotation::CLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::UP);
+
+    board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::LEFT);
+
+    board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::DOWN);
+
+    board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::RIGHT);
+
+    board.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+    REQUIRE(board.currentBrick.getOrientation() == Orientation::UP);
+
+
+}
 
 
 //ROTATE CURRENT BRICK OUT OF BOUNDS
