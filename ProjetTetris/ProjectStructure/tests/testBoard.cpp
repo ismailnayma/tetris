@@ -394,7 +394,7 @@ TEST_CASE("DeleteLines -> 0 lines deleted", "[board]") {
 
 
 
-TEST_CASE("bruh", "[board]") {
+TEST_CASE("DeleteLines -> all lines deleted", "[board]") {
     Board board;
 
     std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
@@ -410,6 +410,43 @@ TEST_CASE("bruh", "[board]") {
     board.setBoardArea(testBoardArea);
     REQUIRE(board.deletePossibleLines() == board.getBoardHeight()); //all the lines from the board have to be deleted
 }
+
+
+
+
+
+TEST_CASE("DeleteLines -> 2 consecutive lines deleted", "[board]") {
+    Board board;
+
+    std::vector<std::vector<std::optional<TypeShape>>> testBoardArea;
+    // Initialize the testBoardArea vector with the same width and height as boardArea
+    testBoardArea.resize(board.getBoardHeight());
+    for (int i = 0; i < testBoardArea.size(); ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+    }
+
+    for (int i = 0; i < 2; ++i) {
+        testBoardArea[i].resize(board.getBoardWidth());
+        for(int j = 0; j < board.getBoardWidth(); ++j){
+            testBoardArea[board.getBoardHeight()-1-i][j] = TypeShape::L_SHAPE;
+        }
+    }
+
+    board.setBoardArea(testBoardArea);
+
+    Brick brick(TypeShape::L_SHAPE, Orientation::UP, Position(0, 16));
+    board.setCurrentBrick(brick);
+
+    REQUIRE(board.deletePossibleLines() == 2); //all the lines from the board have to be deleted
+
+    auto boardArea = board.getBoardArea();
+    REQUIRE(boardArea[17][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[18][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[19][0].value() == TypeShape::L_SHAPE);
+    REQUIRE(boardArea[19][1].value() == TypeShape::L_SHAPE);
+
+}
+
 
 
 
