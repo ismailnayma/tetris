@@ -305,3 +305,17 @@
 115	4214	7323134750827868	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj	f77c93aa37522a1e
 4050	5612	7323134765786884	src/ProjectStructure.exe	589228afaca8896e
 4216	19715	7323134906470967	tests/ProjectStructureTests.exe	7265d3d404721a6f
+130	3368	7324043230018045	src/CMakeFiles/ProjectStructure.dir/view/ConsoleView.cpp.obj	4a5b7d9d5a4a23b9
+153	3411	7324043230462471	src/CMakeFiles/ProjectStructure.dir/controller/ConsoleController.cpp.obj	96defbff50080fb
+92	3413	7324043230472467	src/CMakeFiles/ProjectStructure.dir/main.cpp.obj	70c4bafb9af7848b
+110	3570	7324043232013511	src/CMakeFiles/ProjectStructure.dir/model/Game.cpp.obj	1ad0024286da9874
+309	3700	7324043233347953	tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj	fa6229d899e92edf
+40	924	7324043494015491	src/ProjectStructure.exe	589228afaca8896e
+222	4332	7324043528115491	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+4334	19764	7324043682015877	tests/ProjectStructureTests.exe	7265d3d404721a6f
+40	2476	7324044900773475	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+2478	15621	7324045031724140	tests/ProjectStructureTests.exe	7265d3d404721a6f
+94	3177	7324045229462783	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+3179	15327	7324045350512420	tests/ProjectStructureTests.exe	7265d3d404721a6f
+72	3861	7324045540712525	tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj	cda4f68f1711b0ed
+3863	16004	7324045661758599	tests/ProjectStructureTests.exe	7265d3d404721a6f
