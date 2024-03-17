@@ -39,3 +39,7 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
             std::cout << '\n';  // next line
 }
 }
+
+void ConsoleView::update(){
+
+}

@@ -197,15 +197,12 @@ int Board::deletePossibleLines() {
 }
 
 bool Board::isCollision(const Brick& brick) const {
-    std::cout << "Je suis dans isCollision" << std::endl;
 
     // Get the positions on the board that the brick occupies
     std::vector<Position> brickBoardPositions = getBrickBoardPositions(brick);
-    std::cout << "J'ai créé le vecteur de positions sur le board" << std::endl;
 
     // Check if any of the positions collide with existing shapes on the board
     for (const Position& pos : brickBoardPositions) {
-        std::cout << "Je suis dans le for" << std::endl;
         int posX = pos.getPosX();
         int posY = pos.getPosY();
 
@@ -216,23 +213,19 @@ bool Board::isCollision(const Brick& brick) const {
             return true;
         }
 
-        std::cout << "Je suis après le premier if dans le for" << std::endl;
 
         try {
             // Check if the position is occupied by an existing shape on the board
             if (boardArea[posY][posX].has_value()) {
                 // The position is occupied, indicating a collision
-                std::cout << "Je suis dans le deuxième if dans le for" << std::endl;
                 return true;
             }
         } catch (const std::exception& ex) {
             std::cout << "Exception caught: " << typeid(ex).name() << std::endl;
         }
 
-        std::cout << "Je suis après le deuxième if dans le for" << std::endl;
     }
 
-    std::cout << "Je suis à la fin de isCollision" << std::endl;
 
     // No collision detected
     return false;
