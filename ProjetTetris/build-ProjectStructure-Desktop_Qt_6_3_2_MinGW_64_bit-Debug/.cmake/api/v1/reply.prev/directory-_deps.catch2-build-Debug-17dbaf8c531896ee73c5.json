@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "_deps/catch2-build",
+		"source" : "C:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src"
+	}
+}

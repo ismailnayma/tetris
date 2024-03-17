@@ -1,5 +1,6 @@
 #include "Game.h"
 #include "iostream"
+#include "../util/Observable.h"
 
 Game::Game(int width, int height, int level, bool emptyBoard)
     :gameBoard(Board(width,height,emptyBoard)),
@@ -15,7 +16,7 @@ void Game::start(){
     throw std::out_of_range("Error starting the game, the brick has a collision");
     }
     std::cout<< "setCurrentBrick s'est bien passé"<< std::endl;
-   // notifyObservers();
+    Game::notifyObservers();
 }
 
 void Game::moveCurrentBrick(Direction direction){
@@ -49,7 +50,7 @@ void Game::updateGame(int dropDistance) {
             gameState = State::GAMEOVER;
         }
     }
-   // notifyObservers();
+    //notifyObservers();
 }
 
 

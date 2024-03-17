@@ -1,5 +1,6 @@
 #include "Observable.h"
 #include "Observer.h"
+#include <iostream>
 
 void Observable::registerObserver(Observer * observer)
 {

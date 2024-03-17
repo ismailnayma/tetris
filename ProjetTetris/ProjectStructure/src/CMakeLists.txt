@@ -3,6 +3,9 @@ cmake_minimum_required(VERSION 3.5)
 
 add_executable(ProjectStructure
     main.cpp
+    util/Observer.h
+    util/Observable.h
+    util/Observable.cpp
     model/ShapesRotation.h
     model/ShapesRotation.cpp
     model/Position.h
@@ -20,9 +23,6 @@ add_executable(ProjectStructure
     model/Score.cpp
     model/Game.h
     model/Game.cpp
-    util/Observer.h
-    util/Observable.h
-    util/Observable.cpp
     view/ConsoleView.h
     view/ConsoleView.cpp
     controller/ConsoleController.h

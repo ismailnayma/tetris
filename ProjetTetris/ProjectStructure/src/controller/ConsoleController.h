@@ -5,13 +5,13 @@
 #include <conio.h>
 
 class ConsoleController {
-    const Game& model;
-    const ConsoleView& consoleView;
+    Game& model;
 
 public:
-    ConsoleController( Game& model,ConsoleView & consoleView );
+    ConsoleController(Game& model);
     // Function to read user input
     char getInput();
+     // Function to handle user input and call corresponding model methods
     bool handleInput(char input);
 
 };

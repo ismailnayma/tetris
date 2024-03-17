@@ -7,10 +7,16 @@ int main()
     cout << "Test affichage tetris" << endl;
     Game model = Game();
     cout<< "le model a bien ete cree" <<endl;
-    ConsoleView view = ConsoleView();
+    ConsoleView view = ConsoleView(model);
+    model.registerObserver(&view);
 
     cout<< "la vieuw a bien ete cree" <<endl;
-    ConsoleController(model, view);
+    ConsoleController controller =ConsoleController(model);
+    char input;
+    bool running = true;
+    while (running) {
+        running = controller.handleInput(controller.getInput());
+    }
 
     return 0;
 }
