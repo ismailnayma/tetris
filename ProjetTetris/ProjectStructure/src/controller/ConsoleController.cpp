@@ -1,4 +1,4 @@
-#include "../controller/ConsoleController.h"
+#include "ConsoleController.h"
 #include "iostream"
 
 ConsoleController::ConsoleController(Game& model)
