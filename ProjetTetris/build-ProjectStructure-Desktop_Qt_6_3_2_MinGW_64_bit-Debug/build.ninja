@@ -422,6 +422,15 @@ build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp
   TARGET_COMPILE_PDB = tests\CMakeFiles\ProjectStructureTests.dir\
   TARGET_PDB = tests\ProjectStructureTests.pdb
 
+build tests/CMakeFiles/ProjectStructureTests.dir/__/src/util/Observable.cpp.obj: CXX_COMPILER__ProjectStructureTests_Debug C$:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/src/util/Observable.cpp || cmake_object_order_depends_target_ProjectStructureTests
+  DEP_FILE = tests\CMakeFiles\ProjectStructureTests.dir\__\src\util\Observable.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++20
+  INCLUDES = -IC:/esi_2024/Q4/DEV4/ProjetTetris/ProjectStructure/tests/../src -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-src/src/catch2/.. -IC:/esi_2024/Q4/DEV4/ProjetTetris/build-ProjectStructure-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-build/generated-includes
+  OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir
+  OBJECT_FILE_DIR = tests\CMakeFiles\ProjectStructureTests.dir\__\src\util
+  TARGET_COMPILE_PDB = tests\CMakeFiles\ProjectStructureTests.dir\
+  TARGET_PDB = tests\ProjectStructureTests.pdb
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProjectStructureTests
@@ -430,7 +439,7 @@ build tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp
 #############################################
 # Link the executable tests\ProjectStructureTests.exe
 
-build tests/ProjectStructureTests.exe: CXX_EXECUTABLE_LINKER__ProjectStructureTests_Debug tests/CMakeFiles/ProjectStructureTests.dir/testMyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Brick.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Level.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Position.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Score.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp.obj | _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a || _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a
+build tests/ProjectStructureTests.exe: CXX_EXECUTABLE_LINKER__ProjectStructureTests_Debug tests/CMakeFiles/ProjectStructureTests.dir/testMyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/MyClass.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/testBoard.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Board.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Brick.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/BrickBag.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Game.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Level.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Position.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/Score.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/model/ShapesRotation.cpp.obj tests/CMakeFiles/ProjectStructureTests.dir/__/src/util/Observable.cpp.obj | _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a || _deps/catch2-build/src/libCatch2Maind.a _deps/catch2-build/src/libCatch2d.a
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = _deps/catch2-build/src/libCatch2Maind.a  _deps/catch2-build/src/libCatch2d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = tests\CMakeFiles\ProjectStructureTests.dir

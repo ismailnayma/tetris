@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(GLOB MODEL_SOURCES "../src/model/*.cpp")
+file(GLOB UTIL_SOURCES "../src/util/*.cpp")
 
 add_executable(ProjectStructureTests
 
@@ -8,6 +9,7 @@ add_executable(ProjectStructureTests
     ../src/MyClass.cpp
     testBoard.cpp
     ${MODEL_SOURCES}
+    ${UTIL_SOURCES}
 )
 target_include_directories(ProjectStructureTests PRIVATE
     ../src
