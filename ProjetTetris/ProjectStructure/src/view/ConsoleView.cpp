@@ -82,8 +82,7 @@ void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<Typ
                 std::cout << EMPTY_CHAR << EMPTY_CHAR;  // Print two empty spaces for each block for better aspect ratio
             }
         }
-        std::cout <<"| ";
-        std::cout << RESET << '\n';  // Reset color and move to next line
+        std::cout << RESET<<"| "<< '\n';  // Reset color and move to next line
     }
     //displayLineBorder();
     std::cout <<"\n";

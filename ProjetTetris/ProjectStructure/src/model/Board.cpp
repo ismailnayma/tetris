@@ -22,7 +22,7 @@ Board::Board(int width, int height, bool emptyBoard)
     }
 
     if(!emptyBoard){
-        for (int i = (height / 3) * 2; i < height; ++i) {
+        for (int i = ((height / 3) * 2)+1; i < height; ++i) {
                 for (int j = 0; j < width; ++j) {
                     if(j==0){
                         boardArea[i][j] = TypeShape::O_SHAPE;
@@ -43,13 +43,12 @@ std::optional<TypeShape> Board::generateRandomPiece() {
     static std::random_device rd;
     static std::mt19937 gen(rd());
     static std::uniform_int_distribution<int> disEmpty(0, 1);
-    //if we want to have a random TypeShape
-    //static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER)-1);
+    static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER)-1); //if we want to have a random TypeShape
     if (disEmpty(gen) == 0) {
         return std::nullopt;
     } else {
-        return TypeShape::O_SHAPE;
-       // return static_cast<TypeShape>(disShape(gen));
+        //return TypeShape::O_SHAPE;
+       return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
     }
 }
 
