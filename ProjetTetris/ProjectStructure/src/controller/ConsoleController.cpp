@@ -33,6 +33,7 @@ void ConsoleController::setupBoard() {
             std::cin >> height;
         } while (height < 5 || height > 50);
     }
+    std::cin.ignore(); // Clear newline from input buffer
 
     std::cout << "Do you want a pre-filled board? (y/n): ";
     std::getline(std::cin, choice);

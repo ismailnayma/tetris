@@ -214,3 +214,7 @@
 4451	6032	7325587120921936	src/ProjectStructure.exe	589228afaca8896e
 48	3748	7325587756367894	src/CMakeFiles/ProjectStructure.dir/view/ConsoleView.cpp.obj	4a5b7d9d5a4a23b9
 3751	5373	7325587772433825	src/ProjectStructure.exe	589228afaca8896e
+61	4532	7325590395210280	src/CMakeFiles/ProjectStructure.dir/view/ConsoleView.cpp.obj	4a5b7d9d5a4a23b9
+4534	6310	7325590412841944	src/ProjectStructure.exe	589228afaca8896e
+61	3258	7325594864038850	src/CMakeFiles/ProjectStructure.dir/controller/ConsoleController.cpp.obj	96defbff50080fb
+3261	4955	7325594880786486	src/ProjectStructure.exe	589228afaca8896e

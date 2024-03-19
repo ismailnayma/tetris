@@ -19,41 +19,41 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
     displayLineBorder();
     for (const auto& row : boardArea) {
         std::cout <<" |";
-            for (const auto& cell : row) {
-                if (!cell.has_value()) {
-                    std::cout << '.';
-                } else {
-                    switch (cell.value()) {
-                        case TypeShape::O_SHAPE:
-                            std::cout << 'O';
-                            break;
-                        case TypeShape::I_SHAPE:
-                            std::cout << 'I';
-                            break;
-                        case TypeShape::S_SHAPE:
-                            std::cout << 'S';
-                            break;
-                        case TypeShape::Z_SHAPE:
-                            std::cout << 'Z';
-                            break;
-                        case TypeShape::L_SHAPE:
-                            std::cout << 'L';
-                            break;
-                        case TypeShape::J_SHAPE:
-                            std::cout << 'J';
-                            break;
-                        case TypeShape::T_SHAPE:
-                            std::cout << 'T';
-                            break;
-                        default:
-                        break;
+        for (const auto& cell : row) {
+            if (!cell.has_value()) {
+                std::cout << '.';
+            } else {
+                switch (cell.value()) {
+                case TypeShape::O_SHAPE:
+                    std::cout << 'O';
+                    break;
+                case TypeShape::I_SHAPE:
+                    std::cout << 'I';
+                    break;
+                case TypeShape::S_SHAPE:
+                    std::cout << 'S';
+                    break;
+                case TypeShape::Z_SHAPE:
+                    std::cout << 'Z';
+                    break;
+                case TypeShape::L_SHAPE:
+                    std::cout << 'L';
+                    break;
+                case TypeShape::J_SHAPE:
+                    std::cout << 'J';
+                    break;
+                case TypeShape::T_SHAPE:
+                    std::cout << 'T';
+                    break;
+                default:
+                    break;
 
-                    }
                 }
-                std::cout << ' ';  // add a space
             }
-            std::cout<<"| " << '\n';  // next line
-}
+            std::cout << ' ';  // add a space
+        }
+        std::cout<<"| " << '\n';  // next line
+    }
 }
 
 void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) {
@@ -88,6 +88,7 @@ void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<Typ
     //displayLineBorder();
     std::cout <<"\n";
 }
+
 void ConsoleView::displayLineBorder() const{
     for(int i =0; i<game.getGameBoard().getBoardWidth()+1;i++){
         if(i==0){
