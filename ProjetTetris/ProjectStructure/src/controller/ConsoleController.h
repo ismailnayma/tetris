@@ -6,9 +6,11 @@
 
 class ConsoleController {
     Game& model;
+    ConsoleView view;
 
 public:
     ConsoleController(Game& model);
+    void setupBoard();
     // Function to read user input
     char getInput();
      // Function to handle user input and call corresponding model methods

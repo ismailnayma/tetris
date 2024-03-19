@@ -18,7 +18,7 @@ class Game : public Observable {
     void updateGame(int dropDistance);
 
 public:
-    Game(int width = 10, int height = 20, int level = 1, bool emptyBoard = true);
+    Game(int width = 10, int height = 20, bool emptyBoard = true);
     void start();
     void moveCurrentBrick(Direction direction);
     void rotateCurrentBrick(Rotation rotation);
@@ -28,6 +28,7 @@ public:
     Score getGameScore() const;
     Level getGameLevel() const;
     Board getGameBoard() const;
+    void resetGame(int width, int height, bool emptyBoard);
 
 };
 

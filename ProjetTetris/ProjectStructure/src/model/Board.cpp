@@ -54,7 +54,6 @@ std::optional<TypeShape> Board::generateRandomPiece() {
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {
-    std::cout<< "je suis dans setCurrentBricj dans board"<< std::endl;
     return !isCollision(brick) ? (currentBrick = brick,updateArea(true), true) : false;
 }
 
@@ -209,7 +208,6 @@ bool Board::isCollision(const Brick& brick) const {
         // Check if the position is within the board boundaries
         if (posX < 0 || posX >= boardWidth || posY < 0 || posY >= boardHeight) {
             // The position is outside the board boundaries, indicating a collision
-            std::cout << "La position est en dehors des limites du board" << std::endl;
             return true;
         }
 

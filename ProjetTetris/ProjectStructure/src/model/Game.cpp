@@ -3,21 +3,21 @@
 #include "iostream"
 
 
-Game::Game(int width, int height, int level, bool emptyBoard)
+Game::Game(int width, int height, bool emptyBoard)
     :gameBoard(Board(width,height,emptyBoard)),
       gameBrickBag(Position(width/2,1)),
       gameState(State::READY),
-      gameLevel(level){}
+      gameLevel(Level()),
+      gameScore(Score()){}
 
 void Game::start(){
     gameState = State::PLAYING;
     //Set the first board currentBrick from the game brickBag
-    std::cout<< "je suis dans start"<< std::endl;
     if(!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())){
     throw std::out_of_range("Error starting the game, the brick has a collision");
     }
-    std::cout<< "setCurrentBrick s'est bien passé"<< std::endl;
     notifyObservers();
+
 }
 
 void Game::moveCurrentBrick(Direction direction){
@@ -69,4 +69,12 @@ Level Game::getGameLevel() const{
 
 Board Game::getGameBoard() const{
     return gameBoard;
+}
+
+void Game::resetGame(int width, int height, bool emptyBoard) {
+    gameBoard = Board(width, height, emptyBoard);
+    gameBrickBag = BrickBag(Position(width / 2, 1));
+    gameState = State::READY;
+    gameLevel = Level();
+    gameScore = Score();
 }
