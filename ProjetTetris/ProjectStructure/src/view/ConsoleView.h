@@ -9,7 +9,8 @@ private:
 public:
     ConsoleView(Game& game);
     void showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea);
-    // view methods
+    void displayControls() const;
+    void displayLevelAndScore() const;
     void update() override;
 
 };

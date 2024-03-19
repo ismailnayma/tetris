@@ -49,6 +49,7 @@ void ConsoleController::setupBoard() {
     }
     model.resetGame(width, height, emptyBoard);
     model.start();
+    view.displayControls();
 }
 
 
@@ -78,6 +79,8 @@ bool ConsoleController::handleInput(char input) {
         break;
     case 'l':
         return false; //exit, leave the game
+    case 'h':
+        view.displayControls();
     default:
         std::cout << "input is not recognized: \n";
     }

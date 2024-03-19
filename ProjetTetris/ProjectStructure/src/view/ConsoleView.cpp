@@ -42,6 +42,25 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
 }
 }
 
+void ConsoleView::displayControls() const {
+    std::cout << "Controls:\n"
+              << "Q - Move Left\n"
+              << "D - Move Right\n"
+              << "S - Move Down\n"
+              << "A - Rotate Left\n"
+              << "Z - Rotate Right\n"
+              << "E - Drop\n"
+              << "H - Help(controls)\n"
+              << "L - Leave\n";
+}
+
+void ConsoleView::displayLevelAndScore() const{
+    std::cout << "Score: "<< game.getGameScore().getScore()<<"\n"
+              << "Level: "<< game.getGameLevel().getActualLevel()<<"\n"
+              << "Lines: "<< game.getGameLevel().getDeletedLines()<<"\n" ;
+}
+
 void ConsoleView::update(){
+    ConsoleView::displayLevelAndScore();
     ConsoleView::showBoard(game.getGameBoard().getBoardArea());
 }
