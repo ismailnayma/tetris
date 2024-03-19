@@ -6,6 +6,26 @@ ConsoleController::ConsoleController(Game& model)
     model.registerObserver(&view);
 }
 
+int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
+    int value;
+    while (true) {
+        std::cout << prompt;
+        std::string input;
+        std::getline(std::cin, input);
+        try {
+            value = std::stoi(input);
+            if (value < min || value > max) {
+                std::cerr << "Input must be between " << min << " and " << max << ".\n";
+            } else {
+                break;
+            }
+        } catch (const std::exception& e) {
+            std::cerr << "Invalid input. Please enter a valid integer.\n";
+        }
+    }
+    return value;
+}
+
 void ConsoleController::setupBoard() {
     std::string choice;
     int width = model.getGameBoard().getBoardWidth();
@@ -23,17 +43,9 @@ void ConsoleController::setupBoard() {
     }
 
     if (choice == "y") {
-        do {
-            std::cout << "Enter the width of the board (between 5 and 50): ";
-            std::cin >> width;
-        } while (width < 5 || width > 50);
-
-        do {
-            std::cout << "Enter the height of the board (between 5 and 50): ";
-            std::cin >> height;
-        } while (height < 5 || height > 50);
-    }
-    std::cin.ignore(); // Clear newline from input buffer
+            width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
+            height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
+     }
 
     std::cout << "Do you want a pre-filled board? (y/n): ";
     std::getline(std::cin, choice);

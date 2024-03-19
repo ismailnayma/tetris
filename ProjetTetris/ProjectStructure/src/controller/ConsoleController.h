@@ -8,6 +8,7 @@ class ConsoleController {
     Game& model;
     ConsoleView view;
 
+    int getValidInteger(const std::string& prompt, int min, int max);
 public:
     ConsoleController(Game& model);
     void setupBoard();
