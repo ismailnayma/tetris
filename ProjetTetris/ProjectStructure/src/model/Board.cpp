@@ -25,7 +25,7 @@ Board::Board(int width, int height, bool emptyBoard)
         for (int i = ((height / 3) * 2)+1; i < height; ++i) {
                 for (int j = 0; j < width; ++j) {
                     if(j==0){
-                        boardArea[i][j] = TypeShape::O_SHAPE;
+                        boardArea[i][j] = generateRandomPiece();
                     }else if(j==width-1){
                         boardArea[i][j] = std::nullopt;
                     }else{

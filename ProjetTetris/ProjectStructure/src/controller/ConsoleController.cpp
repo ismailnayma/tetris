@@ -26,38 +26,37 @@ int ConsoleController::getValidInteger(const std::string& prompt, int min, int m
     return value;
 }
 
+char ConsoleController::validateInput(const std::string& prompt) {
+    std::string input;
+    char choice;
+    while (true) {
+        std::cout << prompt;
+        std::getline(std::cin, input);
+        if (input.size() == 1) {
+            choice = std::tolower(input[0]);
+            if(choice == 'y' || choice == 'n'){
+                break;
+            }
+        } else {
+            std::cout << "Invalid input. Please enter 'y' for yes or 'n' for no.\n";
+        }
+    }
+    return choice;
+}
+
 void ConsoleController::setupBoard() {
-    std::string choice;
+    char sizeChoice = validateInput("Do you want to choose the size of the board? (y/n): ");
     int width = model.getGameBoard().getBoardWidth();
     int height = model.getGameBoard().getBoardHeight();
     bool emptyBoard = true;
 
-    std::cout << "Do you want to choose the size of the board? (y/n): ";
-    std::getline(std::cin, choice);
-    choice = std::tolower(choice[0]);
-
-    while (choice != "y" && choice != "n") {
-        std::cout << "Invalid input. Please enter 'y' for yes or 'n' for no: ";
-        std::getline(std::cin, choice);
-        choice = std::tolower(choice[0]);
-    }
-
-    if (choice == "y") {
+    if (sizeChoice == 'y') {
             width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
             height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
      }
+    char fillChoice = validateInput("Do you want a pre-filled board? (y/n): ");
 
-    std::cout << "Do you want a pre-filled board? (y/n): ";
-    std::getline(std::cin, choice);
-    choice = std::tolower(choice[0]);
-
-    while (choice != "y" && choice != "n") {
-        std::cout << "Invalid input. Please enter 'y' for yes or 'n' for no: ";
-        std::getline(std::cin, choice);
-        choice = std::tolower(choice[0]);
-    }
-
-    if (choice == "y") {
+    if (fillChoice == 'y') {
         emptyBoard = false;
     }
     model.resetGame(width, height, emptyBoard);
@@ -71,7 +70,7 @@ char ConsoleController::getInput() {
 }
 
 bool ConsoleController::handleInput(char input) {
-    switch (input) {
+    switch (std::tolower(input)) {
     case 'q':
         model.moveCurrentBrick(Direction::LEFT);
         break;

@@ -9,6 +9,7 @@ class ConsoleController {
     ConsoleView view;
 
     int getValidInteger(const std::string& prompt, int min, int max);
+    char validateInput(const std::string& prompt);
 public:
     ConsoleController(Game& model);
     void setupBoard();
