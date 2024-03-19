@@ -16,7 +16,9 @@
 ConsoleView::ConsoleView(Game& game):game(game){};
 
 void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea){
+    displayLineBorder();
     for (const auto& row : boardArea) {
+        std::cout <<" |";
             for (const auto& cell : row) {
                 if (!cell.has_value()) {
                     std::cout << '.';
@@ -50,7 +52,7 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
                 }
                 std::cout << ' ';  // add a space
             }
-            std::cout << '\n';  // next line
+            std::cout<<"| " << '\n';  // next line
 }
 }
 
@@ -69,7 +71,6 @@ void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<Typ
         {TypeShape::T_SHAPE, GRAY}   // T shape
     };
     displayLineBorder();
-    std::cout <<"\n";
     // Iterate through the board area and print the shapes
     for (const auto& row : boardArea) {
         std::cout <<" |";
@@ -95,6 +96,7 @@ void ConsoleView::displayLineBorder() const{
             std::cout <<"__";
         }
     }
+    std::cout<<"\n";
 }
 void ConsoleView::displayControls() const {
     std::cout << "Controls:\n"
@@ -120,5 +122,6 @@ void ConsoleView::displayLevelAndScore() const{
 void ConsoleView::update(){
     ConsoleView::displayLevelAndScore();
     ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
+    //ConsoleView::showBoard(game.getGameBoard().getBoardArea());
 }
 
