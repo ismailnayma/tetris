@@ -20,17 +20,18 @@ class Game : public Observable {
 
 public:
     Game(int width = 10, int height = 20, bool emptyBoard = true);
+    void resetGame(int width, int height, bool emptyBoard);
     void start();
     void moveCurrentBrick(Direction direction);
     void rotateCurrentBrick(Rotation rotation);
     void dropCurrentBrick();
     bool isGameOver();
-    const GameState& getGameState() const;
-    Score getGameScore() const;
-    Level getGameLevel() const;
-    Board getGameBoard() const;
-    void resetGame(int width, int height, bool emptyBoard);
 
+    //Getters
+    const GameState& getGameState() const;
+    const Board& getGameBoard() const;
+    const Level& getGameLevel() const;
+    const Score& getGameScore() const;
 };
 
 

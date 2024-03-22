@@ -10,6 +10,14 @@ Game::Game(int width, int height, bool emptyBoard)
       gameLevel(Level()),
       gameScore(Score()){}
 
+void Game::resetGame(int width, int height, bool emptyBoard) {
+    gameBoard = Board(width, height, emptyBoard);
+    gameBrickBag = BrickBag(Position(width / 2, 1));
+    gameState = GameState::READY;
+    gameLevel = Level();
+    gameScore = Score();
+}
+
 void Game::start(){
     gameState = GameState::PLAYING;
     setCurrentBrick();
@@ -48,6 +56,7 @@ void Game::dropCurrentBrick(){
 void Game::updateGame(int dropDistance) {
     if (gameBoard.isCurrentBrickFallen()) {
         int deletedLines = gameBoard.deletePossibleLines();
+
         gameLevel.updateLevel(deletedLines);
         gameScore.updateScore(deletedLines, dropDistance, gameLevel.getActualLevel());
 
@@ -64,34 +73,25 @@ void Game::updateGame(int dropDistance) {
     notifyObservers();
 }
 
-
 bool Game::isGameOver(){
     return gameState==GameState::LOSS ||
            gameState==GameState:: LINESWIN ||
            gameState==GameState:: SCOREWIN ;
 }
 
-Score Game::getGameScore() const{
-    return gameScore;
+//Getters
+const GameState& Game::getGameState() const{
+    return gameState;
 }
 
-Level Game::getGameLevel() const{
-    return gameLevel;
-}
-
-Board Game::getGameBoard() const{
+const Board& Game::getGameBoard() const{
     return gameBoard;
 }
 
-void Game::resetGame(int width, int height, bool emptyBoard) {
-    gameBoard = Board(width, height, emptyBoard);
-    gameBrickBag = BrickBag(Position(width / 2, 1));
-    gameState = GameState::READY;
-    gameLevel = Level();
-    gameScore = Score();
+const Level& Game::getGameLevel() const{
+    return gameLevel;
 }
 
-
-const GameState& Game::getGameState() const{
-    return gameState;
+const Score& Game::getGameScore() const{
+    return gameScore;
 }
