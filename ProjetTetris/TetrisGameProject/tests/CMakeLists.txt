@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.5)
 file(GLOB MODEL_SOURCES "../src/model/*.cpp")
 file(GLOB UTIL_SOURCES "../src/util/*.cpp")
 
-add_executable(ProjectStructureTests
+add_executable(TetrisGameProjectTests
 
     testMyClass.cpp
     ../src/MyClass.cpp
@@ -11,7 +11,7 @@ add_executable(ProjectStructureTests
     ${MODEL_SOURCES}
     ${UTIL_SOURCES}
 )
-target_include_directories(ProjectStructureTests PRIVATE
+target_include_directories(TetrisGameProjectTests PRIVATE
     ../src
 )
 
@@ -26,4 +26,4 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 #list(APPEND CMAKE_MODULE_PATH ${catch2_SOURCE_DIR}/extras)
 
-target_link_libraries(ProjectStructureTests Catch2::Catch2WithMain)
+target_link_libraries(TetrisGameProjectTests Catch2::Catch2WithMain)

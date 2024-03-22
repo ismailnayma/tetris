@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 
-add_executable(ProjectStructure
+add_executable(TetrisGameProject
     main.cpp
     model/ShapesRotation.h
     model/ShapesRotation.cpp
@@ -32,5 +32,5 @@ add_executable(ProjectStructure
 
 )
 
-install(TARGETS ProjectStructure
+install(TARGETS TetrisGameProject
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
