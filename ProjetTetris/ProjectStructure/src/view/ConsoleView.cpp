@@ -15,7 +15,7 @@
 
 ConsoleView::ConsoleView(Game& game):game(game){};
 
-void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea){
+void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const{
     displayLineBorder();
     for (const auto& row : boardArea) {
         std::cout <<" |";
@@ -56,7 +56,7 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
     }
 }
 
-void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) {
+void ConsoleView::colorShowBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const {
     constexpr char BLOCK_CHAR = 219;  // ASCII code for a solid block character
     constexpr char EMPTY_CHAR = ' ';  // Character for an empty space
 
@@ -118,7 +118,7 @@ void ConsoleView::displayLevelAndScore() const{
               << "  Lines: "<< game.getGameLevel().getDeletedLines()<<"\n" ;
 }
 
-void ConsoleView::update(){
+void ConsoleView::update() {
     ConsoleView::displayLevelAndScore();
     ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
     //ConsoleView::showBoard(game.getGameBoard().getBoardArea());

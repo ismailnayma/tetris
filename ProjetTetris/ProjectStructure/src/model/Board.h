@@ -32,9 +32,11 @@ public:
     int dropCurrentBrick();
     bool isCurrentBrickFallen();
     int deletePossibleLines();
-    std::vector<std::vector<std::optional<TypeShape>>>& getBoardArea();
-    const int& getBoardHeight();
-    const int& getBoardWidth();
+
+    //Getters
+    const std::vector<std::vector<std::optional<TypeShape>>>& getBoardArea() const;
+    const int& getBoardHeight() const;
+    const int& getBoardWidth() const;
 
 };
 
