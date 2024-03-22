@@ -32,18 +32,18 @@ void ConsoleController:: playTetris(){
 int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
     int value;
     while (true) {
-        std::cout << prompt;
+        view.displayMessage(prompt);
         std::string input;
         std::getline(std::cin, input);
         try {
             value = std::stoi(input);
             if (value < min || value > max) {
-                std::cerr << "Input must be between " << min << " and " << max << ".\n";
+                view.displayMessage("Input must be between " + std::to_string(min) + " and " + std::to_string(max) + ".\n");
             } else {
                 break;
             }
         } catch (const std::exception& e) {
-            std::cerr << "Invalid input. Please enter a valid integer.\n";
+            view.displayMessage("Invalid input. Please enter a valid integer: ");
         }
     }
     return value;
@@ -61,7 +61,7 @@ char ConsoleController::validateInput(const std::string& prompt) {
                 break;
             }
         } else {
-            std::cout << "Invalid input. Please enter 'y' for yes or 'n' for no.\n";
+            view.displayMessage("Invalid input. Please enter 'y' for yes or 'n' for no: ");
         }
     }
     return choice;
@@ -89,7 +89,7 @@ void ConsoleController::setupBoard() {
 char ConsoleController::getInput() {
     //return _getch(); // Read a single character without echoing
     std::string line;
-    std::cout << "Enter a character: ";
+    view.displayMessage("Enter a character: ");
     std::getline(std::cin, line);
     return line.empty() ? '\0' : line[0];
 }
@@ -119,7 +119,7 @@ bool ConsoleController::handleInput(char input) {
     case 'h':
         view.displayControls();
     default:
-        std::cout << "input is not recognized: \n";
+        view.displayMessage("input is not recognized: ");
     }
     return true;
 }

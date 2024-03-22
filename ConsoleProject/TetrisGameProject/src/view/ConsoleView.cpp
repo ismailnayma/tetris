@@ -118,6 +118,10 @@ void ConsoleView::displayLevelAndScore() const{
               << "  Lines: "<< game.getGameLevel().getDeletedLines()<<"\n" ;
 }
 
+void ConsoleView::displayMessage(const std::string& message) const{
+    std::cout << message;
+}
+
 void ConsoleView::update() {
     ConsoleView::displayLevelAndScore();
     //ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
