@@ -37,7 +37,6 @@ public:
     const std::vector<std::vector<std::optional<TypeShape>>>& getBoardArea() const;
     const int& getBoardHeight() const;
     const int& getBoardWidth() const;
-
 };
 
 
