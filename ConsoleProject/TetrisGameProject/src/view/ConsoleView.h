@@ -13,11 +13,8 @@ public:
     void colorShowBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const;
     void displayControls() const;
     void displayLevelAndScore() const;
-    void displayErrorMessage(const std::string& message) const;
     void displayMessage(const std::string& message) const;
-    void displayQuestion(const std::string& message) const;
     void update() override;
-
 };
 
 #endif // CONSOLEVIEW_H
