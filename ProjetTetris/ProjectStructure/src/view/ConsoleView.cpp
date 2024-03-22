@@ -118,11 +118,15 @@ void ConsoleView::displayLevelAndScore() const{
               << "  Lines: "<< game.getGameLevel().getDeletedLines()<<"\n" ;
 }
 
-
-
 void ConsoleView::update(){
     ConsoleView::displayLevelAndScore();
     ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
     //ConsoleView::showBoard(game.getGameBoard().getBoardArea());
+    if(game.getGameState() == GameState::LOSS){
+        std::cout<<"You lost :("<<std::endl;
+    } else if(game.getGameState() == GameState::SCOREWIN){
+         std::cout<<"You reached the maximum score!, Congragulations, you won ! :)"<<std::endl;
+    } else if(game.getGameState() == GameState::LINESWIN){
+        std::cout<<"You reached the maximum number of deleted lines!,Congragulations, you won ! :)"<<std::endl;
+    }
 }
-

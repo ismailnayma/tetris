@@ -1,4 +1,4 @@
-#ifndef ENUMS_H
+﻿#ifndef ENUMS_H
 #define ENUMS_H
 
 // Enum for TypeShape
@@ -35,11 +35,13 @@ enum class Rotation {
 };
 
 
-// Enum for State
-enum class State {
+// Enum for GameState
+enum class GameState {
     READY,
     PLAYING,
-    GAMEOVER
+    LOSS,
+    SCOREWIN,
+    LINESWIN
 };
 
 

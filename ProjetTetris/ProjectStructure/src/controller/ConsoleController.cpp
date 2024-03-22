@@ -6,6 +6,18 @@ ConsoleController::ConsoleController(Game& model)
     model.registerObserver(&view);
 }
 
+void ConsoleController:: playTetris(){
+    setupBoard();
+    bool playing = true;
+
+    model.start();
+    view.displayControls();
+
+    while (!model.isGameOver() && playing) {
+        playing = handleInput(getInput());
+    }
+}
+
 int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
     int value;
     while (true) {
@@ -60,8 +72,6 @@ void ConsoleController::setupBoard() {
         emptyBoard = false;
     }
     model.resetGame(width, height, emptyBoard);
-    model.start();
-    view.displayControls();
 }
 
 

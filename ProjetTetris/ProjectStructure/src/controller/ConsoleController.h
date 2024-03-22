@@ -12,6 +12,7 @@ class ConsoleController {
     char validateInput(const std::string& prompt);
 public:
     ConsoleController(Game& model);
+    void playTetris();
     void setupBoard();
     // Function to read user input
     char getInput();

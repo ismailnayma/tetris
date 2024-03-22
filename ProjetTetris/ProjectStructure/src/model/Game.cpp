@@ -6,18 +6,21 @@
 Game::Game(int width, int height, bool emptyBoard)
     :gameBoard(Board(width,height,emptyBoard)),
       gameBrickBag(Position(width/2,1)),
-      gameState(State::READY),
+      gameState(GameState::READY),
       gameLevel(Level()),
       gameScore(Score()){}
 
 void Game::start(){
-    gameState = State::PLAYING;
-    //Set the first board currentBrick from the game brickBag
-    if(!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())){
-    throw std::out_of_range("Error starting the game, the brick has a collision");
-    }
+    gameState = GameState::PLAYING;
+    setCurrentBrick();
     notifyObservers();
+}
 
+void Game::setCurrentBrick(){
+    //Set the board currentBrick from the brickBag
+    if(!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())){
+        gameState = GameState::LOSS;
+    }
 }
 
 void Game::moveCurrentBrick(Direction direction){
@@ -41,14 +44,21 @@ void Game::dropCurrentBrick(){
 }
 
 
- //If the current brick is fallen update the Board, Score,Level and State
+ //If the current brick is fallen update the Board, Score,Level and GameState
 void Game::updateGame(int dropDistance) {
     if (gameBoard.isCurrentBrickFallen()) {
         int deletedLines = gameBoard.deletePossibleLines();
         gameLevel.updateLevel(deletedLines);
         gameScore.updateScore(deletedLines, dropDistance, gameLevel.getActualLevel());
-        if (!gameBoard.setCurrentBrick(gameBrickBag.getNextBrick())) {
-            gameState = State::GAMEOVER;
+
+        //conditions for win
+        if(gameScore.getScore() > 1000){
+            gameState=GameState:: SCOREWIN;
+        } else if (gameLevel.getDeletedLines() > 50){
+            gameState=GameState:: LINESWIN;
+        } else {
+            //didn't win
+            setCurrentBrick();
         }
     }
     notifyObservers();
@@ -56,7 +66,9 @@ void Game::updateGame(int dropDistance) {
 
 
 bool Game::isGameOver(){
-    return gameState==State::GAMEOVER;
+    return gameState==GameState::LOSS ||
+           gameState==GameState:: LINESWIN ||
+           gameState==GameState:: SCOREWIN ;
 }
 
 Score Game::getGameScore() const{
@@ -74,7 +86,12 @@ Board Game::getGameBoard() const{
 void Game::resetGame(int width, int height, bool emptyBoard) {
     gameBoard = Board(width, height, emptyBoard);
     gameBrickBag = BrickBag(Position(width / 2, 1));
-    gameState = State::READY;
+    gameState = GameState::READY;
     gameLevel = Level();
     gameScore = Score();
+}
+
+
+const GameState& Game::getGameState() const{
+    return gameState;
 }

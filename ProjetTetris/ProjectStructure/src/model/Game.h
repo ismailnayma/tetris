@@ -9,13 +9,14 @@
 #include "../util/Observable.h"
 
 class Game : public Observable {
-    State gameState;
+    GameState gameState;
     Board gameBoard;
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
 
     void updateGame(int dropDistance);
+    void setCurrentBrick();
 
 public:
     Game(int width = 10, int height = 20, bool emptyBoard = true);
@@ -24,7 +25,7 @@ public:
     void rotateCurrentBrick(Rotation rotation);
     void dropCurrentBrick();
     bool isGameOver();
-    State getGameState() const;
+    const GameState& getGameState() const;
     Score getGameScore() const;
     Level getGameLevel() const;
     Board getGameBoard() const;
