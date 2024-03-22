@@ -22,14 +22,14 @@ Board::Board(int width, int height, bool emptyBoard)
     }
 
     if(!emptyBoard){
-        for (int i = ((height / 3) * 2)+1; i < height; ++i) {
+        for (int i = ((height / 3) * 2); i < height; ++i) {
                 for (int j = 0; j < width; ++j) {
                     if(j==0){
-                        boardArea[i][j] = generateRandomPiece();
+                        boardArea[i][j] = generateRandomPiece(true);
                     }else if(j==width-1){
                         boardArea[i][j] = std::nullopt;
                     }else{
-                        boardArea[i][j] = generateRandomPiece();
+                        boardArea[i][j] = generateRandomPiece(false);
                     }
                 }
         }
@@ -39,17 +39,22 @@ Board::Board(int width, int height, bool emptyBoard)
 }
 
 
-std::optional<TypeShape> Board::generateRandomPiece() {
+std::optional<TypeShape> Board::generateRandomPiece(bool onlyTypeShape) {
     static std::random_device rd;
     static std::mt19937 gen(rd());
     static std::uniform_int_distribution<int> disEmpty(0, 1);
     static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER)-1); //if we want to have a random TypeShape
-    if (disEmpty(gen) == 0) {
-        return std::nullopt;
-    } else {
-        //return TypeShape::O_SHAPE;
-       return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
+    if(onlyTypeShape){
+        return static_cast<TypeShape>(disShape(gen));
+    }else{
+        if (disEmpty(gen) == 0) {
+            return std::nullopt;
+        } else {
+            //return TypeShape::O_SHAPE;
+           return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
+        }
     }
+
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {

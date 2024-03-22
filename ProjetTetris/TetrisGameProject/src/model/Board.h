@@ -21,7 +21,7 @@ private:
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
     bool handleBrickAdjustment(const Brick& newCurBrick);
     void setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area);
-    std::optional<TypeShape> generateRandomPiece();
+    std::optional<TypeShape> generateRandomPiece(bool onlyTypeShape);
 
 public:
     Board(int width = 10, int height = 20, bool emptyBoard = true); //=default constructors
