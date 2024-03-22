@@ -15,6 +15,17 @@ void ConsoleController:: playTetris(){
 
     while (!model.isGameOver() && playing) {
         playing = handleInput(getInput());
+        if(model.isGameOver()){
+            //ask the player if he wants to start a new game
+            char replayChoice = validateInput("Do you want to play a new game? (y/n): ");
+            if(replayChoice == 'y'){
+                model.resetGame(10, 20, false);
+                setupBoard();
+                model.start();
+            } else {
+                playing = false;
+            }
+        }
     }
 }
 

@@ -120,8 +120,8 @@ void ConsoleView::displayLevelAndScore() const{
 
 void ConsoleView::update() {
     ConsoleView::displayLevelAndScore();
-    ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
-    //ConsoleView::showBoard(game.getGameBoard().getBoardArea());
+    //ConsoleView::colorShowBoard(game.getGameBoard().getBoardArea());
+    ConsoleView::showBoard(game.getGameBoard().getBoardArea());
     if(game.getGameState() == GameState::LOSS){
         std::cout<<"You lost :("<<std::endl;
     } else if(game.getGameState() == GameState::SCOREWIN){
