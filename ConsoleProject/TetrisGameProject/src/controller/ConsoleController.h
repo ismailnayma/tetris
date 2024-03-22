@@ -2,7 +2,6 @@
 #define CONSOLECONTROLLER_H
 #include "../model/Game.h"
 #include "../view/ConsoleView.h"
-//#include <conio.h>
 
 class ConsoleController {
     Game& model;
