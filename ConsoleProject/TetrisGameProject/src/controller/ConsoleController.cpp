@@ -87,7 +87,11 @@ void ConsoleController::setupBoard() {
 
 
 char ConsoleController::getInput() {
-    return _getch(); // Read a single character without echoing
+    //return _getch(); // Read a single character without echoing
+    std::string line;
+    std::cout << "Enter a character: ";
+    std::getline(std::cin, line);
+    return line.empty() ? '\0' : line[0];
 }
 
 bool ConsoleController::handleInput(char input) {
