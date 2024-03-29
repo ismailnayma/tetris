@@ -19,9 +19,10 @@ void ConsoleController:: playTetris(){
             //ask the player if he wants to start a new game
             char replayChoice = validateInput("Do you want to play a new game? (y/n): ");
             if(replayChoice == 'y'){
-                model.resetGame(10, 20, false);
+                model.resetGame();
                 setupBoard();
                 model.start();
+                view.displayControls();
             } else {
                 playing = false;
             }
@@ -43,7 +44,7 @@ int ConsoleController::getValidInteger(const std::string& prompt, int min, int m
                 break;
             }
         } catch (const std::exception& e) {
-            view.displayMessage("Invalid input. Please enter a valid integer: ");
+            view.displayMessage("Invalid input. Please enter a valid integer: \n");
         }
     }
     return value;
@@ -61,7 +62,7 @@ char ConsoleController::validateInput(const std::string& prompt) {
                 break;
             }
         } else {
-            view.displayMessage("Invalid input. Please enter 'y' for yes or 'n' for no: ");
+            view.displayMessage("Invalid input. Please enter 'y' for yes or 'n' for no: \n");
         }
     }
     return choice;
@@ -77,12 +78,14 @@ void ConsoleController::setupBoard() {
             width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
             height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
      }
-    char fillChoice = validateInput("Do you want a pre-filled board? (y/n): ");
 
+    char fillChoice = validateInput("Do you want a pre-filled board? (y/n): ");
     if (fillChoice == 'y') {
         emptyBoard = false;
     }
-    model.resetGame(width, height, emptyBoard);
+    if(fillChoice == 'y' || sizeChoice == 'y'){
+        model.resetGame(width, height, emptyBoard);
+    }
 }
 
 
@@ -91,7 +94,13 @@ char ConsoleController::getInput() {
     std::string line;
     view.displayMessage("Enter a character: ");
     std::getline(std::cin, line);
-    return line.empty() ? '\0' : line[0];
+    char choice;
+    if (line.size() == 1) {
+        choice = std::tolower(line[0]);
+        return choice;
+    }else{
+        return '\0';
+    }
 }
 
 bool ConsoleController::handleInput(char input) {

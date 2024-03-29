@@ -17,10 +17,11 @@ class Game : public Observable {
 
     void updateGame(int dropDistance);
     void setCurrentBrick();
+    bool checkVictory();
 
 public:
     Game(int width = 10, int height = 20, bool emptyBoard = true);
-    void resetGame(int width, int height, bool emptyBoard);
+    void resetGame(int width = 10, int height = 20, bool emptyBoard = true);
     void start();
     void moveCurrentBrick(Direction direction);
     void rotateCurrentBrick(Rotation rotation);

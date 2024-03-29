@@ -3,13 +3,16 @@
 Game::Game(int width, int height, bool emptyBoard)
     :gameBoard(Board(width,height,emptyBoard)),
       gameBrickBag(Position(width/2,1)),
-      gameState(GameState::READY),
+      gameState(GameState::PLAYING),
       gameLevel(Level()),
       gameScore(Score()){}
 
 void Game::resetGame(int width, int height, bool emptyBoard) {
     gameBoard = Board(width, height, emptyBoard);
     gameBrickBag = BrickBag(Position(width / 2, 1));
+    gameState = GameState::PLAYING;
+    gameLevel = Level();
+    gameScore = Score();
 }
 
 void Game::start(){
@@ -55,16 +58,22 @@ void Game::updateGame(int dropDistance) {
         gameScore.updateScore(deletedLines, dropDistance, gameLevel.getActualLevel());
 
         //conditions for win
-        if(gameScore.getScore() > 1000){
-            gameState=GameState:: SCOREWIN;
-        } else if (gameLevel.getDeletedLines() > 50){
-            gameState=GameState:: LINESWIN;
-        } else {
-            //didn't win
+        if(!checkVictory()){
             setCurrentBrick();
         }
     }
     notifyObservers();
+}
+
+bool Game::checkVictory(){
+    if(gameScore.getScore() > 500){
+        gameState=GameState:: SCOREWIN;
+    } else if (gameLevel.getDeletedLines() > 0){
+        gameState=GameState:: LINESWIN;
+    } else {
+        return false;
+    }
+    return true;
 }
 
 bool Game::isGameOver(){

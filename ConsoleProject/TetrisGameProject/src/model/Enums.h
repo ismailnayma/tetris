@@ -37,7 +37,6 @@ enum class Rotation {
 
 // Enum for GameState
 enum class GameState {
-    READY,
     PLAYING,
     LOSS,
     SCOREWIN,
