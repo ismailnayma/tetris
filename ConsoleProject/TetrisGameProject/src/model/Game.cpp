@@ -1,7 +1,4 @@
-#include "../util/Observable.h"
 #include "Game.h"
-#include "iostream"
-
 
 Game::Game(int width, int height, bool emptyBoard)
     :gameBoard(Board(width,height,emptyBoard)),
@@ -13,9 +10,6 @@ Game::Game(int width, int height, bool emptyBoard)
 void Game::resetGame(int width, int height, bool emptyBoard) {
     gameBoard = Board(width, height, emptyBoard);
     gameBrickBag = BrickBag(Position(width / 2, 1));
-    gameState = GameState::READY;
-    gameLevel = Level();
-    gameScore = Score();
 }
 
 void Game::start(){
