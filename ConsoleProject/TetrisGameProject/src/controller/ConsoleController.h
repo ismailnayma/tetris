@@ -15,7 +15,7 @@ public:
     void setupBoard();
     // Function to read user input
     char getInput();
-     // Function to handle user input and call corresponding model methods
+    // Function to handle user input and call corresponding model methods
     bool handleInput(char input);
 
 };

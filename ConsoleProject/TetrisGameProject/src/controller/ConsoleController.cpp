@@ -75,9 +75,9 @@ void ConsoleController::setupBoard() {
     bool emptyBoard = true;
 
     if (sizeChoice == 'y') {
-            width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
-            height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
-     }
+        width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
+        height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
+    }
 
     char fillChoice = validateInput("Do you want a pre-filled board? (y/n): ");
     if (fillChoice == 'y') {
