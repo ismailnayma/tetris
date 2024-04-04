@@ -2,12 +2,8 @@
 
 ShapesRotation* ShapesRotation::ShapesRotationInstance = nullptr;
 
-/**
- * Static methods should be defined outside the class.
- */
 ShapesRotation* ShapesRotation::getInstance()
 {
-
     if(ShapesRotationInstance==nullptr){
         ShapesRotationInstance = new ShapesRotation();
     }
@@ -17,30 +13,20 @@ ShapesRotation* ShapesRotation::getInstance()
 const std::vector<Position> &ShapesRotation::getBrickPositions(TypeShape kind, Orientation orientation) const {
     // Try to find the TypeShape in the first map
     auto it1 = shapes.find(kind);
-
     // If TypeShape is found
     if (it1 != shapes.end()) {
         // Try to find the Orientation in the second map
         auto it2 = it1->second.find(orientation);
-
         // If Orientation is found
         if (it2 != it1->second.end()) {
             // Return the corresponding vector of positions
             return it2->second;
         }
     }
-
     // Return an empty vector by default if TypeShape or Orientation is not found
     static const std::vector<Position> emptyVector;
     return emptyVector;
 }
-
-
-
-/*ShapesRotation::~ShapesRotation() {
-        delete ShapesRotationinstance;
-    }
-*/
 
 ShapesRotation::ShapesRotation(){
 

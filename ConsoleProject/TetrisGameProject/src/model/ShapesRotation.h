@@ -45,8 +45,7 @@ public:
      */
     const std::vector<Position> &getBrickPositions(TypeShape kind, Orientation orientation) const;
 
-    // Destructor is not needed as we are using a singleton pattern
-    // ~ShapesRotation();
+
 };
 
 

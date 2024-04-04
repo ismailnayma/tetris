@@ -20,13 +20,15 @@ Board::Board(int width, int height, bool emptyBoard)
     for (int i = 0; i < height; ++i) {
         boardArea[i].resize(width);
     }
-
+    // Initialize a pre-filled board if emptyBoard is false
     if(!emptyBoard){
         for (int i = ((height / 3) * 2); i < height; ++i) {
             for (int j = 0; j < width; ++j) {
                 if(j==0){
+                    // first column always filled
                     boardArea[i][j] = generateRandomPiece(true);
                 }else if(j==width-1){
+                    // last column always empty
                     boardArea[i][j] = std::nullopt;
                 }else{
                     boardArea[i][j] = generateRandomPiece(false);
@@ -40,21 +42,28 @@ Board::Board(int width, int height, bool emptyBoard)
 
 
 std::optional<TypeShape> Board::generateRandomPiece(bool onlyTypeShape) {
+    // Initialize a random device for generating random numbers
     static std::random_device rd;
-    static std::mt19937 gen(rd());
+    // Initialize a pseudo-random number generator
+    static std::default_random_engine gen(rd());
+    // Define a distribution for generating random numbers to determine if the piece should be empty or not
     static std::uniform_int_distribution<int> disEmpty(0, 1);
-    static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER)-1); //if we want to have a random TypeShape
-    if(onlyTypeShape){
+    // Define a distribution for generating random numbers to determine the type of shape
+    static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER) - 1);
+
+    // If onlyTypeShape is true, return a random TypeShape
+    if (onlyTypeShape) {
         return static_cast<TypeShape>(disShape(gen));
-    }else{
+    } else {
+        // If not onlyTypeShape, generate a random number to determine if the piece should be empty
         if (disEmpty(gen) == 0) {
+            // If the random number is 0, return an empty piece (std::nullopt)
             return std::nullopt;
         } else {
-            //return TypeShape::O_SHAPE;
-            return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
+            // If the random number is not 0, return a random TypeShape
+            return static_cast<TypeShape>(disShape(gen));
         }
     }
-
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {
@@ -264,7 +273,7 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     // Get the vector of positions for the given brick type and orientation from ShapesRotation
     const std::vector<Position>& brickPositions = shapesRotation->getBrickPositions(brick.getTypeShape(), brick.getOrientation());
 
-    // Calculate the corresponding board positions
+    // Calculate the corresponding real board positions
     for (const Position& brickPos : brickPositions) {
         int boardPosX = brick.getBoardPosition().getPosX() + brickPos.getPosX();
         int boardPosY = brick.getBoardPosition().getPosY() + brickPos.getPosY();
@@ -290,7 +299,6 @@ const int& Board::getBoardWidth() const{
     return boardWidth;
 }
 
-// Implémentation de la méthode setBoardArea
 void Board::setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area) {
     boardArea = area;
 }

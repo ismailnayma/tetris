@@ -68,7 +68,7 @@ void Game::updateGame(int dropDistance) {
 bool Game::checkVictory(){
     if(gameScore.getScore() > 500){
         gameState=GameState:: SCOREWIN;
-    } else if (gameLevel.getDeletedLines() > 0){
+    } else if (gameLevel.getDeletedLines() > 1000){
         gameState=GameState:: LINESWIN;
     } else {
         return false;
@@ -82,7 +82,6 @@ bool Game::isGameOver(){
             gameState==GameState:: SCOREWIN ;
 }
 
-//Getters
 const GameState& Game::getGameState() const{
     return gameState;
 }

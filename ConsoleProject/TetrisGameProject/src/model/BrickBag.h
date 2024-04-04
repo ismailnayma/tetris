@@ -3,7 +3,6 @@
 
 #include "Brick.h"
 #include "Position.h"
-#include "Enums.h"
 #include <vector>
 #include <random>
 

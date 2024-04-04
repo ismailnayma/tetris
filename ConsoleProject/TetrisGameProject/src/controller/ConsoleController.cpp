@@ -1,5 +1,4 @@
 #include "ConsoleController.h"
-#include "iostream"
 
 ConsoleController::ConsoleController(Game& model)
     :model(model),view(model){
@@ -7,8 +6,10 @@ ConsoleController::ConsoleController(Game& model)
 }
 
 void ConsoleController:: playTetris(){
+    // ask if we want a specific size board or a pre-filled board
     setupBoard();
     bool playing = true;
+
     model.start();
     view.displayControls();
 
@@ -123,6 +124,7 @@ bool ConsoleController::handleInput(char input) {
         model.dropCurrentBrick();
         break;
     case 'l':
+        model.unregisterObserver(&view);
         return false; //exit, leave the game
     case 'h':
         view.displayControls();

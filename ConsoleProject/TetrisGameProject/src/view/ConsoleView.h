@@ -2,7 +2,7 @@
 #define CONSOLEVIEW_H
 #include "../model/Game.h"
 #include "../util/Observer.h"
-#include "iostream"
+
 
 
 class ConsoleView : public Observer{

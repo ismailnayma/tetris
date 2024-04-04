@@ -36,7 +36,7 @@ void Level::setSpeed(int level) {
         speed = 13;
         break;
     case 12:
-        speed = 8;
+        speed = 9;
         break;
     case 13:
         speed = 9;
@@ -65,8 +65,6 @@ void Level::setSpeed(int level) {
     default:
         if (level > 20) {
             speed = 2;
-        } else {
-            throw std::out_of_range("Value is outside the allowed range");
         }
     }
 }

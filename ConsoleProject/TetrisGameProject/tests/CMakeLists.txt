@@ -5,7 +5,6 @@ file(GLOB UTIL_SOURCES "../src/util/*.cpp")
 
 add_executable(TetrisGameProjectTests
 
-
     testBoard.cpp
     ${MODEL_SOURCES}
     ${UTIL_SOURCES}

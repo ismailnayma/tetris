@@ -1,12 +1,14 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <iostream>
 #include "BrickBag.h"
 #include "Board.h"
 #include "Score.h"
 #include "Level.h"
 #include "Enums.h"
 #include "../util/Observable.h"
+
 
 class Game : public Observable {
     GameState gameState;
