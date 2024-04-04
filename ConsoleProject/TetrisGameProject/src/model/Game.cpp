@@ -49,7 +49,7 @@ void Game::dropCurrentBrick(){
 }
 
 
- //If the current brick is fallen update the Board, Score,Level and GameState
+//If the current brick is fallen update the Board, Score,Level and GameState
 void Game::updateGame(int dropDistance) {
     if (gameBoard.isCurrentBrickFallen()) {
         int deletedLines = gameBoard.deletePossibleLines();
@@ -78,8 +78,8 @@ bool Game::checkVictory(){
 
 bool Game::isGameOver(){
     return gameState==GameState::LOSS ||
-           gameState==GameState:: LINESWIN ||
-           gameState==GameState:: SCOREWIN ;
+            gameState==GameState:: LINESWIN ||
+            gameState==GameState:: SCOREWIN ;
 }
 
 //Getters

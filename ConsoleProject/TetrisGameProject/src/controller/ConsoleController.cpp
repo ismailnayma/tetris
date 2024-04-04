@@ -9,7 +9,6 @@ ConsoleController::ConsoleController(Game& model)
 void ConsoleController:: playTetris(){
     setupBoard();
     bool playing = true;
-
     model.start();
     view.displayControls();
 
@@ -128,7 +127,7 @@ bool ConsoleController::handleInput(char input) {
     case 'h':
         view.displayControls();
     default:
-        view.displayMessage("input is not recognized: ");
+        view.displayMessage("input is not recognized (enter 'h' for help) \n");
     }
     return true;
 }

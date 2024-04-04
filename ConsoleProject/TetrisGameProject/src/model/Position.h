@@ -8,8 +8,8 @@
  */
 class Position {
 private:
-    int posX; ///< Represents the column of the board (0 starting from the left bottom).
-    int posY; ///< Represents the line of the board (0 starting from the top).
+    int posX; // Represents the column of the board (0 starting from the left bottom).
+    int posY; // Represents the line of the board (0 starting from the top).
 
 public:
     Position(int x = 0, int y = 0);

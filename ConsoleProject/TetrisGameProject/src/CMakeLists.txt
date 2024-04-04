@@ -27,8 +27,6 @@ add_executable(TetrisGameProject
     view/ConsoleView.cpp
     controller/ConsoleController.h
     controller/ConsoleController.cpp
-    MyClass.cpp
-    MyClass.h
 
 )
 

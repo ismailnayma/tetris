@@ -12,8 +12,8 @@
 
 Board::Board(int width, int height, bool emptyBoard)
     : boardWidth(width),
-    boardHeight(height),
-    shapesRotation(ShapesRotation::getInstance()) {
+      boardHeight(height),
+      shapesRotation(ShapesRotation::getInstance()) {
 
     // Initialize the boardArea vector with the specified width and height
     boardArea.resize(height);
@@ -23,15 +23,15 @@ Board::Board(int width, int height, bool emptyBoard)
 
     if(!emptyBoard){
         for (int i = ((height / 3) * 2); i < height; ++i) {
-                for (int j = 0; j < width; ++j) {
-                    if(j==0){
-                        boardArea[i][j] = generateRandomPiece(true);
-                    }else if(j==width-1){
-                        boardArea[i][j] = std::nullopt;
-                    }else{
-                        boardArea[i][j] = generateRandomPiece(false);
-                    }
+            for (int j = 0; j < width; ++j) {
+                if(j==0){
+                    boardArea[i][j] = generateRandomPiece(true);
+                }else if(j==width-1){
+                    boardArea[i][j] = std::nullopt;
+                }else{
+                    boardArea[i][j] = generateRandomPiece(false);
                 }
+            }
         }
     }
 
@@ -51,7 +51,7 @@ std::optional<TypeShape> Board::generateRandomPiece(bool onlyTypeShape) {
             return std::nullopt;
         } else {
             //return TypeShape::O_SHAPE;
-           return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
+            return static_cast<TypeShape>(disShape(gen));//if we want to have a random TypeShape
         }
     }
 
