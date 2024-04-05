@@ -16,8 +16,6 @@ Mise en place d'une gestion d'erreur du modèle plus robuste. (Exemple: Lancer d
 Après execution tout séra demandé à l'utilisateur. La touche 'H' affiches les commandes pour jouer.
 
 
-
-
-Ce projet offre une expérience de jeu Tetris complète et sans erreur, avec toutes les fonctionnalités attendues et aucune limitation majeure.
+### Crédits
 
 Par Nayma Assam Ismail et Paraschiv Olivia
