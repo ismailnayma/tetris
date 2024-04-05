@@ -1,12 +1,12 @@
 #include "ConsoleView.h"
+#include <iostream>
 
+ConsoleView::ConsoleView(Game& game) : game(game) {}
 
-ConsoleView::ConsoleView(Game& game):game(game){};
-
-void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const{
+void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const {
     displayLineBorder();
     for (const auto& row : boardArea) {
-        std::cout <<" |";
+        std::cout << " |";
         for (const auto& cell : row) {
             if (!cell.has_value()) {
                 std::cout << '.';
@@ -35,25 +35,26 @@ void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShap
                     break;
                 default:
                     break;
-
                 }
             }
-            std::cout << ' ';  // add a space
+            std::cout << ' ';  // Add a space
         }
-        std::cout<<"| " << '\n';  // next line
+        std::cout << "| " << '\n';  // Next line
     }
+
+    std::cout << "\n";
 }
 
-
-void ConsoleView::displayLineBorder() const{
-    for(int i =0; i<game.getGameBoard().getBoardWidth()+1;i++){
-        if(i==0){
-            std::cout <<"  ";
-        }else{
-            std::cout <<"__";
+void ConsoleView::displayLineBorder() const {
+    for (int i = 0; i < game.getGameBoard().getBoardWidth() + 1; i++) {
+        if (i == 0) {
+            std::cout << "  ";
+        } else {
+            std::cout << "__";
         }
     }
-    std::cout<<"\n";
+
+    std::cout << "\n";
 }
 
 void ConsoleView::displayControls() const {
@@ -65,14 +66,15 @@ void ConsoleView::displayControls() const {
               << "Z - Rotate Right\n"
               << "E - Drop\n"
               << "H - Help(controls)\n"
-              << "L - Leave\n";
+              << "L - Leave\n"
+              << "\n";
 }
 
-void ConsoleView::displayLevelAndScore() const{
-    std::cout<<"\n";
-    std::cout << "  Score: "<< game.getGameScore().getScore()<<"\n"
-              << "  Level: "<< game.getGameLevel().getActualLevel()<<"\n"
-              << "  Lines: "<< game.getGameLevel().getDeletedLines()<<"\n" ;
+void ConsoleView::displayLevelAndScore() const {
+    std::cout << "\n";
+    std::cout << "  Score: " << game.getGameScore().getScore() << "\n"
+              << "  Level: " << game.getGameLevel().getActualLevel() << "\n"
+              << "  Lines: " << game.getGameLevel().getDeletedLines() << "\n";
 }
 
 void ConsoleView::displayMessage(const std::string& message) const{
@@ -82,6 +84,7 @@ void ConsoleView::displayMessage(const std::string& message) const{
 void ConsoleView::update() {
     ConsoleView::displayLevelAndScore();
     ConsoleView::showBoard(game.getGameBoard().getBoardArea());
+
     if(game.getGameState() == GameState::LOSS){
         std::cout<<"You lost :("<<std::endl;
     } else if(game.getGameState() == GameState::SCOREWIN){

@@ -1,14 +1,12 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <iostream>
 #include "BrickBag.h"
 #include "Board.h"
 #include "Score.h"
 #include "Level.h"
 #include "Enums.h"
 #include "../util/Observable.h"
-
 
 class Game : public Observable {
     GameState gameState;
@@ -29,13 +27,10 @@ public:
     void rotateCurrentBrick(Rotation rotation);
     void dropCurrentBrick();
     bool isGameOver();
-
-    //Getters
     const GameState& getGameState() const;
     const Board& getGameBoard() const;
     const Level& getGameLevel() const;
     const Score& getGameScore() const;
 };
-
 
 #endif // GAME_H

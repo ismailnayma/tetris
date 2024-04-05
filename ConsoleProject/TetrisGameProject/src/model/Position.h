@@ -8,19 +8,15 @@
  */
 class Position {
 private:
-    int posX; // Represents the column of the board (0 starting from the left bottom).
-    int posY; // Represents the line of the board (0 starting from the top).
+    int posX;
+    int posY;
 
 public:
     Position(int x = 0, int y = 0);
-
     int getPosX() const;
     int getPosY() const;
     void setPosX(int x);
     void setPosY(int y);
-
-
-    // Surcharge de l'opérateur ==
     bool operator==(const Position& other) const;
 };
 

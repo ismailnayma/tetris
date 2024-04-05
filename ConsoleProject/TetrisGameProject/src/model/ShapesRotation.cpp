@@ -2,34 +2,35 @@
 
 ShapesRotation* ShapesRotation::ShapesRotationInstance = nullptr;
 
-ShapesRotation* ShapesRotation::getInstance()
-{
-    if(ShapesRotationInstance==nullptr){
+ShapesRotation* ShapesRotation::getInstance() {
+    if (ShapesRotationInstance == nullptr) {
         ShapesRotationInstance = new ShapesRotation();
     }
+
     return ShapesRotationInstance;
 }
 
-const std::vector<Position> &ShapesRotation::getBrickPositions(TypeShape kind, Orientation orientation) const {
-    // Try to find the TypeShape in the first map
-    auto it1 = shapes.find(kind);
-    // If TypeShape is found
-    if (it1 != shapes.end()) {
-        // Try to find the Orientation in the second map
-        auto it2 = it1->second.find(orientation);
-        // If Orientation is found
-        if (it2 != it1->second.end()) {
+const std::vector<Position>& ShapesRotation::getBrickPositions(TypeShape typeShape,
+                                                               Orientation orientation) const {
+    // Try to find the typeShape in the first map
+    auto shapeIter = shapes.find(typeShape);
+    // If typeShape is found
+    if (shapeIter != shapes.end()) {
+        // Try to find the orientation in the second map
+        auto orientationIter = shapeIter->second.find(orientation);
+        // If orientation is found
+        if (orientationIter != shapeIter->second.end()) {
             // Return the corresponding vector of positions
-            return it2->second;
+            return orientationIter->second;
         }
     }
-    // Return an empty vector by default if TypeShape or Orientation is not found
+
+    // Return an empty vector by default if typeShape or orientation is not found
     static const std::vector<Position> emptyVector;
     return emptyVector;
 }
 
 ShapesRotation::ShapesRotation(){
-
     // O Shape
     shapes[TypeShape::O_SHAPE] = {
         {Orientation::UP, {Position(0, 0), Position(-1, 0), Position(-1, 1), Position(0,1)}},
@@ -86,5 +87,3 @@ ShapesRotation::ShapesRotation(){
         {Orientation::LEFT, {Position(0, 0), Position(0, -1), Position(0, 1), Position(1, 0)}}
     };
 }
-
-

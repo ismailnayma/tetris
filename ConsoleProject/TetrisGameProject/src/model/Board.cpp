@@ -252,6 +252,3 @@ const int& Board::getBoardHeight() const{
 const int& Board::getBoardWidth() const{
     return boardWidth;
 }
-
-
-

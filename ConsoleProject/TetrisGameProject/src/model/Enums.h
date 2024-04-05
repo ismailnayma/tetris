@@ -1,7 +1,6 @@
 ﻿#ifndef ENUMS_H
 #define ENUMS_H
 
-// Enum for TypeShape
 enum class TypeShape {
     O_SHAPE,
     I_SHAPE,
@@ -13,7 +12,6 @@ enum class TypeShape {
     TYPESHAPE_NUMBER
 };
 
-// Enum for Orientation
 enum class Orientation {
     UP,
     RIGHT,
@@ -21,27 +19,22 @@ enum class Orientation {
     LEFT
 };
 
-// Enum for Direction
 enum class Direction {
     RIGHT,
     DOWN,
     LEFT
 };
 
-// Enum for Rotation
 enum class Rotation {
     CLOCKWISE,
     COUNTERCLOCKWISE
 };
 
-
-// Enum for GameState
 enum class GameState {
     PLAYING,
     LOSS,
     SCOREWIN,
     LINESWIN
 };
-
 
 #endif // ENUMS_H

@@ -44,11 +44,7 @@ public:
      * @return The vector of positions for the given shape and orientation.
      */
     const std::vector<Position> &getBrickPositions(TypeShape kind, Orientation orientation) const;
-
-
 };
-
-
 
 #endif // ShapesRotation_H
 

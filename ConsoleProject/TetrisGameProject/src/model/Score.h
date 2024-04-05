@@ -7,11 +7,8 @@ private:
 
 public:
     Score(int score = 0);
-
     void updateScore(int deletedLines, int dropDistance, int currentLevel);
-
     int getScore() const;
 };
-
 
 #endif // SCORE_H

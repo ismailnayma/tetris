@@ -1,21 +1,16 @@
 #include "Observable.h"
 #include "Observer.h"
-#include <iostream>
 
-void Observable::registerObserver(Observer * observer)
-{
+void Observable::registerObserver(Observer* observer) {
     _observers.insert(observer);
 }
 
-void Observable::unregisterObserver(Observer * observer)
-{
+void Observable::unregisterObserver(Observer* observer) {
     _observers.erase(observer);
 }
 
-void Observable::notifyObservers() const
-{
-    for (Observer * observer : _observers)
-    {
+void Observable::notifyObservers() const {
+    for (Observer* observer : _observers) {
         observer->update();
     }
 }

@@ -12,6 +12,7 @@ BrickBag::BrickBag(Position start) : randomEngine(std::random_device{}()) {
         Orientation orientation = Orientation::UP;  // Initialize with a default orientation
         bricks.emplace_back(type, orientation, start);
     }
+
     shuffleBricks();
 }
 

@@ -1,4 +1,5 @@
 #include "ConsoleController.h"
+#include <iostream>
 
 ConsoleController::ConsoleController(Game& model)
     :model(model),view(model){
@@ -98,7 +99,6 @@ bool ConsoleController::handleUserInput(char input) {
     }
     return true;
 }
-
 
 int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
     int value;

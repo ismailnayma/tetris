@@ -3,22 +3,22 @@
 Brick::Brick(TypeShape typeShape, Orientation orientation, Position position)
     : shape(typeShape), orientation(orientation), boardPosition(position) {}
 
-Orientation Brick::getOrientation() const {
-    return orientation;
+TypeShape Brick::getTypeShape() const {
+    return shape;
 }
 
-void Brick::setOrientation(Orientation orientation) {
-    orientation = orientation;
+Orientation Brick::getOrientation() const {
+    return orientation;
 }
 
 Position Brick::getBoardPosition() const {
     return boardPosition;
 }
 
-void Brick::setBoardPosition(Position position) {
-    boardPosition = position;
+void Brick::setOrientation(Orientation orientation) {
+    orientation = orientation;
 }
 
-TypeShape Brick::getTypeShape() const {
-    return shape;
+void Brick::setBoardPosition(Position position) {
+    boardPosition = position;
 }

@@ -3,20 +3,17 @@
 
 #include <set>
 
-// forward declaration
-class Observer;
+class Observer; // Forward declaration
 
-class Observable
-{
+class Observable {
+private:
+    std::set<Observer *> _observers;
+
 public:
     virtual ~Observable() = default;
     void registerObserver(Observer * observer);
     void unregisterObserver(Observer * observer);
     void notifyObservers() const;
-
-private:
-    std::set<Observer *> _observers;
 };
-
 
 #endif // OBSERVABLE_H

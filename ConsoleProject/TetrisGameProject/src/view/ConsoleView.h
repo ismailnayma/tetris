@@ -3,11 +3,10 @@
 #include "../model/Game.h"
 #include "../util/Observer.h"
 
-
-
-class ConsoleView : public Observer{
+class ConsoleView : public Observer {
 private:
     Game& game;
+
 public:
     ConsoleView(Game& game);
     void displayLineBorder() const;
