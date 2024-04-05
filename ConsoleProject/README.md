@@ -9,6 +9,13 @@ Toutes les fonctionnalités ont été implémentées. Les pièces peuvent être 
 ## Conditions de Victoire
 Toutes les conditions de victoire sont implémentées. Le jeu se termine lorsque le joueur perd, atteint un certain score ou complète un certain nombre de lignes. Les joueurs peuvent modifier ces conditions dans la méthode `checkVictory` de la classe `Game`. Seule la condition basée sur le temps écoulé depuis le début du jeu n'est pas implémentée dans cette version console, mais elle le sera dans la version graphique.
 
+## Piste d'amélioration
+Mise en place d'une gestion d'erreur du modèle plus robuste. (Exemple: Lancer des exceptions pour des erreurs hors entrée utilisateur)
+
+## Commandes de jeu
+Après execution tout séra demandé à l'utilisateur. La touche 'H' affiches les commandes pour jouer.
+
+
 Ce projet offre une expérience de jeu Tetris complète et sans erreur, avec toutes les fonctionnalités attendues et aucune limitation majeure.
 
 Par Nayma Assam Ismail et Paraschiv Olivia
