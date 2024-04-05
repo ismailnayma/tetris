@@ -17,11 +17,13 @@ private:
     const ShapesRotation* shapesRotation;
 
     bool isCollision(const Brick& brick) const;
+    // Helper function for setting or removing the brick's shape on the "boardArea"
     void updateArea(bool addBrick);
     std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
+    // Helper function for handling area brick removal, collision check, and area update
     bool handleBrickAdjustment(const Brick& newCurBrick);
     void setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area);
-    std::optional<TypeShape> generateRandomBrick(bool onlyTypeShape);
+    std::optional<TypeShape> generateRandomShape(bool onlyTypeShape);
 
 public:
     Board(int width = 10, int height = 20, bool emptyBoard = true); //=default constructors
