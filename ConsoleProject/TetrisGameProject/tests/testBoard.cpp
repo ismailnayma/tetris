@@ -227,10 +227,6 @@ TEST_CASE("Rotation of Current Brick", "[board]") {
 
 }
 
-
-
-
-
 TEST_CASE("Out of Bounds Rotation of Current Brick to the Left", "[board]") {
     // Create a board and set a brick near the left bound
     Board board;
