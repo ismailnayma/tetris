@@ -93,9 +93,10 @@ bool ConsoleController::handleUserInput(char input) {
         return false; //exit, leave the game
     case 'h':
         view.displayControls();
-
+        break;
     default:
         view.displayMessage("The user input is not recognized (enter 'h' for help) \n");
+        break;
     }
     return true;
 }
