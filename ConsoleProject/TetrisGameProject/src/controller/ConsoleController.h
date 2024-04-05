@@ -4,20 +4,19 @@
 #include "../view/ConsoleView.h"
 
 class ConsoleController {
+private:
     Game& model;
     ConsoleView view;
 
+    void setBoard();
+    char getUserInput();
+    bool handleUserInput(char input);
     int getValidInteger(const std::string& prompt, int min, int max);
-    char validateInput(const std::string& prompt);
+    char getValidChoiceInput(const std::string& prompt);
+
 public:
     ConsoleController(Game& model);
     void playTetris();
-    void setupBoard();
-    // Function to read user input
-    char getInput();
-    // Function to handle user input and call corresponding model methods
-    bool handleInput(char input);
-
 };
 
 #endif // CONSOLECONTROLLER_H

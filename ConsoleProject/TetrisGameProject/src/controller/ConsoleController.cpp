@@ -6,21 +6,21 @@ ConsoleController::ConsoleController(Game& model)
 }
 
 void ConsoleController:: playTetris(){
-    // ask if we want a specific size board or a pre-filled board
-    setupBoard();
+    setBoard(); // asks user if he wants a specific size board or a pre-filled board
     bool playing = true;
 
     model.start();
     view.displayControls();
 
     while (!model.isGameOver() && playing) {
-        playing = handleInput(getInput());
+        playing = handleUserInput(getUserInput());
+
         if(model.isGameOver()){
-            //ask the player if he wants to start a new game
-            char replayChoice = validateInput("Do you want to play a new game? (y/n): ");
+            char replayChoice = getValidChoiceInput("Do you want to play a new game? (y/n): ");
+
             if(replayChoice == 'y'){
                 model.resetGame();
-                setupBoard();
+                setBoard();
                 model.start();
                 view.displayControls();
             } else {
@@ -30,80 +30,44 @@ void ConsoleController:: playTetris(){
     }
 }
 
-int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
-    int value;
-    while (true) {
-        view.displayMessage(prompt);
-        std::string input;
-        std::getline(std::cin, input);
-        try {
-            value = std::stoi(input);
-            if (value < min || value > max) {
-                view.displayMessage("Input must be between " + std::to_string(min) + " and " + std::to_string(max) + ".\n");
-            } else {
-                break;
-            }
-        } catch (const std::exception& e) {
-            view.displayMessage("Invalid input. Please enter a valid integer: \n");
-        }
-    }
-    return value;
-}
-
-char ConsoleController::validateInput(const std::string& prompt) {
-    std::string input;
-    char choice;
-    while (true) {
-        std::cout << prompt;
-        std::getline(std::cin, input);
-        if (input.size() == 1) {
-            choice = std::tolower(input[0]);
-            if(choice == 'y' || choice == 'n'){
-                break;
-            }
-        } else {
-            view.displayMessage("Invalid input. Please enter 'y' for yes or 'n' for no: \n");
-        }
-    }
-    return choice;
-}
-
-void ConsoleController::setupBoard() {
-    char sizeChoice = validateInput("Do you want to choose the size of the board? (y/n): ");
-    int width = model.getGameBoard().getBoardWidth();
-    int height = model.getGameBoard().getBoardHeight();
+void ConsoleController::setBoard() {
+    char userSizeChoice = getValidChoiceInput("Do you want to choose the size of the board? (y/n): ");
+    int boardWidth = model.getGameBoard().getBoardWidth();
+    int boardHeight = model.getGameBoard().getBoardHeight();
     bool emptyBoard = true;
 
-    if (sizeChoice == 'y') {
-        width = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
-        height = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
+    if (userSizeChoice == 'y') {
+        boardWidth = getValidInteger("Enter the width of the board (between 5 and 50): ", 5, 50);
+        boardHeight = getValidInteger("Enter the height of the board (between 5 and 50): ", 5, 50);
     }
 
-    char fillChoice = validateInput("Do you want a pre-filled board? (y/n): ");
-    if (fillChoice == 'y') {
+    char fillBoardChoice = getValidChoiceInput("Do you want a pre-filled board? (y/n): ");
+
+    if (fillBoardChoice == 'y') {
         emptyBoard = false;
     }
-    if(fillChoice == 'y' || sizeChoice == 'y'){
-        model.resetGame(width, height, emptyBoard);
+
+    if(fillBoardChoice == 'y' || userSizeChoice == 'y'){
+        model.resetGame(boardWidth, boardHeight, emptyBoard);
     }
 }
 
+char ConsoleController::getUserInput() {
+    std::string userInput;
+    char userChoice;
 
-char ConsoleController::getInput() {
-    //return _getch(); // Read a single character without echoing
-    std::string line;
     view.displayMessage("Enter a character: ");
-    std::getline(std::cin, line);
-    char choice;
-    if (line.size() == 1) {
-        choice = std::tolower(line[0]);
-        return choice;
+    std::getline(std::cin, userInput);
+
+    if (userInput.size() == 1) {
+        userChoice = std::tolower(userInput[0]);
+        return userChoice;
     }else{
         return '\0';
     }
 }
 
-bool ConsoleController::handleInput(char input) {
+bool ConsoleController::handleUserInput(char input) {
     switch (std::tolower(input)) {
     case 'q':
         model.moveCurrentBrick(Direction::LEFT);
@@ -128,8 +92,56 @@ bool ConsoleController::handleInput(char input) {
         return false; //exit, leave the game
     case 'h':
         view.displayControls();
+
     default:
-        view.displayMessage("input is not recognized (enter 'h' for help) \n");
+        view.displayMessage("The user input is not recognized (enter 'h' for help) \n");
     }
     return true;
+}
+
+
+int ConsoleController::getValidInteger(const std::string& prompt, int min, int max) {
+    int value;
+
+    while (true) {
+        std::string userInput;
+
+        view.displayMessage(prompt);
+        std::getline(std::cin, userInput);
+
+        try {
+            value = std::stoi(userInput);
+
+            if (value < min || value > max) {
+                view.displayMessage("Input must be between " + std::to_string(min)
+                                    + " and " + std::to_string(max) + ".\n");
+            } else {
+                break;
+            }
+        } catch (const std::exception& e) {
+            view.displayMessage("Invalid input. Please enter a valid integer: \n");
+        }
+    }
+    return value;
+}
+
+char ConsoleController::getValidChoiceInput(const std::string& prompt) {
+    std::string userInput;
+    char userChoice;
+
+    while (true) {
+        std::cout << prompt;
+        std::getline(std::cin, userInput);
+
+        if (userInput.size() == 1) {
+            userChoice = std::tolower(userInput[0]);
+
+            if(userChoice == 'y' || userChoice == 'n'){
+                break;
+            }
+        } else {
+            view.displayMessage("Invalid input. Please enter 'y' for yes or 'n' for no: \n");
+        }
+    }
+    return userChoice;
 }

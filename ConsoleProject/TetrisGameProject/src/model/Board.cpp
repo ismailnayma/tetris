@@ -6,10 +6,6 @@
 #include <vector>
 #include <optional>
 
-#include <cstdlib> // Pour rand
-#include <ctime>   // Pour time
-
-
 Board::Board(int width, int height, bool emptyBoard)
     : boardWidth(width),
       boardHeight(height),
@@ -20,32 +16,28 @@ Board::Board(int width, int height, bool emptyBoard)
     for (int i = 0; i < height; ++i) {
         boardArea[i].resize(width);
     }
-    // Initialize a pre-filled board if emptyBoard is false
+
+    // Initialize a pre-filled board if "emptyBoard" is false
     if(!emptyBoard){
         for (int i = ((height / 3) * 2); i < height; ++i) {
             for (int j = 0; j < width; ++j) {
-                if(j==0){
-                    // first column always filled
-                    boardArea[i][j] = generateRandomPiece(true);
+                if(j == 0){
+                    // first column is always filled
+                    boardArea[i][j] = generateRandomBrick(true);
                 }else if(j==width-1){
-                    // last column always empty
+                    // last column is always empty
                     boardArea[i][j] = std::nullopt;
                 }else{
-                    boardArea[i][j] = generateRandomPiece(false);
+                    boardArea[i][j] = generateRandomBrick(false);
                 }
             }
         }
     }
-
-
 }
 
-
-std::optional<TypeShape> Board::generateRandomPiece(bool onlyTypeShape) {
-    // Initialize a random device for generating random numbers
+std::optional<TypeShape> Board::generateRandomBrick(bool onlyTypeShape) {
     static std::random_device rd;
-    // Initialize a pseudo-random number generator
-    static std::default_random_engine gen(rd());
+    static std::default_random_engine gen(rd());  // Initialize a pseudo-random number generator
     // Define a distribution for generating random numbers to determine if the piece should be empty or not
     static std::uniform_int_distribution<int> disEmpty(0, 1);
     // Define a distribution for generating random numbers to determine the type of shape
@@ -69,7 +61,6 @@ std::optional<TypeShape> Board::generateRandomPiece(bool onlyTypeShape) {
 bool Board::setCurrentBrick(const Brick& brick) {
     return !isCollision(brick) ? (currentBrick = brick,updateArea(true), true) : false;
 }
-
 
 bool Board::moveCurrentBrick(Direction direction) {
     Position newCurBrickPos = currentBrick.getBoardPosition();
