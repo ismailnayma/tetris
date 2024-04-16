@@ -29,16 +29,15 @@ void Game::setCurrentBrick() {
 }
 void Game::moveCurrentBrick(Direction direction) {
     int dropDistance = 0;
-    if (gameBoard.moveCurrentBrick(direction)) {
-        updateGame(dropDistance);
-    }
+    gameBoard.moveCurrentBrick(direction);
+    updateGame(dropDistance);
+
 }
 
 void Game::rotateCurrentBrick(Rotation rotation) {
     int dropDistance = 0;
-    if (gameBoard.rotateCurrentBrick(rotation)) {
-        updateGame(dropDistance);
-    }
+    gameBoard.rotateCurrentBrick(rotation);
+    updateGame(dropDistance);
 }
 
 void Game::dropCurrentBrick() {

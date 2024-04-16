@@ -36,7 +36,7 @@ Board::Board(int width, int height, bool emptyBoard)
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {
-    return !isCollision(brick) ? (currentBrick = brick,updateArea(true), true) : false;
+    return !isCollision(brick) ? (currentBrick = brick,updateArea(true),fallen = false, true) : false;
 }
 
 bool Board::moveCurrentBrick(Direction direction) {
@@ -96,22 +96,7 @@ int Board::dropCurrentBrick() {
 }
 
 bool Board::isCurrentBrickFallen() {
-    // Create a new position one unit below the current brick's position
-    Position newCurBrickPos(currentBrick.getBoardPosition().getPosX(),
-                            currentBrick.getBoardPosition().getPosY() + 1);
-
-    // Create a new brick with the updated position
-    Brick newCurBrick(currentBrick.getTypeShape(), currentBrick.getOrientation(), newCurBrickPos);
-
-    // Temporarily remove the current brick from the area to check for collisions with the new one
-    updateArea(false);
-
-    bool cannotBeMovedDown = isCollision(newCurBrick);
-
-    // Add the current brick on the boardArea
-    updateArea(true);
-
-    return cannotBeMovedDown;
+    return fallen;
 }
 
 int Board::deletePossibleLines() {
@@ -171,10 +156,17 @@ bool Board::handleBrickAdjustment(const Brick& newCurBrick) {
         currentBrick = newCurBrick;
         updateArea(true); // Add the new current brick on the "boardArea"
         return true;
+    }else{
+        Position CurBrickPosDown(currentBrick.getBoardPosition().getPosX(),
+                                currentBrick.getBoardPosition().getPosY() + 1);
+        if(newCurBrick.getBoardPosition()==CurBrickPosDown){
+            updateArea(true);
+            fallen = true;
+        }
     }
 
-    // If there is a collision with the new current brick, redraw the old current brick
     updateArea(true);
+    // If there is a collision with the new current brick, redraw the old current brick
     return false;
 }
 
