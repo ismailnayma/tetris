@@ -3,11 +3,13 @@
 
 #include "../model/Game.h"
 #include "../view/ConsoleView.h"
+#include "../model/Timer.h"
 
 class ConsoleController {
 private:
     Game& model;
     ConsoleView view;
+    Timer timer;
 
     void setBoard();
     char getUserInput();

@@ -34,7 +34,8 @@ enum class GameState {
     PLAYING,
     LOSS,
     SCOREWIN,
-    LINESWIN
+    LINESWIN,
+    TIMELOSS
 };
 
 #endif // ENUMS_H

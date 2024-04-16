@@ -20,6 +20,8 @@ add_executable(TetrisGameProject
     model/Score.cpp
     model/Game.h
     model/Game.cpp
+    model/Timer.h
+    model/Timer.cpp
     util/Observer.h
     util/Observable.h
     util/Observable.cpp

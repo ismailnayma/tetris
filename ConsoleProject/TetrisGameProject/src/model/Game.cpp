@@ -76,7 +76,8 @@ bool Game::checkVictory() {
 bool Game::isGameOver() {
     return gameState == GameState::LOSS ||
            gameState == GameState::LINESWIN ||
-           gameState == GameState::SCOREWIN;
+           gameState == GameState::SCOREWIN ||
+           gameState == GameState::TIMELOSS;
 }
 
 const GameState& Game::getGameState() const {
@@ -93,4 +94,9 @@ const Level& Game::getGameLevel() const {
 
 const Score& Game::getGameScore() const {
     return gameScore;
+}
+
+void Game::setState(GameState state){
+    gameState = state;
+    notifyObservers();
 }

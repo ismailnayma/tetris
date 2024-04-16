@@ -31,6 +31,7 @@ public:
     const Board& getGameBoard() const;
     const Level& getGameLevel() const;
     const Score& getGameScore() const;
+    void setState(GameState);
 };
 
 #endif // GAME_H

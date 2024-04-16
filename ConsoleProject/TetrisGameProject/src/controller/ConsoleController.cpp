@@ -2,7 +2,7 @@
 #include <iostream>
 
 ConsoleController::ConsoleController(Game& model)
-    :model(model),view(model){
+    :model(model),view(model),timer(model){
     model.registerObserver(&view);
 }
 
@@ -15,11 +15,12 @@ void ConsoleController:: playTetris(){
 
     while (!model.isGameOver() && playing) {
         playing = handleUserInput(getUserInput());
-
+       // timer.startGameOverTimer(std::chrono::seconds(5));
         if(model.isGameOver()){
             char replayChoice = getValidChoiceInput("Do you want to play a new game? (y/n): ");
 
             if(replayChoice == 'y'){
+                timer.startGameOverTimer(std::chrono::seconds(5));
                 model.resetGame();
                 setBoard();
                 model.start();

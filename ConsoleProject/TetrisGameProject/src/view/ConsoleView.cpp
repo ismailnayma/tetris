@@ -87,10 +87,6 @@ void ConsoleView::displayMessage(const std::string& message) const{
 }
 
 void ConsoleView::update() {
-    ConsoleView::displayLevelAndScore();
-    ConsoleView::showBoardAndBrick(game.getGameBoard().getBoardArea(),
-                                   game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick()),
-                                   game.getGameBoard().getBrick().getTypeShape());
 
     if(game.getGameState() == GameState::LOSS){
         std::cout<<"You lost :("<<std::endl;
@@ -98,5 +94,14 @@ void ConsoleView::update() {
         std::cout<<"You reached the maximum score!, Congragulations, you won ! :)"<<std::endl;
     } else if(game.getGameState() == GameState::LINESWIN){
         std::cout<<"You reached the maximum number of deleted lines!,Congragulations, you won ! :)"<<std::endl;
+    } else if(game.getGameState() == GameState::TIMELOSS){
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Game Over: Time expired!" << std::endl;
+    } else{
+        ConsoleView::displayLevelAndScore();
+        ConsoleView::showBoardAndBrick(game.getGameBoard().getBoardArea(),
+                                       game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick()),
+                                       game.getGameBoard().getBrick().getTypeShape());
     }
 }
