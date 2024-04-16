@@ -3,9 +3,14 @@
 
 ConsoleView::ConsoleView(Game& game) : game(game) {}
 
-void ConsoleView::showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const {
+void ConsoleView::showBoardAndBrick(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea, std::vector<Position> brickBoardPositions, TypeShape type) const {
+    std::vector<std::vector<std::optional<TypeShape>>> boardToDisplay = boardArea;
+
+    for (const Position& pos : brickBoardPositions) {
+        boardToDisplay[pos.getPosY()][pos.getPosX()] = type;
+    }
     displayLineBorder();
-    for (const auto& row : boardArea) {
+    for (const auto& row : boardToDisplay) {
         std::cout << " |";
         for (const auto& cell : row) {
             if (!cell.has_value()) {
@@ -83,7 +88,9 @@ void ConsoleView::displayMessage(const std::string& message) const{
 
 void ConsoleView::update() {
     ConsoleView::displayLevelAndScore();
-    ConsoleView::showBoard(game.getGameBoard().getBoardArea());
+    ConsoleView::showBoardAndBrick(game.getGameBoard().getBoardArea(),
+                                   game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick()),
+                                   game.getGameBoard().getBrick().getTypeShape());
 
     if(game.getGameState() == GameState::LOSS){
         std::cout<<"You lost :("<<std::endl;

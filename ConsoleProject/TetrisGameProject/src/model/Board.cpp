@@ -36,7 +36,7 @@ Board::Board(int width, int height, bool emptyBoard)
 }
 
 bool Board::setCurrentBrick(const Brick& brick) {
-    return !isCollision(brick) ? (currentBrick = brick,updateArea(true),fallen = false, true) : false;
+    return !isCollision(brick) ? (currentBrick = brick,fallen = false, true) : false;
 }
 
 bool Board::moveCurrentBrick(Direction direction) {
@@ -149,28 +149,23 @@ bool Board::isCollision(const Brick& brick) const {
 }
 
 bool Board::handleBrickAdjustment(const Brick& newCurBrick) {
-    // Remove the current brick from the boardArea to check collision with the new one
-    updateArea(false);
 
     if (!isCollision(newCurBrick)) {
         currentBrick = newCurBrick;
-        updateArea(true); // Add the new current brick on the "boardArea"
         return true;
     }else{
         Position CurBrickPosDown(currentBrick.getBoardPosition().getPosX(),
                                 currentBrick.getBoardPosition().getPosY() + 1);
         if(newCurBrick.getBoardPosition()==CurBrickPosDown){
-            updateArea(true);
+            addBrickToBoard();
             fallen = true;
         }
     }
 
-    updateArea(true);
-    // If there is a collision with the new current brick, redraw the old current brick
     return false;
 }
 
-void Board::updateArea(bool addBrick) {
+void Board::addBrickToBoard() {
     std::vector<Position> brickBoardPositions = getBrickBoardPositions(currentBrick);
 
     for (const Position& pos : brickBoardPositions) {
@@ -178,11 +173,8 @@ void Board::updateArea(bool addBrick) {
         int posY = pos.getPosY();
 
         if (posX >= 0 && posX < boardWidth && posY >= 0 && posY < boardHeight) {
-            if (addBrick) {
-                boardArea[posY][posX] = currentBrick.getTypeShape();
-            } else {
-                boardArea[posY][posX] = std::nullopt;
-            }
+            boardArea[posY][posX] = currentBrick.getTypeShape();
+
         }
     }
 
@@ -243,4 +235,8 @@ const int& Board::getBoardHeight() const{
 
 const int& Board::getBoardWidth() const{
     return boardWidth;
+}
+
+const Brick& Board::getBrick() const{
+    return currentBrick;
 }

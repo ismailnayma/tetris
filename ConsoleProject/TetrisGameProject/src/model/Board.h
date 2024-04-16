@@ -18,11 +18,7 @@ private:
 
     bool isCollision(const Brick& brick) const;
 
-    /**
-     * @brief Helper function for setting or removing the brick's shape on the "boardArea".
-     */
-    void updateArea(bool addBrick);
-    std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
+    void addBrickToBoard();
 
     /**
      * @brief Helper function for handling area brick removal, collision check, and area update.
@@ -43,6 +39,8 @@ public:
     const std::vector<std::vector<std::optional<TypeShape>>>& getBoardArea() const;
     const int& getBoardHeight() const;
     const int& getBoardWidth() const;
+    std::vector<Position> getBrickBoardPositions(const Brick& brick) const;
+    const Brick& getBrick() const;
 };
 
 #endif // BOARD_H

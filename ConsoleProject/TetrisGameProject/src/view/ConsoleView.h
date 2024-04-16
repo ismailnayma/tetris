@@ -10,7 +10,7 @@ private:
 public:
     ConsoleView(Game& game);
     void displayLineBorder() const;
-    void showBoard(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea) const;
+    void showBoardAndBrick(const std::vector<std::vector<std::optional<TypeShape>>>& boardArea, std::vector<Position> brickBoardPositions, TypeShape type) const;
     void displayControls() const;
     void displayLevelAndScore() const;
     void displayMessage(const std::string& message) const;
