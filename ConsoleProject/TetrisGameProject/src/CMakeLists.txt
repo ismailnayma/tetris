@@ -32,5 +32,10 @@ add_executable(TetrisGameProject
 
 )
 
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+target_link_libraries(TetrisGameProject PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
+
 install(TARGETS TetrisGameProject
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
