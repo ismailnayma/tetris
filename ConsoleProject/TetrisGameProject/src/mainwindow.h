@@ -28,7 +28,7 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    QGraphicsScene _scene; // La scène pour QGraphicsView
+    //QGraphicsScene _scene; // La scène pour QGraphicsView
 
     Game& game;
     GUIController *controller; // Déclaration du contrôleur

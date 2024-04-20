@@ -10,10 +10,12 @@ int main(int argc, char *argv[])
     //ConsoleController controller = ConsoleController(model);
     //controller.playTetris();
 
-    Game model = Game();
+    QApplication application(argc, argv);
+    Game model = Game(10, 20, false);
+
     MainWindow guiView (model);
 
-    QApplication application(argc, argv);
+
     guiView.show();
 
     return application.exec();

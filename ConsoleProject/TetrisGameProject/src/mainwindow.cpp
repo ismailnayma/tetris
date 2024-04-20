@@ -5,25 +5,29 @@
 MainWindow::MainWindow(Game& game, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    _scene(this),
+    //_scene(this),
     game(game),
     board(new BoardWidget)
 {
+    game.start();
+
 
     ui->setupUi(this);
 
     //Associer la scène à la vue
-    ui->myGraphicsView->setScene(&_scene);
+   // ui->myGraphicsView->setScene(&_scene);
 
 
     // Instancier le contrôleur et le connecter à la vue MainWindow
     controller = new GUIController(game, this); // Assurez-vous de passer une référence à Game
     this->installEventFilter(controller); // Installer le filtre d'événements sur MainWindow
 
+    /*
     // Nous définissons la taille de la scène sur la taille de QGraphicsView pour simplifier le système de coordonnées
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
 
+*/
 
     // Dessine un rectangle à la position (20, 20) avec une largeur de 100 et une hauteur de 100 (coordonnées en haut à gauche)
     //_scene.addRect(20, 20, 100, 100);
@@ -57,23 +61,34 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
 */
 
 
-    QGridLayout *layout = new QGridLayout;
+    QGridLayout *layout = new QGridLayout();
+    ui->myGraphicsView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding); // Assure-toi que la vue s'étire pour remplir l'espace disponible
+
     layout->addWidget(createLabel(tr("NEXT")), 0, 0);
-    layout->addWidget(nextPieceLabel, 1, 0);
+
+    //layout->addWidget(nextPieceLabel, 1, 0);
+
     layout->addWidget(createLabel(tr("LEVEL")), 2, 0);
-    layout->addWidget(levelLcd, 3, 0);
+
+    //layout->addWidget(levelLcd, 3, 0);
     layout->addWidget(startButton, 4, 0);
-    //layout->addWidget(board, 0, 1, 6, 1);
+    layout->addWidget(board, 0, 1, 6, 1);
     layout->addWidget(createLabel(tr("SCORE")), 0, 2);
     layout->addWidget(scoreLcd, 1, 2);
     layout->addWidget(createLabel(tr("LINES REMOVED")), 2, 2);
-    layout->addWidget(linesLcd, 3, 2);
+    //layout->addWidget(linesLcd, 3, 2);
     layout->addWidget(quitButton, 4, 2);
     layout->addWidget(pauseButton, 5, 2);
-    setLayout(layout);
+    //setLayout(layout);
+
+    QWidget *centralWidget = new QWidget(this);
+    centralWidget->setLayout(layout);
+    setCentralWidget(centralWidget);
 
     setWindowTitle(tr("Tetrix"));
     resize(550, 370);
+
+    update();
 
 }
 
@@ -85,6 +100,7 @@ QLabel *MainWindow::createLabel(const QString &text)
 }
 
 void MainWindow::update() {
+
 
     if(game.getGameState() == GameState::LOSS){
         //pop out: std::cout<<"You lost :("<<std::endl;
@@ -102,17 +118,19 @@ void MainWindow::update() {
         //                               game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick()),
       //                                 game.getGameBoard().getBrick().getTypeShape());
 
-        // Récupérer les informations du modèle
-        const auto& boardArea = game.getGameBoard().getBoardArea();
-        const auto& currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
 
-        const auto& currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
+        // Récupérer les informations du modèle
+        const auto boardArea = game.getGameBoard().getBoardArea();
+        const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
+
+        const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
 
         // Mettre à jour l'affichage dans le widget BoardWidget
-        //board->updateBoard(boardArea, currentBrickBoardPositions, currentBrickTypeShape);
+        board->updateBoard(boardArea, currentBrickBoardPositions, currentBrickTypeShape);
 
 
     }
+
 }
 
 MainWindow::~MainWindow()
