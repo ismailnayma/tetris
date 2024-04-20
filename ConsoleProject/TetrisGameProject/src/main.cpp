@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    Game model = Game();
+    //Game model = Game();
     //ConsoleController controller = ConsoleController(model);
     //controller.playTetris();
 
