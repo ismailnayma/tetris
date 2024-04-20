@@ -1,5 +1,7 @@
 #include "controller/ConsoleController.h"
 #include <QApplication>
+
+#include "model/Game.h"
 #include "mainwindow.h"
 
 int main(int argc, char *argv[])
@@ -8,10 +10,11 @@ int main(int argc, char *argv[])
     //ConsoleController controller = ConsoleController(model);
     //controller.playTetris();
 
+    Game model = Game();
+    MainWindow guiView (model);
+
     QApplication application(argc, argv);
-    MainWindow myWindow;
-    myWindow.show();
+    guiView.show();
 
     return application.exec();
-
 }
