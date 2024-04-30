@@ -23,6 +23,7 @@ public:
     explicit MainWindow(Game& game, QWidget *parent = nullptr);
     ~MainWindow();
     void update() override;
+    void displayBoard();
 
 private:
     Ui::MainWindow *ui;
@@ -32,15 +33,8 @@ private:
     Game& game;
     GUIController *controller; // Déclaration du contrôleur
 
-    QLabel *nextPieceLabel;
-    QLCDNumber *scoreLcd;
-    QLCDNumber *levelLcd;
-    QLCDNumber *linesLcd;
-    QPushButton *startButton;
-    QPushButton *quitButton;
-    QPushButton *pauseButton;
+    QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;
 
-    QLabel *createLabel(const QString &text);
 
 };
 

@@ -19,65 +19,48 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     QString styleSheet = "QGraphicsView { border: none; }";
     ui->myGraphicsView->setStyleSheet(styleSheet);
 
-    int columns = 10;
-    int rows = 20;
-    int startX = 20; // Position de départ en X
-        int startY = 20; // Position de départ en Y
-        int size = 20; // Taille des rectangles
-        int spacingX = 0; // Espacement horizontal entre les colonnes
-        int spacingY = 0; // Espacement vertical entre les lignes
+    displayBoard();
 
-        for (int i = 0; i < columns; ++i) {
-            for (int j = 0; j < rows; ++j) {
-                _scene.addRect(startX + (size + spacingX) * i, startY + (size + spacingY) * j, size, size);
-            }
-        }
-    /*
-    scoreLcd = new QLCDNumber(5);
-    scoreLcd->setSegmentStyle(QLCDNumber::Filled);
 
-    startButton = new QPushButton(tr("&Start"));
-    startButton->setFocusPolicy(Qt::NoFocus);
-    quitButton = new QPushButton(tr("&Quit"));
-    quitButton->setFocusPolicy(Qt::NoFocus);
-    pauseButton = new QPushButton(tr("&Pause"));
-    pauseButton->setFocusPolicy(Qt::NoFocus);
-
-    QGridLayout *layout = new QGridLayout();
-
-    // Première colonne
-    layout->addWidget(createLabel(tr("NEXT")), 0, 0);
-    // Ajoutez ici le widget pour afficher la prochaine pièce (nextPieceLabel)
-
-    layout->addWidget(createLabel(tr("LEVEL")), 2, 0);
-    // Ajoutez ici le widget pour afficher le niveau (levelLcd)
-
-    layout->addWidget(startButton, 4, 0);
-
-    // Deuxième colonne
-    layout->addWidget(board, 0, 1, 6, 1);
-
-    // Troisième colonne
-    layout->addWidget(createLabel(tr("SCORE")), 0, 2);
-    layout->addWidget(scoreLcd, 1, 2);
-
-    layout->addWidget(createLabel(tr("LINES REMOVED")), 2, 2);
-    // Ajoutez ici le widget pour afficher les lignes supprimées (linesLcd)
-
-    layout->addWidget(quitButton, 4, 2);
-    layout->addWidget(pauseButton, 5, 2);
-
-    QWidget *centralWidget = new QWidget(this);
-    centralWidget->setLayout(layout);
-    setCentralWidget(centralWidget);
-
-    setWindowTitle(tr("Tetrix"));
-    resize(550, 370);
-
-    update();
-    */
 }
 
+QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
+    static const std::unordered_map<TypeShape, QColor> colorMap = {
+        {TypeShape::O_SHAPE, Qt::yellow},
+        {TypeShape::I_SHAPE, Qt::cyan},
+        {TypeShape::S_SHAPE, Qt::green},
+        {TypeShape::Z_SHAPE, Qt::red},
+        {TypeShape::L_SHAPE, Qt::blue},
+        {TypeShape::J_SHAPE, Qt::magenta},
+        {TypeShape::T_SHAPE, Qt::yellow} // Ajoutez ici la couleur pour la forme T
+    };
+
+    if (shapeOpt.has_value()) {
+        auto it = colorMap.find(shapeOpt.value());
+        if (it != colorMap.end()) {
+            return it->second;
+        }
+    }
+
+    return Qt::white; // Couleur par défaut si le paramètre optionnel est vide ou le type de forme est manquant ou invalide
+}
+
+void MainWindow::displayBoard(){
+    const auto board = game.getGameBoard();
+    int height = board.getBoardHeight();
+    int width = board.getBoardWidth();
+    const auto boardArea = game.getGameBoard().getBoardArea();
+
+    // Ajoute les rectangles à la scène en fonction de la hauteur et de la largeur du plateau
+        int rectSize = 20; // Taille de chaque rectangle
+        for (int row = 0; row < height; ++row) {
+            for (int col = 0; col < width; ++col) {
+                QRectF rect(col * rectSize, row * rectSize, rectSize, rectSize); // Position et taille du rectangle
+                QColor color = getColorForShape(boardArea[row][col]); // Obtient la couleur pour le type de forme
+                _scene.addRect(rect, QPen(Qt::black), QBrush(color)); // Ajouter le rectangle à la scène
+            }
+        }
+}
 
 
 void MainWindow::update() {
