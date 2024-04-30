@@ -12,6 +12,10 @@
 #include "../../controller/GUIController.h"
 #include "../../util/Observer.h"
 
+#include <QKeyEvent>
+#include <QDebug>
+
+
 namespace Ui {
 class MainWindow;
 }
@@ -24,6 +28,9 @@ public:
     ~MainWindow();
     void update() override;
 
+/*public slots:
+    void ;
+*/
 
 private:
     Ui::MainWindow *ui;
@@ -37,6 +44,7 @@ private:
     void displayBoard();
     void displayCurrentBrick();
     void initialize();
+    bool eventFilter(QObject *obj, QEvent *event) override;
 
 
 };

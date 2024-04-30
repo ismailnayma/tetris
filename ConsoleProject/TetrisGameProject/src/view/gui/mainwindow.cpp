@@ -1,22 +1,33 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
 MainWindow::MainWindow(Game& game, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     game(game),
     _scene(this)
 {
+    /*
+    // Instanciez le contrôleur GUIController en passant une référence au jeu (game)
+    controller = new GUIController(game);
+
+    // Installez le filtre d'événements sur la vue principale (MainWindow)
+    this->installEventFilter(controller);
+*/
+    // Initialisez le jeu
     game.start();
 
+    // Configurez la scène et la vue graphique
     ui->setupUi(this);
-
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
     ui->myGraphicsView->setScene(&_scene);
+
+    // Initialisation supplémentaire si nécessaire
     initialize();
 
+    // Installez le filtre d'événements sur la vue principale (MainWindow)
+    this->installEventFilter(this);
 }
 
 void MainWindow::initialize(){
@@ -104,6 +115,41 @@ void MainWindow::update() {
     }
 
 }
+
+bool MainWindow::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+        qDebug() << "Une touche a été pressée.";
+        switch (keyEvent->key()) {
+        case Qt::Key_Left:
+            qDebug() << "Une touche a été gauche.";
+            game.moveCurrentBrick(Direction::LEFT);
+            break;
+        case Qt::Key_Right:
+            game.moveCurrentBrick(Direction::RIGHT);
+            break;
+        case Qt::Key_Down:
+            game.moveCurrentBrick(Direction::DOWN);
+            break;
+        case Qt::Key_Up:
+            game.rotateCurrentBrick(Rotation::CLOCKWISE);
+            break;
+        case Qt::Key_Z:
+            game.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+            break;
+        case Qt::Key_Enter:
+            game.dropCurrentBrick();
+            break;
+        default:
+            break;
+        }
+    }
+
+    // Laissez l'événement être traité par la classe de base
+    return QMainWindow::eventFilter(obj, event);
+}
+
 
 MainWindow::~MainWindow()
 {
