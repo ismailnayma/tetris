@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     //controller.playTetris();
 
     QApplication application(argc, argv);
-    Game model = Game(15, 30, false);
+    Game model = Game(10, 20, false);
 
     MainWindow guiView (model);
 

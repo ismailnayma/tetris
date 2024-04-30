@@ -24,6 +24,7 @@ public:
     ~MainWindow();
     void update() override;
     void displayBoard();
+    void displayCurrentBrick();
 
 private:
     Ui::MainWindow *ui;

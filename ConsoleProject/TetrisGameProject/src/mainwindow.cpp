@@ -20,6 +20,7 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     ui->myGraphicsView->setStyleSheet(styleSheet);
 
     displayBoard();
+    displayCurrentBrick();
 
 
 }
@@ -60,6 +61,22 @@ void MainWindow::displayBoard(){
                 _scene.addRect(rect, QPen(Qt::black), QBrush(color)); // Ajouter le rectangle à la scène
             }
         }
+}
+
+void MainWindow::displayCurrentBrick(){
+    const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
+       const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
+       int rectSize = 20;
+
+       // Parcours des positions de la brique actuelle
+       for (const auto& position : currentBrickBoardPositions) {
+           int x = position.getPosX() * rectSize; // Coordonnée x du rectangle
+           int y = position.getPosY() * rectSize; // Coordonnée y du rectangle
+
+           // Mettre à jour la couleur du rectangle à la position (x, y) dans la scène
+           QColor color = getColorForShape(currentBrickTypeShape);
+           _scene.addRect(x, y, rectSize, rectSize, QPen(Qt::black), QBrush(color));
+       }
 }
 
 
