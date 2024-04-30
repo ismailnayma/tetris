@@ -5,38 +5,34 @@
 MainWindow::MainWindow(Game& game, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
-    //_scene(this),
     game(game),
-    board(new BoardWidget)
+    _scene(this)
 {
     game.start();
 
-
     ui->setupUi(this);
 
-    //Associer la scène à la vue
-   // ui->myGraphicsView->setScene(&_scene);
-
-
-    // Instancier le contrôleur et le connecter à la vue MainWindow
-    controller = new GUIController(game, this); // Assurez-vous de passer une référence à Game
-    this->installEventFilter(controller); // Installer le filtre d'événements sur MainWindow
-
-    /*
-    // Nous définissons la taille de la scène sur la taille de QGraphicsView pour simplifier le système de coordonnées
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
+    ui->myGraphicsView->setScene(&_scene);
+    ui->myGraphicsView->setAlignment(Qt::AlignCenter);
+    QString styleSheet = "QGraphicsView { border: none; }";
+    ui->myGraphicsView->setStyleSheet(styleSheet);
 
-*/
+    int columns = 10;
+    int rows = 20;
+    int startX = 20; // Position de départ en X
+        int startY = 20; // Position de départ en Y
+        int size = 20; // Taille des rectangles
+        int spacingX = 0; // Espacement horizontal entre les colonnes
+        int spacingY = 0; // Espacement vertical entre les lignes
 
-    // Dessine un rectangle à la position (20, 20) avec une largeur de 100 et une hauteur de 100 (coordonnées en haut à gauche)
-    //_scene.addRect(20, 20, 100, 100);
-
-    // Créer une instance du contrôleur GUIController et le connecter à la vue BoardWidget
-   // GUIController *controller = new GUIController(board, this);
-    // board->installEventFilter(controller); // Installer le filtre d'événements sur BoardWidget
-
-
+        for (int i = 0; i < columns; ++i) {
+            for (int j = 0; j < rows; ++j) {
+                _scene.addRect(startX + (size + spacingX) * i, startY + (size + spacingY) * j, size, size);
+            }
+        }
+    /*
     scoreLcd = new QLCDNumber(5);
     scoreLcd->setSegmentStyle(QLCDNumber::Filled);
 
@@ -47,39 +43,29 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     pauseButton = new QPushButton(tr("&Pause"));
     pauseButton->setFocusPolicy(Qt::NoFocus);
 
-/*
-    connect(startButton, &QPushButton::clicked, board, &BoardWidget::start);
-    connect(quitButton , &QPushButton::clicked, qApp, &QCoreApplication::quit);
-    connect(pauseButton, &QPushButton::clicked, board, &BoardWidget::pause);
-
-    connect(board, &BoardWidget::scoreChanged,
-            scoreLcd, qOverload<int>(&QLCDNumber::display));
-    connect(board, &BoardWidget::levelChanged,
-            levelLcd, qOverload<int>(&QLCDNumber::display));
-    connect(board, &BoardWidget::linesRemovedChanged,
-            linesLcd, qOverload<int>(&QLCDNumber::display));
-*/
-
-
     QGridLayout *layout = new QGridLayout();
-    ui->myGraphicsView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding); // Assure-toi que la vue s'étire pour remplir l'espace disponible
 
+    // Première colonne
     layout->addWidget(createLabel(tr("NEXT")), 0, 0);
-
-    //layout->addWidget(nextPieceLabel, 1, 0);
+    // Ajoutez ici le widget pour afficher la prochaine pièce (nextPieceLabel)
 
     layout->addWidget(createLabel(tr("LEVEL")), 2, 0);
+    // Ajoutez ici le widget pour afficher le niveau (levelLcd)
 
-    //layout->addWidget(levelLcd, 3, 0);
     layout->addWidget(startButton, 4, 0);
+
+    // Deuxième colonne
     layout->addWidget(board, 0, 1, 6, 1);
+
+    // Troisième colonne
     layout->addWidget(createLabel(tr("SCORE")), 0, 2);
     layout->addWidget(scoreLcd, 1, 2);
+
     layout->addWidget(createLabel(tr("LINES REMOVED")), 2, 2);
-    //layout->addWidget(linesLcd, 3, 2);
+    // Ajoutez ici le widget pour afficher les lignes supprimées (linesLcd)
+
     layout->addWidget(quitButton, 4, 2);
     layout->addWidget(pauseButton, 5, 2);
-    //setLayout(layout);
 
     QWidget *centralWidget = new QWidget(this);
     centralWidget->setLayout(layout);
@@ -89,15 +75,10 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     resize(550, 370);
 
     update();
-
+    */
 }
 
-QLabel *MainWindow::createLabel(const QString &text)
-{
-    QLabel *label = new QLabel(text);
-    label->setAlignment(Qt::AlignHCenter | Qt::AlignBottom);
-    return label;
-}
+
 
 void MainWindow::update() {
 
@@ -126,7 +107,7 @@ void MainWindow::update() {
         const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
 
         // Mettre à jour l'affichage dans le widget BoardWidget
-        board->updateBoard(boardArea, currentBrickBoardPositions, currentBrickTypeShape);
+
 
 
     }

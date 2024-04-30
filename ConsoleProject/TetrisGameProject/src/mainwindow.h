@@ -9,7 +9,6 @@
 #include <QLCDNumber>
 
 #include "model/Game.h"
-#include "view/gui/BoardWidget.h"
 #include "controller/GUIController.h"
 #include "util/Observer.h"
 
@@ -28,12 +27,11 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    //QGraphicsScene _scene; // La scène pour QGraphicsView
+    QGraphicsScene _scene; // La scène pour QGraphicsView
 
     Game& game;
     GUIController *controller; // Déclaration du contrôleur
 
-    BoardWidget *board;
     QLabel *nextPieceLabel;
     QLCDNumber *scoreLcd;
     QLCDNumber *levelLcd;

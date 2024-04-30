@@ -32,8 +32,7 @@ add_executable(TetrisGameProject
     mainwindow.h mainwindow.cpp mainwindow.ui
     controller/GUIController.h
     controller/GUIController.cpp
-    view/gui/BoardWidget.h
-    view/gui/BoardWidget.cpp
+
 )
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
