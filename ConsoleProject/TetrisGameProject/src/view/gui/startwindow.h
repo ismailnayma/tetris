@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QGraphicsScene>
+#include "mainwindow.h"
 
 namespace Ui {
 class StartWindow;
@@ -15,6 +16,9 @@ class StartWindow : public QMainWindow
 public:
     explicit StartWindow(QWidget *parent = nullptr);
     ~StartWindow();
+
+public slots:
+    void playButton();
 
 private:
     Ui::StartWindow *ui;
