@@ -29,7 +29,12 @@ add_executable(TetrisGameProject
     view/ConsoleView.cpp
     controller/ConsoleController.h
     controller/ConsoleController.cpp
-    mainwindow.h mainwindow.cpp mainwindow.ui
+    view/gui/mainwindow.h
+    view/gui/mainwindow.cpp
+    view/gui/mainwindow.ui
+    view/gui/startwindow.h
+    view/gui/startwindow.cpp
+    view/gui/startwindow.ui
     controller/GUIController.h
     controller/GUIController.cpp
 

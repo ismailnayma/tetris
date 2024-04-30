@@ -2,7 +2,8 @@
 #include <QApplication>
 
 #include "model/Game.h"
-#include "mainwindow.h"
+#include "view/gui/mainwindow.h"
+#include "view/gui/startwindow.h"
 
 int main(int argc, char *argv[])
 {
@@ -11,12 +12,13 @@ int main(int argc, char *argv[])
     //controller.playTetris();
 
     QApplication application(argc, argv);
-    Game model = Game(10, 20, false);
+    Game model = Game(20, 35, false);
 
-    MainWindow guiView (model);
+    //MainWindow guiView (model);
+    StartWindow start;
 
-
-    guiView.show();
+    //guiView.show();
+    start.show();
 
     return application.exec();
 }

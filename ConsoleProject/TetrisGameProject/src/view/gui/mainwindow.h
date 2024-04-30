@@ -8,9 +8,9 @@
 #include <QLabel>
 #include <QLCDNumber>
 
-#include "model/Game.h"
-#include "controller/GUIController.h"
-#include "util/Observer.h"
+#include "../../model/Game.h"
+#include "../../controller/GUIController.h"
+#include "../../util/Observer.h"
 
 namespace Ui {
 class MainWindow;
@@ -23,8 +23,7 @@ public:
     explicit MainWindow(Game& game, QWidget *parent = nullptr);
     ~MainWindow();
     void update() override;
-    void displayBoard();
-    void displayCurrentBrick();
+
 
 private:
     Ui::MainWindow *ui;
@@ -35,6 +34,9 @@ private:
     GUIController *controller; // Déclaration du contrôleur
 
     QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;
+    void displayBoard();
+    void displayCurrentBrick();
+    void initialize();
 
 
 };

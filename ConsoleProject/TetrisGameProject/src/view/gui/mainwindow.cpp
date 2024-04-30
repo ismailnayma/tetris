@@ -15,14 +15,16 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
     ui->myGraphicsView->setScene(&_scene);
-    ui->myGraphicsView->setAlignment(Qt::AlignCenter);
-    QString styleSheet = "QGraphicsView { border: none; }";
-    ui->myGraphicsView->setStyleSheet(styleSheet);
+    initialize();
 
+}
+
+void MainWindow::initialize(){
     displayBoard();
     displayCurrentBrick();
-
-
+    ui->lcdLevel->display(game.getGameLevel().getActualLevel());
+    ui->lcdScore->display(game.getGameScore().getScore());
+    ui->lcdLines->display(game.getGameLevel().getDeletedLines());
 }
 
 QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
@@ -33,7 +35,7 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
         {TypeShape::Z_SHAPE, Qt::red},
         {TypeShape::L_SHAPE, Qt::blue},
         {TypeShape::J_SHAPE, Qt::magenta},
-        {TypeShape::T_SHAPE, Qt::yellow} // Ajoutez ici la couleur pour la forme T
+        {TypeShape::T_SHAPE, Qt::yellow} // Add color for T shape here
     };
 
     if (shapeOpt.has_value()) {
@@ -43,41 +45,41 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
         }
     }
 
-    return Qt::white; // Couleur par défaut si le paramètre optionnel est vide ou le type de forme est manquant ou invalide
+    return Qt::white; // Default color if optional parameter is empty or shape type is missing or invalid
 }
 
 void MainWindow::displayBoard(){
-    const auto board = game.getGameBoard();
-    int height = board.getBoardHeight();
-    int width = board.getBoardWidth();
+    int height = game.getGameBoard().getBoardHeight();
+    int width = game.getGameBoard().getBoardWidth();
     const auto boardArea = game.getGameBoard().getBoardArea();
 
-    // Ajoute les rectangles à la scène en fonction de la hauteur et de la largeur du plateau
-        int rectSize = 20; // Taille de chaque rectangle
-        for (int row = 0; row < height; ++row) {
-            for (int col = 0; col < width; ++col) {
-                QRectF rect(col * rectSize, row * rectSize, rectSize, rectSize); // Position et taille du rectangle
-                QColor color = getColorForShape(boardArea[row][col]); // Obtient la couleur pour le type de forme
-                _scene.addRect(rect, QPen(Qt::black), QBrush(color)); // Ajouter le rectangle à la scène
-            }
+    // Add rectangles to the scene based on the height and width of the board
+    int rectSize = 20; // Size of each rectangle
+    for (int row = 0; row < height; ++row) {
+        for (int col = 0; col < width; ++col) {
+            QRectF rect(col * rectSize, row * rectSize, rectSize, rectSize); // Position and size of the rectangle
+            QColor color = getColorForShape(boardArea[row][col]); // Get color for the shape type
+            _scene.addRect(rect, QPen(Qt::black), QBrush(color)); // Add the rectangle to the scene
         }
+    }
 }
 
 void MainWindow::displayCurrentBrick(){
     const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
-       const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
-       int rectSize = 20;
+    const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
+    int rectSize = 20;
 
-       // Parcours des positions de la brique actuelle
+       // Iterate over the positions of the current brick
        for (const auto& position : currentBrickBoardPositions) {
-           int x = position.getPosX() * rectSize; // Coordonnée x du rectangle
-           int y = position.getPosY() * rectSize; // Coordonnée y du rectangle
+           int x = position.getPosX() * rectSize; // X coordinate of the rectangle
+           int y = position.getPosY() * rectSize; // Y coordinate of the rectangle
 
-           // Mettre à jour la couleur du rectangle à la position (x, y) dans la scène
+           // Update the color of the rectangle at position (x, y) in the scene
            QColor color = getColorForShape(currentBrickTypeShape);
            _scene.addRect(x, y, rectSize, rectSize, QPen(Qt::black), QBrush(color));
        }
 }
+
 
 
 void MainWindow::update() {
@@ -94,22 +96,11 @@ void MainWindow::update() {
         //pop out:std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         //pop out:std::cout << "Game Over: Time expired!" << std::endl;
     } else{
-       // ConsoleView::displayLevelAndScore();
-        //ConsoleView::showBoardAndBrick(game.getGameBoard().getBoardArea(),
-        //                               game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick()),
-      //                                 game.getGameBoard().getBrick().getTypeShape());
-
-
-        // Récupérer les informations du modèle
-        const auto boardArea = game.getGameBoard().getBoardArea();
-        const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
-
-        const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
-
-        // Mettre à jour l'affichage dans le widget BoardWidget
-
-
-
+        displayBoard();
+        displayCurrentBrick();
+        ui->lcdLevel->display(game.getGameLevel().getActualLevel());
+        ui->lcdScore->display(game.getGameScore().getScore());
+        ui->lcdLines->display(game.getGameLevel().getDeletedLines());
     }
 
 }
