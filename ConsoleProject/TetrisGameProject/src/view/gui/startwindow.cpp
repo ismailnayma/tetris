@@ -10,13 +10,6 @@ StartWindow::StartWindow(QWidget *parent) :
     ui->setupUi(this);
 }
 
-void StartWindow::paintEvent(QPaintEvent *event) {
-    QMainWindow::paintEvent(event);
-
-    QPainter painter(this);
-    painter.drawPixmap(0, 0, width(), height(), QPixmap("../../resources/bck.jpg"));
-}
-
 int StartWindow::getWidthSpinBox() const{
     return ui->groupBox->findChild<QSpinBox *>("widthSpinBox") -> value();
 }
@@ -33,6 +26,11 @@ Ui::StartWindow& StartWindow::getUi() const {
     return *ui;
 }
 
+void StartWindow::cleanRestart(){
+    ui->groupBox->findChild<QSpinBox *>("widthSpinBox")->setValue(10);
+    ui->groupBox->findChild<QSpinBox *>("heightSpinBox")->setValue(20);
+    ui->groupBox->findChild<QCheckBox *>("checkBoxPrefilled")->setCheckState(Qt::Unchecked);
+}
 StartWindow::~StartWindow()
 {
     delete ui;

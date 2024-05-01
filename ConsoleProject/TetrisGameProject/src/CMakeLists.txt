@@ -37,9 +37,10 @@ add_executable(TetrisGameProject
     view/gui/startwindow.ui
     controller/GUIController.h
     controller/GUIController.cpp
-    view/gui/CustomMessageBox.h
-    view/gui/CustomMessageBox.cpp
-    resources/bck.jpg
+    view/gui/restartwindow.h
+    view/gui/restartwindow.cpp
+    view/gui/restartwindow.ui
+
 
 )
 

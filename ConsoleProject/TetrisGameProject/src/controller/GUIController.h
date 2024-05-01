@@ -5,7 +5,7 @@
 #include "../model/Game.h"
 #include "../view/gui/startwindow.h"
 #include "../view/gui/mainwindow.h"
-#include "../view/gui/CustomMessageBox.h"
+#include "../view/gui/restartwindow.h"
 #include "../util/Observer.h"
 
 
@@ -18,6 +18,8 @@ public:
 
 public slots:
     void playButtonHandler();
+    void restartGame();
+    void quitGame();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -26,7 +28,7 @@ private:
     Game model;
     StartWindow startWindow;
     MainWindow mainWindow;
-    CustomMessageBox messageBox;
+    RestartWindow restartWindow;
 
 };
 

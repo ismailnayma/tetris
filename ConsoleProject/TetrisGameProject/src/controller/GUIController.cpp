@@ -9,7 +9,11 @@ GUIController::GUIController(QObject *parent)
     mainWindow.installEventFilter(this);
 
     connect(startWindow.getUi().playButton, SIGNAL(clicked(bool)), this, SLOT(playButtonHandler()));
-    startWindow.move(200, 100);
+    connect(restartWindow.getUi().replayPushButton, SIGNAL(clicked(bool)), this, SLOT(restartGame()));
+    connect(restartWindow.getUi().quitPushButton, SIGNAL(clicked(bool)), this, SLOT(quitGame()));
+    startWindow.move(300, 200);
+    mainWindow.move(200, 100);
+    restartWindow.move(300,200);
     startWindow.show();
 }
 
@@ -64,29 +68,39 @@ void GUIController::playButtonHandler(){
     model.resetGame(width, height, !prefilled);
     model.start();
 
-    mainWindow.move(200, 100);
-
     mainWindow.show();
 }
 
+void GUIController::restartGame(){
+    startWindow.cleanRestart();
+    restartWindow.close();
+    startWindow.show();
+}
+
+void GUIController::quitGame(){
+    restartWindow.close();
+}
 
 void GUIController::update() {
     mainWindow.initialize();
-/*
-    if(model.getGameState() == GameState::LOSS){
-        CustomMessageBox *customMsgBox = new CustomMessageBox(this);
-        customMsgBox->showMessage("You lost :(");
 
-        //pop out: std::cout<<"You lost :("<<std::endl;
+    if(model.getGameState() == GameState::LOSS){
+        mainWindow.close();
+        restartWindow.show();
+        restartWindow.showMessage("You lost!");
     } else if(model.getGameState() == GameState::SCOREWIN){
-        //pop out: std::cout<<"You reached the maximum score!, Congragulations, you won ! :)"<<std::endl;
+        mainWindow.close();
+        restartWindow.show();
+        restartWindow.showMessage("You won! Max score reached!");
     } else if(model.getGameState() == GameState::LINESWIN){
-        //pop out: std::cout<<"You reached the maximum number of deleted lines!,Congragulations, you won ! :)"<<std::endl;
+        mainWindow.close();
+        restartWindow.show();
+        restartWindow.showMessage("You won! Max score reached!");
     } else if(model.getGameState() == GameState::TIMELOSS){
-        //pop out:std::cin.clear();
-        //pop out:std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        //pop out:std::cout << "Game Over: Time expired!" << std::endl;
+        mainWindow.close();
+        restartWindow.show();
+        restartWindow.showMessage("You lost! Time out!");
     }
-*/
+
 }
 
