@@ -1,6 +1,6 @@
 #include "startwindow.h"
 
-#include "ui_startwindow.h"
+
 
 StartWindow::StartWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,21 +8,22 @@ StartWindow::StartWindow(QWidget *parent) :
     _scene(this)
 {
     ui->setupUi(this);
-
-    connect(ui->playButton, SIGNAL(clicked(bool)), this, SLOT(playButton()));
 }
 
-void StartWindow::playButton(){
-    int width = ui->groupBox->findChild<QSpinBox *>("widthSpinBox") -> value();
-    int height = ui->groupBox->findChild<QSpinBox *>("heightSpinBox")  -> value();
-    bool prefilled = ui->groupBox->findChild<QCheckBox *>("checkBoxPrefilled")->isChecked();
+int StartWindow::getWidthSpinBox() const{
+    return ui->groupBox->findChild<QSpinBox *>("widthSpinBox") -> value();
+}
 
-    this->close();
+int StartWindow::getHeightSpinBox() const{
+    return ui->groupBox->findChild<QSpinBox *>("heightSpinBox")  -> value();
+}
 
-    Game* game = new Game(width, height, !prefilled); // Créer Game sur le tas
-    MainWindow* mainWindow = new MainWindow(game); // Créer MainWindow sur le tas
-    game->registerObserver(mainWindow);
-    mainWindow->show();
+bool StartWindow::getPrefilledChoice() const {
+    return ui->groupBox->findChild<QCheckBox *>("checkBoxPrefilled")->isChecked();
+}
+
+Ui::StartWindow& StartWindow::getUi() const {
+    return *ui;
 }
 
 StartWindow::~StartWindow()

@@ -1,23 +1,18 @@
-#include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "mainwindow.h"
 
-MainWindow::MainWindow(Game* game, QWidget *parent) :
+MainWindow::MainWindow(Game& game, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
     game(game),
     _scene(this)
 {
-    // Initialisez le jeu
-    game->start();
 
     // Configurez la scène et la vue graphique
     ui->setupUi(this);
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
     ui->myGraphicsView->setScene(&_scene);
-
-    // Installez le filtre d'événements sur la vue principale (MainWindow)
-    this->installEventFilter(this);
 
     // Initialisation supplémentaire si nécessaire
     initialize();
@@ -26,9 +21,9 @@ MainWindow::MainWindow(Game* game, QWidget *parent) :
 void MainWindow::initialize(){
     displayBoard();
     displayCurrentBrick();
-    ui->lcdLevel->display(game->getGameLevel().getActualLevel());
-    ui->lcdScore->display(game->getGameScore().getScore());
-    ui->lcdLines->display(game->getGameLevel().getDeletedLines());
+    ui->lcdLevel->display(game.getGameLevel().getActualLevel());
+    ui->lcdScore->display(game.getGameScore().getScore());
+    ui->lcdLines->display(game.getGameLevel().getDeletedLines());
 }
 
 QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
@@ -39,7 +34,7 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
         {TypeShape::Z_SHAPE, Qt::red},
         {TypeShape::L_SHAPE, Qt::blue},
         {TypeShape::J_SHAPE, Qt::magenta},
-        {TypeShape::T_SHAPE, Qt::yellow} // Add color for T shape here
+        {TypeShape::T_SHAPE, Qt::gray} // Add color for T shape here
     };
 
     if (shapeOpt.has_value()) {
@@ -53,7 +48,7 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
 }
 
 void MainWindow::displayBoard(){
-    const std::vector<std::vector<std::optional<TypeShape>>> boardArea = game->getGameBoard().getBoardArea();
+    const std::vector<std::vector<std::optional<TypeShape>>> boardArea = game.getGameBoard().getBoardArea();
     int height = boardArea.size();
     int width = boardArea.at(0).size();
 
@@ -70,8 +65,8 @@ void MainWindow::displayBoard(){
 }
 
 void MainWindow::displayCurrentBrick(){
-    const auto currentBrickBoardPositions = game->getGameBoard().getBrickBoardPositions(game->getGameBoard().getBrick());
-    const auto currentBrickTypeShape = game->getGameBoard().getBrick().getTypeShape();
+    const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
+    const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
     int rectSize = 20;
 
        // Iterate over the positions of the current brick
@@ -85,73 +80,35 @@ void MainWindow::displayCurrentBrick(){
        }
 }
 
-
+/*
 void MainWindow::update() {
 
     displayBoard();
     displayCurrentBrick();
-    ui->lcdLevel->display(game->getGameLevel().getActualLevel());
-    ui->lcdScore->display(game->getGameScore().getScore());
-    ui->lcdLines->display(game->getGameLevel().getDeletedLines());
+    ui->lcdLevel->display(game.getGameLevel().getActualLevel());
+    ui->lcdScore->display(game.getGameScore().getScore());
+    ui->lcdLines->display(game.getGameLevel().getDeletedLines());
 
-    if(game->getGameState() == GameState::LOSS){
-        CustomMessageBox *customMsgBox = new CustomMessageBox(this);
-        customMsgBox->showMessage("You lost :(");
+    if(game.getGameState() == GameState::LOSS){
+        //CustomMessageBox *customMsgBox = new CustomMessageBox(this);
+       // customMsgBox->showMessage("You lost :(");
 
         //pop out: std::cout<<"You lost :("<<std::endl;
-    } else if(game->getGameState() == GameState::SCOREWIN){
+    } else if(game.getGameState() == GameState::SCOREWIN){
         //pop out: std::cout<<"You reached the maximum score!, Congragulations, you won ! :)"<<std::endl;
-    } else if(game->getGameState() == GameState::LINESWIN){
+    } else if(game.getGameState() == GameState::LINESWIN){
         //pop out: std::cout<<"You reached the maximum number of deleted lines!,Congragulations, you won ! :)"<<std::endl;
-    } else if(game->getGameState() == GameState::TIMELOSS){
+    } else if(game.getGameState() == GameState::TIMELOSS){
         //pop out:std::cin.clear();
         //pop out:std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         //pop out:std::cout << "Game Over: Time expired!" << std::endl;
     }
 }
-
-bool MainWindow::eventFilter(QObject *obj, QEvent *event)
-{
-    if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-        switch (keyEvent->key()) {
-        case Qt::Key_Q:
-            qDebug() << "Une touche a été gauche.";
-            game->moveCurrentBrick(Direction::LEFT);
-            break;
-        case Qt::Key_D:
-            qDebug() << "Une touche a été droite.";
-            game->moveCurrentBrick(Direction::RIGHT);
-            break;
-        case Qt::Key_S:
-            qDebug() << "Une touche a été bas.";
-            game->moveCurrentBrick(Direction::DOWN);
-            break;
-        case Qt::Key_Z:
-            qDebug() << "Une touche a été haut.";
-            game->rotateCurrentBrick(Rotation::CLOCKWISE);
-            break;
-        case Qt::Key_A:
-            qDebug() << "Une touche Z a été haut.";
-            game->rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
-            break;
-        case Qt::Key_E:
-            qDebug() << "Une touche enter été haut.";
-            game->dropCurrentBrick();
-            break;
-        default:
-            qDebug() << "je suis dans default.";
-            break;
-        }
-    }
-
-    // Laissez l'événement être traité par la classe de base
-    return QMainWindow::eventFilter(obj, event);
-}
+*/
 
 MainWindow::~MainWindow()
 {
-    delete game;
+    //delete game;
     delete ui;
 }
 
