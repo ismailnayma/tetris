@@ -29,30 +29,16 @@ public:
     ~MainWindow();
     void update() override;
 
-    /*
-private slots:
-    void onLeftKeyPressed();
-    void onRightKeyPressed();
-    void onDownKeyPressed();
-    void onUpKeyPressed();
-    void onZKeyPressed();
-    void onEnterKeyPressed();
-*/
 private:
     Ui::MainWindow *ui;
-
     QGraphicsScene _scene; // La scène pour QGraphicsView
-
     Game* game;
-    GUIController *controller; // Déclaration du contrôleur
 
     QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;
     void displayBoard();
     void displayCurrentBrick();
     void initialize();
     bool eventFilter(QObject *obj, QEvent *event) override;
-
-
 };
 
 #endif // MAINWINDOW_H

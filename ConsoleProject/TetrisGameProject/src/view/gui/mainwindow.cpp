@@ -7,13 +7,6 @@ MainWindow::MainWindow(Game* game, QWidget *parent) :
     game(game),
     _scene(this)
 {
-    /*
-    // Instanciez le contrôleur GUIController en passant une référence au jeu (game)
-    controller = new GUIController(game);
-
-    // Installez le filtre d'événements sur la vue principale (MainWindow)
-    this->installEventFilter(controller);
-*/
     // Initialisez le jeu
     game->start();
 
@@ -26,36 +19,11 @@ MainWindow::MainWindow(Game* game, QWidget *parent) :
     // Installez le filtre d'événements sur la vue principale (MainWindow)
     this->installEventFilter(this);
 
-    /*
-    // Créer les raccourcis clavier
-    QShortcut *leftShortcut = new QShortcut(Qt::Key_Left, this);
-    QShortcut *rightShortcut = new QShortcut(Qt::Key_Right, this);
-    QShortcut *downShortcut = new QShortcut(Qt::Key_Down, this);
-    QShortcut *upShortcut = new QShortcut(Qt::Key_Up, this);
-    QShortcut *zShortcut = new QShortcut(Qt::Key_Z, this);
-    QShortcut *enterShortcut = new QShortcut(Qt::Key_Enter, this);
-
-    // Connectez les raccourcis aux slots correspondants
-    connect(leftShortcut, &QShortcut::activated, this, &MainWindow::onLeftKeyPressed);
-    connect(rightShortcut, &QShortcut::activated, this, &MainWindow::onRightKeyPressed);
-    connect(downShortcut, &QShortcut::activated, this, &MainWindow::onDownKeyPressed);
-    connect(upShortcut, &QShortcut::activated, this, &MainWindow::onUpKeyPressed);
-    connect(zShortcut, &QShortcut::activated, this, &MainWindow::onZKeyPressed);
-    connect(enterShortcut, &QShortcut::activated, this, &MainWindow::onEnterKeyPressed);
-*/
     // Initialisation supplémentaire si nécessaire
     initialize();
-
-
 }
 
 void MainWindow::initialize(){
-    displayBoard();
-    displayCurrentBrick();
-    ui->lcdLevel->display(game->getGameLevel().getActualLevel());
-    ui->lcdScore->display(game->getGameScore().getScore());
-    ui->lcdLines->display(game->getGameLevel().getDeletedLines());
-
     displayBoard();
     displayCurrentBrick();
     ui->lcdLevel->display(game->getGameLevel().getActualLevel());
@@ -86,30 +54,19 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
 
 void MainWindow::displayBoard(){
     const std::vector<std::vector<std::optional<TypeShape>>> boardArea = game->getGameBoard().getBoardArea();
-    qDebug() << "je suis dans displayBoard debuut.";
-    //_scene.clear();
-    //int height =
-     int height = boardArea.size();
+    int height = boardArea.size();
+    int width = boardArea.at(0).size();
 
-    qDebug() << "je suis dans displayBoard apres height.";
-     int width = boardArea.at(0).size();
-       qDebug() << "je suis dans displayBoard apres width.";
-    //const std::vector<std::vector<std::optional<TypeShape>>> boardArea = game.getGameBoard().getBoardArea();
-
-  qDebug() << "je suis dans displayBoard milieu.";
     // Add rectangles to the scene based on the height and width of the board
     int rectSize = 20; // Size of each rectangle
     for (int row = 0; row < height; ++row) {
         for (int col = 0; col < width; ++col) {
             QRectF rect(col * rectSize, row * rectSize, rectSize, rectSize); // Position and size of the rectangle
             std::optional<TypeShape> shape = boardArea[row][col];
-            //std::optional<TypeShape> shape = TypeShape::L_SHAPE;
             QColor color = getColorForShape(shape); // Get color for the shape type
             _scene.addRect(rect, QPen(Qt::black), QBrush(color)); // Add the rectangle to the scene
         }
     }
-
-    qDebug() << "je suis dans displayBoard fin.";
 }
 
 void MainWindow::displayCurrentBrick(){
@@ -153,46 +110,6 @@ void MainWindow::update() {
 
 }
 
-/*
-bool MainWindow::eventFilter(QObject *obj, QEvent *event)
-{
-    if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-        switch (keyEvent->key()) {
-        case Qt::Key_Left:
-            qDebug() << "Une touche a été gauche.";
-            game->moveCurrentBrick(Direction::LEFT);
-            break;
-        case Qt::Key_Right:
-            qDebug() << "Une touche a été droite.";
-            game->moveCurrentBrick(Direction::RIGHT);
-            break;
-        case Qt::Key_Down:
-            qDebug() << "Une touche a été bas.";
-            game->moveCurrentBrick(Direction::DOWN);
-            break;
-        case Qt::Key_Up:
-            qDebug() << "Une touche a été haut.";
-            game->rotateCurrentBrick(Rotation::CLOCKWISE);
-            break;
-        case Qt::Key_Z:
-            qDebug() << "Une touche Z a été haut.";
-            game->rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
-            break;
-        case Qt::Key_Enter:
-            qDebug() << "Une touche enter été haut.";
-            game->dropCurrentBrick();
-            break;
-        default:
-              qDebug() << "je suis dans default.";
-            break;
-        }
-    }
-
-    // Laissez l'événement être traité par la classe de base
-    return QMainWindow::eventFilter(obj, event);
-}
-*/
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
     if (event->type() == QEvent::KeyPress) {
@@ -231,35 +148,6 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     // Laissez l'événement être traité par la classe de base
     return QMainWindow::eventFilter(obj, event);
 }
-
-
-/*
-void MainWindow::onLeftKeyPressed() {
-    game->moveCurrentBrick(Direction::LEFT);
-}
-
-void MainWindow::onRightKeyPressed() {
-    game->moveCurrentBrick(Direction::RIGHT);
-}
-
-void MainWindow::onDownKeyPressed() {
-    game->moveCurrentBrick(Direction::DOWN);
-}
-
-void MainWindow::onUpKeyPressed() {
-    game->rotateCurrentBrick(Rotation::CLOCKWISE);
-}
-
-void MainWindow::onZKeyPressed() {
-     qDebug() << "Z été pressée.";
-    game->rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
-}
-
-void MainWindow::onEnterKeyPressed() {
-    game->dropCurrentBrick();
-}
-*/
-
 
 MainWindow::~MainWindow()
 {
