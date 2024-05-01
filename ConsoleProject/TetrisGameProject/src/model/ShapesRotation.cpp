@@ -33,42 +33,42 @@ const std::vector<Position>& ShapesRotation::getBrickPositions(TypeShape typeSha
 ShapesRotation::ShapesRotation(){
     // O Shape
     shapes[TypeShape::O_SHAPE] = {
-        {Orientation::UP, {Position(0, 0), Position(-1, 0), Position(-1, 1), Position(0,1)}},
-        {Orientation::RIGHT, {Position(0, 0), Position(-1, 0), Position(-1, 1), Position(0,1)}},
-        {Orientation::DOWN, {Position(0, 0), Position(-1, 0), Position(-1, 1), Position(0,1)}},
-        {Orientation::LEFT, {Position(0, 0), Position(-1, 0), Position(-1, 1), Position(0,1)}}
+        {Orientation::UP, {Position(0, 0), Position(-1, 0), Position(-1, -1), Position(0,-1)}},
+        {Orientation::RIGHT, {Position(0, 0), Position(-1, 0), Position(-1, -1), Position(0,-1)}},
+        {Orientation::DOWN, {Position(0, 0), Position(-1, 0), Position(-1, -1), Position(0,-1)}},
+        {Orientation::LEFT, {Position(0, 0), Position(-1, 0), Position(-1, -1), Position(0,-1)}}
     };
 
     // I Shape
     shapes[TypeShape::I_SHAPE] = {
-        {Orientation::UP, {{Position(0, 0), Position(0, -1), Position(0, 1), Position(0, 2)}}},
-        {Orientation::LEFT, {{Position(0, 0), Position(-1, 0), Position(-2, 0), Position(1, 0)}}},
-        {Orientation::DOWN, {{Position(0, 0), Position(0, -1), Position(0, 1), Position(0, 2)}}},
-        {Orientation::RIGHT, {{Position(0, 0), Position(-1, 0), Position(-2, 0), Position(1, 0)}}}
+        {Orientation::UP, {Position(0, 0), Position(0, -1), Position(0, 1), Position(0, 2)}},
+        {Orientation::RIGHT, {Position(0, 0), Position(1, 0), Position(-1, 0), Position(-2, 0)}},
+        {Orientation::DOWN, {Position(-1, 0), Position(-1, -1), Position(-1, 1), Position(-1, 2)}},
+        {Orientation::LEFT,{Position(0, 1), Position(1, 1), Position(-1, 1), Position(-2, 1)}}
     };
 
     // S Shape
     shapes[TypeShape::S_SHAPE] = {
-        {Orientation::UP, {Position(0, 0), Position(0, -1), Position(1, 0), Position(1, 1)}},
-        {Orientation::RIGHT, {Position(0, 0), Position(1, 0), Position(0, 1), Position(-1, 1)}},
+        {Orientation::UP, {Position(0, 0), Position(-1, 0), Position(-1, -1), Position(0, 1)}},
+        {Orientation::RIGHT, {Position(0, 0), Position(0, -1), Position(1, -1), Position(-1, 0)}},
         {Orientation::DOWN, {Position(0, 0), Position(0, -1), Position(1, 0), Position(1, 1)}},
         {Orientation::LEFT, {Position(0, 0), Position(1, 0), Position(0, 1), Position(-1, 1)}}
     };
 
     // Z Shape
     shapes[TypeShape::Z_SHAPE] = {
-        {Orientation::UP, {Position(0, 0), Position(1, 0), Position(1, -1), Position(0, 1)}},
-        {Orientation::RIGHT, {Position(0,0), Position(-1, 0), Position(0, 1), Position(1, 1)}},
+        {Orientation::UP, {Position(0, 0), Position(0, -1), Position(-1, 0), Position(-1, 1)}},
+        {Orientation::RIGHT, {Position(0,0), Position(0, -1), Position(-1, -1), Position(1, 0)}},
         {Orientation::DOWN, {Position(0, 0), Position(1, 0), Position(1, -1), Position(0, 1)}},
-        {Orientation::LEFT, {Position(0,0), Position(-1, 0), Position(0, 1), Position(1, 1)}}
+        {Orientation::LEFT, {Position(0,0), Position(0, 1), Position(1, 1), Position(-1, 0)}}
     };
 
     // L Shape
     shapes[TypeShape::L_SHAPE] = {
         {Orientation::UP, {Position(0, 0), Position(0, -1), Position(0, 1), Position(1, 1)}},
-        {Orientation::RIGHT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(-1, 1)}},
+        {Orientation::LEFT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(-1, 1)}},
         {Orientation::DOWN, {Position(0, 0), Position(0, -1), Position(0, 1), Position(-1, -1)}},
-        {Orientation::LEFT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(1, -1)}}
+        {Orientation::RIGHT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(1, -1)}}
     };
 
     // J Shape
@@ -81,9 +81,9 @@ ShapesRotation::ShapesRotation(){
 
     // T Shape
     shapes[TypeShape::T_SHAPE] = {
-        {Orientation::UP, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(0, 1)}},
-        {Orientation::RIGHT, {Position(0, 0), Position(0, -1), Position(0, 1), Position(-1, 0)}},
-        {Orientation::DOWN, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(0, -1)}},
-        {Orientation::LEFT, {Position(0, 0), Position(0, -1), Position(0, 1), Position(1, 0)}}
+        {Orientation::UP, {Position(0, 0), Position(0, -1), Position(0, 1), Position(-1, 0)}},
+        {Orientation::RIGHT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(0, -1)}},
+        {Orientation::DOWN, {Position(0, 0), Position(0, -1), Position(0, 1), Position(1, 0)}},
+        {Orientation::LEFT, {Position(0, 0), Position(-1, 0), Position(1, 0), Position(0, 1)}}
     };
 }
