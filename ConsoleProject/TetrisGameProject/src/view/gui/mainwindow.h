@@ -14,6 +14,7 @@
 
 #include <QKeyEvent>
 #include <QDebug>
+#include <QShortcut> // Si vous utilisez des raccourcis clavier
 
 
 namespace Ui {
@@ -24,20 +25,25 @@ class MainWindow : public QMainWindow, public Observer {
     Q_OBJECT
 
 public:
-    explicit MainWindow(Game& game, QWidget *parent = nullptr);
+    explicit MainWindow(Game* game, QWidget *parent = nullptr);
     ~MainWindow();
     void update() override;
 
-/*public slots:
-    void ;
+    /*
+private slots:
+    void onLeftKeyPressed();
+    void onRightKeyPressed();
+    void onDownKeyPressed();
+    void onUpKeyPressed();
+    void onZKeyPressed();
+    void onEnterKeyPressed();
 */
-
 private:
     Ui::MainWindow *ui;
 
     QGraphicsScene _scene; // La scène pour QGraphicsView
 
-    Game& game;
+    Game* game;
     GUIController *controller; // Déclaration du contrôleur
 
     QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;

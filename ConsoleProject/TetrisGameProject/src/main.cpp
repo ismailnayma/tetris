@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
     //controller.playTetris();
 
     QApplication application(argc, argv);
-    Game model = Game(20, 35, false);
+    //Game model = Game(20, 35, false);
 
     //MainWindow guiView (model);
     StartWindow start;

@@ -19,8 +19,9 @@ void StartWindow::playButton(){
 
     this->close();
 
-    Game game(Game(width, height, !prefilled));
-    MainWindow *mainWindow = new MainWindow (game);
+    Game* game = new Game(width, height, !prefilled); // Créer Game sur le tas
+    MainWindow* mainWindow = new MainWindow(game); // Créer MainWindow sur le tas
+    game->registerObserver(mainWindow);
     mainWindow->show();
 }
 
