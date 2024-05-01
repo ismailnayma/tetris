@@ -15,7 +15,7 @@
 #include <QKeyEvent>
 #include <QDebug>
 #include <QShortcut> // Si vous utilisez des raccourcis clavier
-
+#include "CustomMessageBox.h"
 
 namespace Ui {
 class MainWindow;
