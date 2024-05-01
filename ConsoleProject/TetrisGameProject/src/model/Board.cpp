@@ -19,18 +19,16 @@ Board::Board(int width, int height, bool emptyBoard)
     if (!emptyBoard) {
         // Loop through rows starting from 2/3 of the height to the end
         for (int row = ((height / 3) * 2); row < height; ++row) {
+            bool isFull = true;
             for (int col = 0; col < width; ++col) {
-                if (col == 0) {
-                    // First column is always filled with a random shape
-                    boardArea[row][col] = generateRandomShape(true);
-                } else if (col == width - 1) {
-                    // Last column is always empty
-                    boardArea[row][col] = std::nullopt;
-                } else {
-                    // Other columns are filled with random shapes or not
-                    boardArea[row][col] = generateRandomShape(false);
+                if((boardArea[row][col] = generateRandomShape()) == std::nullopt){
+                    isFull = false;
                 }
             }
+            if (isFull) {
+                boardArea[row][width-1] = std::nullopt;
+            }
+
         }
     }
 }
@@ -200,25 +198,20 @@ std::vector<Position> Board::getBrickBoardPositions(const Brick& brick) const {
     return brickBoardPositions;
 }
 
-std::optional<TypeShape> Board::generateRandomShape(bool onlyTypeShape) {
+std::optional<TypeShape> Board::generateRandomShape() {
     static std::random_device rd;
     static std::default_random_engine gen(rd());
     // Define a distribution for generating random numbers to determine there should be a shape or not
-    static std::uniform_int_distribution<int> disEmpty(0, 1);
+    static std::uniform_int_distribution<int> disEmpty(0, 5);
     // Define a distribution for generating random numbers to determine the type of shape
     static std::uniform_int_distribution<int> disShape(0, static_cast<int>(TypeShape::TYPESHAPE_NUMBER) - 1);
 
-    if (onlyTypeShape) {
-        return static_cast<TypeShape>(disShape(gen)); // Generate a random shape
+    // Generate a random number to determine if there should be a shape or not
+    if (disEmpty(gen) == 0) {
+        return std::nullopt; // No shape generated
     } else {
-        // Generate a random number to determine if there should be a shape or not
-        if (disEmpty(gen) == 0) {
-            return std::nullopt; // No shape generated
-        } else {
-            return static_cast<TypeShape>(disShape(gen)); // Generate a random shape
-        }
+        return static_cast<TypeShape>(disShape(gen)); // Generate a random shape
     }
-
 }
 
 void Board::setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area) {

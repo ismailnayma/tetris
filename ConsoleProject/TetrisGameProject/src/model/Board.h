@@ -25,7 +25,7 @@ private:
      */
     bool handleBrickAdjustment(const Brick& newCurBrick);
     void setBoardArea(const std::vector<std::vector<std::optional<TypeShape>>>& area);
-    std::optional<TypeShape> generateRandomShape(bool onlyTypeShape);
+    std::optional<TypeShape> generateRandomShape();
     bool fallen = false;
 
 public:

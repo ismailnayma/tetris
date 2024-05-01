@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>798</width>
-    <height>830</height>
+    <width>585</width>
+    <height>400</height>
    </rect>
   </property>
   <property name="font">
@@ -49,7 +49,7 @@
      <enum>QAbstractScrollArea::AdjustToContents</enum>
     </property>
     <property name="alignment">
-     <set>Qt::AlignCenter</set>
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
     </property>
     <property name="resizeAnchor">
      <enum>QGraphicsView::NoAnchor</enum>
@@ -193,7 +193,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>798</width>
+     <width>585</width>
      <height>17</height>
     </rect>
    </property>

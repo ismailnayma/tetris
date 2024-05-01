@@ -9,6 +9,7 @@ GUIController::GUIController(QObject *parent)
     mainWindow.installEventFilter(this);
 
     connect(startWindow.getUi().playButton, SIGNAL(clicked(bool)), this, SLOT(playButtonHandler()));
+    startWindow.move(200, 0);
     startWindow.show();
 }
 
@@ -63,13 +64,15 @@ void GUIController::playButtonHandler(){
     model.resetGame(width, height, !prefilled);
     model.start();
 
+    mainWindow.move(200, 0);
+
     mainWindow.show();
 }
 
 
 void GUIController::update() {
     mainWindow.initialize();
-
+/*
     if(model.getGameState() == GameState::LOSS){
         CustomMessageBox *customMsgBox = new CustomMessageBox(this);
         customMsgBox->showMessage("You lost :(");
@@ -84,6 +87,6 @@ void GUIController::update() {
         //pop out:std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         //pop out:std::cout << "Game Over: Time expired!" << std::endl;
     }
-
+*/
 }
 
