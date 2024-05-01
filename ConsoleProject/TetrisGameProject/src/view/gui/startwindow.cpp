@@ -1,5 +1,5 @@
 #include "startwindow.h"
-
+#include <QPainter>
 
 
 StartWindow::StartWindow(QWidget *parent) :
@@ -8,6 +8,13 @@ StartWindow::StartWindow(QWidget *parent) :
     _scene(this)
 {
     ui->setupUi(this);
+}
+
+void StartWindow::paintEvent(QPaintEvent *event) {
+    QMainWindow::paintEvent(event);
+
+    QPainter painter(this);
+    painter.drawPixmap(0, 0, width(), height(), QPixmap("../../resources/bck.jpg"));
 }
 
 int StartWindow::getWidthSpinBox() const{

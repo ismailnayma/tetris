@@ -80,31 +80,6 @@ void MainWindow::displayCurrentBrick(){
        }
 }
 
-/*
-void MainWindow::update() {
-
-    displayBoard();
-    displayCurrentBrick();
-    ui->lcdLevel->display(game.getGameLevel().getActualLevel());
-    ui->lcdScore->display(game.getGameScore().getScore());
-    ui->lcdLines->display(game.getGameLevel().getDeletedLines());
-
-    if(game.getGameState() == GameState::LOSS){
-        //CustomMessageBox *customMsgBox = new CustomMessageBox(this);
-       // customMsgBox->showMessage("You lost :(");
-
-        //pop out: std::cout<<"You lost :("<<std::endl;
-    } else if(game.getGameState() == GameState::SCOREWIN){
-        //pop out: std::cout<<"You reached the maximum score!, Congragulations, you won ! :)"<<std::endl;
-    } else if(game.getGameState() == GameState::LINESWIN){
-        //pop out: std::cout<<"You reached the maximum number of deleted lines!,Congragulations, you won ! :)"<<std::endl;
-    } else if(game.getGameState() == GameState::TIMELOSS){
-        //pop out:std::cin.clear();
-        //pop out:std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        //pop out:std::cout << "Game Over: Time expired!" << std::endl;
-    }
-}
-*/
 
 MainWindow::~MainWindow()
 {

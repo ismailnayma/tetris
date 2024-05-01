@@ -9,7 +9,7 @@ GUIController::GUIController(QObject *parent)
     mainWindow.installEventFilter(this);
 
     connect(startWindow.getUi().playButton, SIGNAL(clicked(bool)), this, SLOT(playButtonHandler()));
-    startWindow.move(200, 0);
+    startWindow.move(200, 100);
     startWindow.show();
 }
 
@@ -64,7 +64,7 @@ void GUIController::playButtonHandler(){
     model.resetGame(width, height, !prefilled);
     model.start();
 
-    mainWindow.move(200, 0);
+    mainWindow.move(200, 100);
 
     mainWindow.show();
 }

@@ -15,7 +15,8 @@ class StartWindow : public QMainWindow
 private:
     Ui::StartWindow *ui;
     QGraphicsScene _scene;
-
+protected:
+    void paintEvent(QPaintEvent *event) override;
 public:
     explicit StartWindow(QWidget *parent = nullptr);
     int getWidthSpinBox() const;
