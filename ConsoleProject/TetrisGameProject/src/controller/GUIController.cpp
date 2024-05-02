@@ -1,5 +1,4 @@
 #include "GUIController.h"
-#include <QKeyEvent>
 
 GUIController::GUIController(QObject *parent)
     : QObject(parent), mainWindow(model)
@@ -47,7 +46,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event)
         }
     }
 
-    // Passez l'événement à l'objet parent (vue) pour qu'il le traite également
+    // Pass the event to the parent object (view) for it to handle as well
     return QObject::eventFilter(obj, event);
 }
 
