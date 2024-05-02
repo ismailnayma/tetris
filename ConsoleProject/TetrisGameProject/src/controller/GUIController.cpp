@@ -70,7 +70,9 @@ void GUIController::intervalAction()
 
 void GUIController::stopTimer()
 {
-    model.setState(GameState::TIMELOSS);
+    if(model.getGameState()== GameState::PLAYING){
+        model.setState(GameState::TIMELOSS);
+    }
     timer.stop();
 
 }
@@ -79,10 +81,9 @@ void GUIController::playButtonHandler(){
     int width = startWindow.getWidthSpinBox();
     int height = startWindow.getHeightSpinBox();
     bool prefilled = startWindow.getPrefilledChoice();
-
+    model.resetGame(width, height, !prefilled);
     startWindow.close();
 
-    model.resetGame(width, height, !prefilled);
     model.start();
     timer.setInterval((1000/60)* model.getGameLevel().getSpeed());
     timer.start();
@@ -93,7 +94,6 @@ void GUIController::playButtonHandler(){
 void GUIController::restartGame(){
     startWindow.cleanRestart();
     restartWindow.close();
-    model.resetGame();
     startWindow.show();
 }
 
@@ -111,18 +111,22 @@ void GUIController::update() {
         mainWindow.close();
         restartWindow.show();
         restartWindow.showMessage("You lost!");
+        timer.stop();
     } else if(model.getGameState() == GameState::SCOREWIN){
         mainWindow.close();
         restartWindow.show();
         restartWindow.showMessage("You won! Max score reached!");
+        timer.stop();
     } else if(model.getGameState() == GameState::LINESWIN){
         mainWindow.close();
         restartWindow.show();
         restartWindow.showMessage("You won! Max score reached!");
+        timer.stop();
     } else if(model.getGameState() == GameState::TIMELOSS){
         mainWindow.close();
         restartWindow.show();
         restartWindow.showMessage("You lost! Time out!");
+        timer.stop();
     }
 
 }

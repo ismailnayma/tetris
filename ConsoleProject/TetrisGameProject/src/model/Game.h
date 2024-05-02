@@ -14,7 +14,7 @@ class Game : public Observable {
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
-    const int duration = 60000; //game duration to initialize timer
+    const int duration = 10* 1000; //game duration to initialize timer 60 seconds
 
     void updateGame(int dropDistance);
     void setCurrentBrick();
