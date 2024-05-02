@@ -96,6 +96,9 @@ const Score& Game::getGameScore() const {
     return gameScore;
 }
 
+const int Game::getDuration() const{
+    return duration;
+}
 void Game::setState(GameState state){
     gameState = state;
     notifyObservers();

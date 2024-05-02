@@ -14,10 +14,11 @@ class Game : public Observable {
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
+    const int duration = 60000; //game duration to initialize timer
 
     void updateGame(int dropDistance);
     void setCurrentBrick();
-    bool checkVictory();
+    bool checkVictory(); // conditions to win
 
 public:
     Game(int width = 10, int height = 20, bool emptyBoard = true);
@@ -32,6 +33,7 @@ public:
     const Level& getGameLevel() const;
     const Score& getGameScore() const;
     void setState(GameState);
+    const int getDuration() const;
 };
 
 #endif // GAME_H

@@ -13,6 +13,7 @@ GUIController::GUIController(QObject *parent)
     connect(restartWindow.getUi().quitPushButton, SIGNAL(clicked(bool)), this, SLOT(quitGame()));
 
     connect(&timer, &QTimer::timeout, this, &GUIController::intervalAction);
+
     startWindow.move(300, 200);
     mainWindow.move(200, 100);
     restartWindow.move(300,200);
@@ -62,10 +63,17 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event)
 
 void GUIController::intervalAction()
 {
-    qDebug() << "Une touche a été bas.";
+    qDebug() << "Down interval";
     model.moveCurrentBrick(Direction::DOWN);
+
 }
 
+void GUIController::stopTimer()
+{
+    model.setState(GameState::TIMELOSS);
+    timer.stop();
+
+}
 
 void GUIController::playButtonHandler(){
     int width = startWindow.getWidthSpinBox();
@@ -76,8 +84,9 @@ void GUIController::playButtonHandler(){
 
     model.resetGame(width, height, !prefilled);
     model.start();
-    timer.setInterval(60000/ (60 + (60 - model.getGameLevel().getSpeed())));
+    timer.setInterval((1000/60)* model.getGameLevel().getSpeed());
     timer.start();
+    timer.singleShot(model.getDuration(), this, &GUIController::stopTimer);
     mainWindow.show();
 }
 

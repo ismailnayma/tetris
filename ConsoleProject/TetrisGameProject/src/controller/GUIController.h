@@ -16,6 +16,7 @@ class GUIController : public QObject, public Observer
 public:
     explicit GUIController(QObject *parent = nullptr);
     void update() override;
+    void stopTimer();
 
 private slots:
     void playButtonHandler();
