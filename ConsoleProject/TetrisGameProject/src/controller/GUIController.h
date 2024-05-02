@@ -12,19 +12,6 @@
 class GUIController : public QObject, public Observer
 {
     Q_OBJECT
-public:
-    explicit GUIController(QObject *parent = nullptr);
-    void update() override;
-    void stopTimer();
-
-private slots:
-    void playButtonHandler();
-    void restartGame();
-    void quitGame();
-    void intervalAction();
-
-protected:
-    bool eventFilter(QObject *obj, QEvent *event) override;
 
 private:
     Game model;
@@ -32,6 +19,19 @@ private:
     MainWindow mainWindow;
     RestartWindow restartWindow;
     QTimer timer;
+
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void update() override;
+    void stopTimer();
+
+private slots:
+    void playButtonHandler();
+    void intervalAction();
+    void restartGame();
+    void quitGame();
+
+public:
+    explicit GUIController(QObject *parent = nullptr);
 };
 
 #endif // GUICONTROLLER_H
