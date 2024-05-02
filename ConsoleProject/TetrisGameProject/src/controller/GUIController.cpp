@@ -11,6 +11,8 @@ GUIController::GUIController(QObject *parent)
     connect(startWindow.getUi().playButton, SIGNAL(clicked(bool)), this, SLOT(playButtonHandler()));
     connect(restartWindow.getUi().replayPushButton, SIGNAL(clicked(bool)), this, SLOT(restartGame()));
     connect(restartWindow.getUi().quitPushButton, SIGNAL(clicked(bool)), this, SLOT(quitGame()));
+
+    connect(&timer, &QTimer::timeout, this, &GUIController::intervalAction);
     startWindow.move(300, 200);
     mainWindow.move(200, 100);
     restartWindow.move(300,200);
@@ -58,6 +60,13 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event)
 }
 
 
+void GUIController::intervalAction()
+{
+    qDebug() << "Une touche a été bas.";
+    model.moveCurrentBrick(Direction::DOWN);
+}
+
+
 void GUIController::playButtonHandler(){
     int width = startWindow.getWidthSpinBox();
     int height = startWindow.getHeightSpinBox();
@@ -67,13 +76,15 @@ void GUIController::playButtonHandler(){
 
     model.resetGame(width, height, !prefilled);
     model.start();
-
+    timer.setInterval(60000/ (60 + (60 - model.getGameLevel().getSpeed())));
+    timer.start();
     mainWindow.show();
 }
 
 void GUIController::restartGame(){
     startWindow.cleanRestart();
     restartWindow.close();
+    model.resetGame();
     startWindow.show();
 }
 
@@ -81,8 +92,11 @@ void GUIController::quitGame(){
     restartWindow.close();
 }
 
+
 void GUIController::update() {
     mainWindow.initialize();
+
+
 
     if(model.getGameState() == GameState::LOSS){
         mainWindow.close();

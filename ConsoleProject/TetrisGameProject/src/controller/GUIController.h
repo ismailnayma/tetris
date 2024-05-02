@@ -2,6 +2,7 @@
 #define GUICONTROLLER_H
 
 #include <QObject>
+#include <QTimer>
 #include "../model/Game.h"
 #include "../view/gui/startwindow.h"
 #include "../view/gui/mainwindow.h"
@@ -16,10 +17,11 @@ public:
     explicit GUIController(QObject *parent = nullptr);
     void update() override;
 
-public slots:
+private slots:
     void playButtonHandler();
     void restartGame();
     void quitGame();
+    void intervalAction();
 
 protected:
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -29,6 +31,7 @@ private:
     StartWindow startWindow;
     MainWindow mainWindow;
     RestartWindow restartWindow;
+    QTimer timer;
 
 };
 
