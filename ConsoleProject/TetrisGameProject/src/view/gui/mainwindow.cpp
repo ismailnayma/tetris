@@ -13,8 +13,6 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     _scene.setSceneRect(viewContentsRect);
     ui->myGraphicsView->setScene(&_scene);
 
-    // Additional initialization if necessary
-    //initialize();
 }
 
 void MainWindow::initialize(){
@@ -78,7 +76,6 @@ void MainWindow::displayCurrentBrick(){
            _scene.addRect(x, y, rectSize, rectSize, QPen(Qt::black), QBrush(color));
        }
 }
-
 
 MainWindow::~MainWindow()
 {

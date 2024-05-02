@@ -63,7 +63,7 @@ void Game::updateGame(int dropDistance) {
 }
 
 bool Game::checkVictory() {
-    if (gameScore.getScore() > 500) {
+    if (gameScore.getScore() > 10000) {
         gameState = GameState::SCOREWIN;
     } else if (gameLevel.getDeletedLines() > 1000) {
         gameState = GameState::LINESWIN;

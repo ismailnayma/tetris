@@ -19,8 +19,8 @@ GUIController::GUIController(QObject *parent)
     startWindow.show();
 }
 
-bool GUIController::eventFilter(QObject *obj, QEvent *event)
-{
+bool GUIController::eventFilter(QObject *obj, QEvent *event){
+
     if (event->type() == QEvent::KeyPress) {
         QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
         switch (keyEvent->key()) {
@@ -42,6 +42,8 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event)
         case Qt::Key_E:
             model.dropCurrentBrick();
             break;
+        case Qt::Key_L:
+            askIfReplayGame();
         default:
             break;
         }
@@ -53,6 +55,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event)
 
 void GUIController::update() {
     mainWindow.initialize();
+    timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
 
     QString message;
     switch(model.getGameState()) {
@@ -69,13 +72,10 @@ void GUIController::update() {
         message = "You lost! Time out!";
         break;
     default:
-        return; // Do nothing for other states
+        return; // Do nothing for other states and continue playing
     }
 
-    mainWindow.close();
-    restartWindow.show();
-    restartWindow.showMessage(message);
-    timer.stop();
+    askIfReplayGame(message);
 }
 
 void GUIController::stopTimer(){
@@ -91,18 +91,25 @@ void GUIController::playButtonHandler(){
     int height = startWindow.getHeightSpinBox();
     bool prefilled = startWindow.getPrefilledChoice();
     model.resetGame(width, height, !prefilled);
-    startWindow.close();
-
     model.start();
+
     timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
-    timer.start();
     timer.singleShot(model.getDuration(), this, &GUIController::stopTimer);
+    timer.start();
+
+    startWindow.close();
     mainWindow.show();
 }
 
-void GUIController::intervalAction()
-{
+void GUIController::intervalAction() {
     model.moveCurrentBrick(Direction::DOWN);
+}
+
+void GUIController::askIfReplayGame(QString message){
+    mainWindow.close();
+    restartWindow.show();
+    restartWindow.showMessage(message);
+    timer.stop();
 }
 
 void GUIController::restartGame(){

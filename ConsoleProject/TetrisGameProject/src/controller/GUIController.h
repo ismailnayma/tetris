@@ -23,6 +23,7 @@ private:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void update() override;
     void stopTimer();
+    void askIfReplayGame(QString message = "");
 
 private slots:
     void playButtonHandler();
