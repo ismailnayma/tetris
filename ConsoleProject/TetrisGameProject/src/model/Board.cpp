@@ -1,8 +1,5 @@
 #include "Board.h"
-#include <vector>
 #include <random>
-#include <vector>
-#include <optional>
 
 Board::Board(int width, int height, bool emptyBoard)
     : boardWidth(width),

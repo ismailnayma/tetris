@@ -1,9 +1,9 @@
 #ifndef STARTWINDOW_H
 #define STARTWINDOW_H
 
+#include "ui_startwindow.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
-#include "ui_startwindow.h"
 
 namespace Ui {
 class StartWindow;

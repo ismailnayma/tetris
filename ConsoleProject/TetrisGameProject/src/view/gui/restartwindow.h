@@ -1,9 +1,9 @@
 #ifndef RESTARTWINDOW_H
 #define RESTARTWINDOW_H
 
+#include "ui_restartwindow.h"
 #include <QMainWindow>
 #include <QGraphicsScene>
-#include "ui_restartwindow.h"
 
 namespace Ui {
 class RestartWindow;

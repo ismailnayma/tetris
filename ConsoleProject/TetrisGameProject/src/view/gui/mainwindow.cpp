@@ -7,15 +7,14 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
     game(game),
     _scene(this)
 {
-
-    // Configurez la scène et la vue graphique
+    // Configure the scene and the graphical view
     ui->setupUi(this);
     QRect viewContentsRect = ui->myGraphicsView->contentsRect();
     _scene.setSceneRect(viewContentsRect);
     ui->myGraphicsView->setScene(&_scene);
 
-    // Initialisation supplémentaire si nécessaire
-    initialize();
+    // Additional initialization if necessary
+    //initialize();
 }
 
 void MainWindow::initialize(){
@@ -34,7 +33,7 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
         {TypeShape::Z_SHAPE, Qt::red},
         {TypeShape::L_SHAPE, Qt::blue},
         {TypeShape::J_SHAPE, Qt::magenta},
-        {TypeShape::T_SHAPE, Qt::gray} // Add color for T shape here
+        {TypeShape::T_SHAPE, Qt::gray}
     };
 
     if (shapeOpt.has_value()) {
@@ -83,8 +82,5 @@ void MainWindow::displayCurrentBrick(){
 
 MainWindow::~MainWindow()
 {
-    //delete game;
     delete ui;
 }
-
-

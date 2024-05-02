@@ -1,7 +1,6 @@
 #include "startwindow.h"
 #include <QPainter>
 
-
 StartWindow::StartWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::StartWindow),

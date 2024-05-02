@@ -14,11 +14,11 @@ class Game : public Observable {
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
-    const int duration = 10* 1000; //game duration to initialize timer 60 seconds
+    const int duration = 100 * 1000;
 
     void updateGame(int dropDistance);
     void setCurrentBrick();
-    bool checkVictory(); // conditions to win
+    bool checkVictory(); // Conditions to win
 
 public:
     Game(int width = 10, int height = 20, bool emptyBoard = true);

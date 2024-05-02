@@ -1,5 +1,6 @@
 #ifndef CONSOLEVIEW_H
 #define CONSOLEVIEW_H
+
 #include "../model/Game.h"
 #include "../util/Observer.h"
 

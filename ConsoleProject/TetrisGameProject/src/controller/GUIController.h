@@ -3,12 +3,12 @@
 
 #include <QObject>
 #include <QTimer>
+
 #include "../model/Game.h"
 #include "../view/gui/startwindow.h"
 #include "../view/gui/mainwindow.h"
 #include "../view/gui/restartwindow.h"
 #include "../util/Observer.h"
-
 
 class GUIController : public QObject, public Observer
 {

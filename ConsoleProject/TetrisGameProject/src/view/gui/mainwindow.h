@@ -1,20 +1,14 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "../../model/Game.h"
 #include <QMainWindow>
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QPushButton>
 #include <QLabel>
 #include <QLCDNumber>
-
-#include "../../model/Game.h"
-
-
 #include <QKeyEvent>
-#include <QDebug>
-#include <QShortcut> // Si vous utilisez des raccourcis clavier
-
 
 namespace Ui {
 class MainWindow;
@@ -30,7 +24,7 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    QGraphicsScene _scene; // La scène pour QGraphicsView
+    QGraphicsScene _scene;
     Game& game;
 
     QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;
