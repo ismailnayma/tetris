@@ -55,7 +55,6 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
 }
 
 void GUIController::update() {
-    qDebug() << "Timer is active:" << timerDuration.isActive();
     mainWindow.initialize();
     timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
 
