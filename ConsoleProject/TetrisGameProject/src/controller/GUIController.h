@@ -19,10 +19,11 @@ private:
     MainWindow mainWindow;
     RestartWindow restartWindow;
     QTimer timer;
+    QTimer timerDuration;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
     void update() override;
-    void stopTimer();
+    void stopTimerDuration();
     void askIfReplayGame(QString message = "");
 
 private slots:

@@ -15,6 +15,7 @@ GUIController::GUIController(QObject *parent)
     connect(restartWindow.getUi().replayPushButton, SIGNAL(clicked(bool)), this, SLOT(restartGame()));
     connect(restartWindow.getUi().quitPushButton, SIGNAL(clicked(bool)), this, SLOT(quitGame()));
     connect(&timer, &QTimer::timeout, this, &GUIController::intervalAction);
+    connect(&timerDuration, &QTimer::timeout, this, &GUIController::stopTimerDuration);
 
     startWindow.show();
 }
@@ -54,6 +55,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
 }
 
 void GUIController::update() {
+    qDebug() << "Timer is active:" << timerDuration.isActive();
     mainWindow.initialize();
     timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
 
@@ -78,12 +80,13 @@ void GUIController::update() {
     askIfReplayGame(message);
 }
 
-void GUIController::stopTimer(){
+void GUIController::stopTimerDuration(){
     if(model.getGameState()== GameState::PLAYING){
-        model.setState(GameState::TIMELOSS);
+            model.setState(GameState::TIMELOSS);
     }
 
     timer.stop();
+    timerDuration.stop();
 }
 
 void GUIController::playButtonHandler(){
@@ -94,7 +97,7 @@ void GUIController::playButtonHandler(){
     model.start();
 
     timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
-    timer.singleShot(model.getDuration(), this, &GUIController::stopTimer);
+    timerDuration.start(model.getDuration());
     timer.start();
 
     startWindow.close();
@@ -106,10 +109,11 @@ void GUIController::intervalAction() {
 }
 
 void GUIController::askIfReplayGame(QString message){
+    timer.stop();
+    timerDuration.stop();
     mainWindow.close();
     restartWindow.show();
     restartWindow.showMessage(message);
-    timer.stop();
 }
 
 void GUIController::restartGame(){
