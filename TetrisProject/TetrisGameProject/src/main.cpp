@@ -6,6 +6,8 @@
 
 int main(int argc, char *argv[])
 {
+
+    //To execute the console project you can decomment that and comment the next code
     //Game model = Game();
     //ConsoleController controller = ConsoleController(model);
     //controller.playTetris();

@@ -14,8 +14,8 @@ GUIController::GUIController(QObject *parent)
     connect(startWindow.getUi().playButton, SIGNAL(clicked(bool)), this, SLOT(playButtonHandler()));
     connect(restartWindow.getUi().replayPushButton, SIGNAL(clicked(bool)), this, SLOT(restartGame()));
     connect(restartWindow.getUi().quitPushButton, SIGNAL(clicked(bool)), this, SLOT(quitGame()));
-    connect(&timer, &QTimer::timeout, this, &GUIController::intervalAction);
-    connect(&timerDuration, &QTimer::timeout, this, &GUIController::stopTimerDuration);
+    connect(&timerInterval, &QTimer::timeout, this, &GUIController::intervalAction);
+    connect(&timerDuration, &QTimer::timeout, this, &GUIController::stopTimers);
 
     startWindow.show();
 }
@@ -44,7 +44,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
             model.dropCurrentBrick();
             break;
         case Qt::Key_L:
-            askIfReplayGame();
+            handleEndGame("You left the game!");
         default:
             break;
         }
@@ -56,7 +56,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
 
 void GUIController::update() {
     mainWindow.initialize();
-    timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
+    timerInterval.setInterval((1000/60) * model.getGameLevel().getSpeed());
 
     QString message;
     switch(model.getGameState()) {
@@ -76,15 +76,15 @@ void GUIController::update() {
         return; // Do nothing for other states and continue playing
     }
 
-    askIfReplayGame(message);
+    handleEndGame(message);
 }
 
-void GUIController::stopTimerDuration(){
+void GUIController::stopTimers(){
     if(model.getGameState()== GameState::PLAYING){
             model.setState(GameState::TIMELOSS);
     }
 
-    timer.stop();
+    timerInterval.stop();
     timerDuration.stop();
 }
 
@@ -95,9 +95,9 @@ void GUIController::playButtonHandler(){
     model.resetGame(width, height, !prefilled);
     model.start();
 
-    timer.setInterval((1000/60) * model.getGameLevel().getSpeed());
+    timerInterval.setInterval((1000/60) * model.getGameLevel().getSpeed());
+    timerInterval.start();
     timerDuration.start(model.getDuration());
-    timer.start();
 
     startWindow.close();
     mainWindow.show();
@@ -107,9 +107,8 @@ void GUIController::intervalAction() {
     model.moveCurrentBrick(Direction::DOWN);
 }
 
-void GUIController::askIfReplayGame(QString message){
-    timer.stop();
-    timerDuration.stop();
+void GUIController::handleEndGame(QString message){
+    stopTimers();
     mainWindow.close();
     restartWindow.show();
     restartWindow.showMessage(message);

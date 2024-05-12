@@ -18,13 +18,13 @@ private:
     StartWindow startWindow;
     MainWindow mainWindow;
     RestartWindow restartWindow;
-    QTimer timer;
+    QTimer timerInterval;
     QTimer timerDuration;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
     void update() override;
-    void stopTimerDuration();
-    void askIfReplayGame(QString message = "");
+    void stopTimers();
+    void handleEndGame(QString message = "");
 
 private slots:
     void playButtonHandler();

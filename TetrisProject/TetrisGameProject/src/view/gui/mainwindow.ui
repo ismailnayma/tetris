@@ -18,6 +18,9 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: black;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGraphicsView" name="myGraphicsView">
     <property name="geometry">
@@ -66,12 +69,17 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <family>Impact</family>
+      <pointsize>20</pointsize>
+      <bold>false</bold>
       <kerning>true</kerning>
      </font>
     </property>
     <property name="toolTip">
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;LEVEL&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
     </property>
     <property name="lineWidth">
      <number>1</number>
@@ -89,6 +97,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid purple;</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_score">
     <property name="geometry">
@@ -101,9 +112,13 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <family>Impact</family>
+      <pointsize>20</pointsize>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
     </property>
     <property name="text">
      <string>SCORE</string>
@@ -118,6 +133,9 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid purple;</string>
+    </property>
    </widget>
    <widget class="QLabel" name="label_lines">
     <property name="geometry">
@@ -130,9 +148,13 @@
     </property>
     <property name="font">
      <font>
-      <pointsize>15</pointsize>
+      <family>Impact</family>
+      <pointsize>20</pointsize>
       <kerning>true</kerning>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
     </property>
     <property name="text">
      <string>LINES</string>
@@ -147,15 +169,21 @@
       <height>31</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">border: 2px solid purple</string>
+    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>70</x>
-      <y>290</y>
-      <width>151</width>
+      <x>60</x>
+      <y>340</y>
+      <width>161</width>
       <height>151</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: green;</string>
     </property>
     <property name="title">
      <string/>
@@ -165,9 +193,23 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>91</width>
+       <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
      </property>
      <property name="text">
       <string>Q -  MOVE LEFT</string>
@@ -178,9 +220,20 @@
       <rect>
        <x>10</x>
        <y>30</y>
-       <width>111</width>
+       <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
      </property>
      <property name="text">
       <string>D -  MOVE RIGHT</string>
@@ -191,12 +244,23 @@
       <rect>
        <x>10</x>
        <y>50</y>
-       <width>101</width>
+       <width>131</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <bold>false</bold>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="text">
-      <string>S  -  MOVE DOWN</string>
+      <string>S -  MOVE DOWN</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -208,6 +272,16 @@
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white;</string>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -217,12 +291,22 @@
       <rect>
        <x>10</x>
        <y>70</y>
-       <width>91</width>
+       <width>131</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="text">
-      <string>A  -  ROTATE LEFT</string>
+      <string>A -  ROTATE LEFT</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_6">
@@ -230,12 +314,22 @@
       <rect>
        <x>10</x>
        <y>90</y>
-       <width>101</width>
+       <width>141</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="text">
-      <string>Z  -  ROTATE RIGHT</string>
+      <string>Z -  ROTATE RIGHT</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_7">
@@ -243,12 +337,22 @@
       <rect>
        <x>10</x>
        <y>110</y>
-       <width>91</width>
+       <width>121</width>
        <height>16</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
+     </property>
      <property name="text">
-      <string>E  -  DROP</string>
+      <string>E -  DROP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -256,9 +360,19 @@
       <rect>
        <x>10</x>
        <y>130</y>
-       <width>61</width>
+       <width>131</width>
        <height>16</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Stencil</family>
+       <pointsize>12</pointsize>
+       <kerning>true</kerning>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: black;</string>
      </property>
      <property name="text">
       <string>L  -  LEAVE</string>
@@ -272,7 +386,7 @@
      <x>0</x>
      <y>0</y>
      <width>812</width>
-     <height>17</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>

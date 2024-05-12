@@ -31,7 +31,7 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
         {TypeShape::Z_SHAPE, Qt::red},
         {TypeShape::L_SHAPE, Qt::blue},
         {TypeShape::J_SHAPE, Qt::magenta},
-        {TypeShape::T_SHAPE, Qt::gray}
+        {TypeShape::T_SHAPE, Qt::darkRed}
     };
 
     if (shapeOpt.has_value()) {
@@ -71,7 +71,7 @@ void MainWindow::displayCurrentBrick(){
            int x = position.getPosX() * rectSize; // X coordinate of the rectangle
            int y = position.getPosY() * rectSize; // Y coordinate of the rectangle
 
-           // Update the color of the rectangle at position (x, y) in the scene
+           // Update the color of the rectangle at position (x, y) in the sceneqq
            QColor color = getColorForShape(currentBrickTypeShape);
            _scene.addRect(x, y, rectSize, rectSize, QPen(Qt::black), QBrush(color));
        }
