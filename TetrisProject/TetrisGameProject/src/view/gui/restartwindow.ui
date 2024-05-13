@@ -6,28 +6,38 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>391</width>
-    <height>383</height>
+    <width>750</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background:black;</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLabel" name="labelState">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
-      <x>30</x>
-      <y>90</y>
+      <x>200</x>
+      <y>140</y>
       <width>341</width>
       <height>61</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>16</pointsize>
-      <bold>true</bold>
+      <family>Showcard Gothic</family>
+      <pointsize>20</pointsize>
+      <bold>false</bold>
      </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:purple;</string>
     </property>
     <property name="text">
      <string/>
@@ -39,24 +49,50 @@
    <widget class="QLabel" name="labelQuestion">
     <property name="geometry">
      <rect>
-      <x>130</x>
-      <y>160</y>
-      <width>141</width>
-      <height>21</height>
+      <x>90</x>
+      <y>230</y>
+      <width>551</width>
+      <height>31</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>16</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="layoutDirection">
+     <enum>Qt::LeftToRight</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:lightyellow;</string>
     </property>
     <property name="text">
      <string>Do you want to replay?</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
     </property>
    </widget>
    <widget class="QPushButton" name="replayPushButton">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>190</y>
-      <width>80</width>
+      <x>259</x>
+      <y>280</y>
+      <width>101</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>13</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:lightgreen;color:purple;border: 1px solid purple; border-radius: 5px;</string>
     </property>
     <property name="text">
      <string>Yes</string>
@@ -65,11 +101,21 @@
    <widget class="QPushButton" name="quitPushButton">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>190</y>
-      <width>81</width>
+      <x>370</x>
+      <y>280</y>
+      <width>101</width>
       <height>24</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Showcard Gothic</family>
+      <pointsize>13</pointsize>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:lightgreen;color:purple;border: 1px solid purple; border-radius: 5px;</string>
     </property>
     <property name="text">
      <string>No (Quit)</string>
@@ -81,8 +127,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>391</width>
-     <height>21</height>
+     <width>750</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>

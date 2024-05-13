@@ -4,10 +4,6 @@ GUIController::GUIController(QObject *parent)
     : QObject(parent), mainWindow(model)
 {
 
-    //startWindow.move(2, 200);
-    //mainWindow.move(200, 100);
-    //restartWindow.move(300,200);
-
     model.registerObserver(this);
 
     mainWindow.installEventFilter(this);

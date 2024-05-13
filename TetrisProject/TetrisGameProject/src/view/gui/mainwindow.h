@@ -30,6 +30,7 @@ private:
     QColor getColorForShape(std::optional<TypeShape> shapeOpt) const;
     void displayBoard();
     void displayCurrentBrick();
+    int computeRectSize();
 };
 
 #endif // MAINWINDOW_H

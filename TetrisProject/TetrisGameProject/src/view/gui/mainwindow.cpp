@@ -16,6 +16,7 @@ MainWindow::MainWindow(Game& game, QWidget *parent) :
 }
 
 void MainWindow::initialize(){
+    ui->myGraphicsView->scene()->clear();
     displayBoard();
     displayCurrentBrick();
     ui->lcdLevel->display(game.getGameLevel().getActualLevel());
@@ -46,11 +47,12 @@ QColor MainWindow::getColorForShape(std::optional<TypeShape> shapeOpt) const {
 
 void MainWindow::displayBoard(){
     const std::vector<std::vector<std::optional<TypeShape>>> boardArea = game.getGameBoard().getBoardArea();
-    int height = boardArea.size();
-    int width = boardArea.at(0).size();
+    int height = game.getGameBoard().getBoardHeight();
+    int width = game.getGameBoard().getBoardWidth();
 
     // Add rectangles to the scene based on the height and width of the board
-    int rectSize = 20; // Size of each rectangle
+    int rectSize = computeRectSize();
+
     for (int row = 0; row < height; ++row) {
         for (int col = 0; col < width; ++col) {
             QRectF rect(col * rectSize, row * rectSize, rectSize, rectSize); // Position and size of the rectangle
@@ -64,8 +66,8 @@ void MainWindow::displayBoard(){
 void MainWindow::displayCurrentBrick(){
     const auto currentBrickBoardPositions = game.getGameBoard().getBrickBoardPositions(game.getGameBoard().getBrick());
     const auto currentBrickTypeShape = game.getGameBoard().getBrick().getTypeShape();
-    int rectSize = 20;
 
+    int rectSize = computeRectSize();
        // Iterate over the positions of the current brick
        for (const auto& position : currentBrickBoardPositions) {
            int x = position.getPosX() * rectSize; // X coordinate of the rectangle
@@ -75,6 +77,19 @@ void MainWindow::displayCurrentBrick(){
            QColor color = getColorForShape(currentBrickTypeShape);
            _scene.addRect(x, y, rectSize, rectSize, QPen(Qt::black), QBrush(color));
        }
+}
+
+int MainWindow::computeRectSize(){
+    int height = game.getGameBoard().getBoardHeight();
+    int width = game.getGameBoard().getBoardWidth();
+    int rectSize;
+
+    if (height > width) {
+        rectSize =ui->myGraphicsView->height() / height * 0.85;
+    } else {
+        rectSize = ui->myGraphicsView->width() / width * 0.85;
+    }
+    return rectSize;
 }
 
 MainWindow::~MainWindow()

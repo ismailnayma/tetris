@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>812</width>
-    <height>666</height>
+    <width>750</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background:black;</string>
   </property>
   <property name="unifiedTitleAndToolBarOnMac">
    <bool>false</bool>
@@ -20,14 +23,14 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>290</x>
-      <y>170</y>
-      <width>251</width>
-      <height>261</height>
+      <x>180</x>
+      <y>110</y>
+      <width>361</width>
+      <height>341</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background:black;</string>
+     <string notr="true">background:black; border-radius: 5px; border: 1px solid black; </string>
     </property>
     <property name="title">
      <string/>
@@ -35,34 +38,44 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>80</x>
-       <y>100</y>
+       <x>30</x>
+       <y>160</y>
+       <width>141</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>14</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: lightyellow</string>
+     </property>
+     <property name="text">
+      <string>LINES</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="widthSpinBox">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>130</y>
        <width>51</width>
        <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>MS Sans Serif</family>
-       <pointsize>10</pointsize>
-       <bold>true</bold>
+       <family>Showcard Gothic</family>
+       <pointsize>12</pointsize>
+       <bold>false</bold>
       </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: white;</string>
-     </property>
-     <property name="text">
-      <string>LINES</string>
-     </property>
-    </widget>
-    <widget class="QSpinBox" name="widthSpinBox">
-     <property name="geometry">
-      <rect>
-       <x>140</x>
-       <y>60</y>
-       <width>51</width>
-       <height>31</height>
-      </rect>
      </property>
      <property name="mouseTracking">
       <bool>false</bool>
@@ -71,7 +84,7 @@
       <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: white; background-color: green;</string>
+      <string notr="true">color: black; background:lightgreen</string>
      </property>
      <property name="wrapping">
       <bool>false</bool>
@@ -79,30 +92,49 @@
      <property name="frame">
       <bool>true</bool>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <property name="minimum">
       <number>10</number>
      </property>
      <property name="maximum">
-      <number>25</number>
+      <number>20</number>
      </property>
     </widget>
     <widget class="QSpinBox" name="heightSpinBox">
      <property name="geometry">
       <rect>
-       <x>140</x>
-       <y>100</y>
+       <x>190</x>
+       <y>160</y>
        <width>51</width>
-       <height>31</height>
+       <height>21</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>12</pointsize>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
      <property name="styleSheet">
-      <string notr="true">color: white; background-color: green</string>
+      <string notr="true">color: black; background:lightgreen</string>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
      <property name="minimum">
       <number>10</number>
      </property>
      <property name="maximum">
-      <number>30</number>
+      <number>25</number>
      </property>
      <property name="value">
       <number>20</number>
@@ -111,24 +143,27 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>70</y>
-       <width>81</width>
-       <height>20</height>
+       <x>60</x>
+       <y>130</y>
+       <width>111</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>MS Sans Serif</family>
-       <pointsize>9</pointsize>
-       <bold>true</bold>
+       <family>Showcard Gothic</family>
+       <pointsize>14</pointsize>
+       <bold>false</bold>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: white;</string>
+      <string notr="true">color: lightyellow</string>
      </property>
      <property name="text">
       <string>COLUMNS</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBoxPrefilled">
@@ -137,16 +172,17 @@
      </property>
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>160</y>
-       <width>131</width>
+       <x>70</x>
+       <y>230</y>
+       <width>211</width>
        <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>MS Sans Serif</family>
-       <bold>true</bold>
+       <family>Showcard Gothic</family>
+       <pointsize>14</pointsize>
+       <bold>false</bold>
       </font>
      </property>
      <property name="layoutDirection">
@@ -156,7 +192,7 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: white; border-radius: 5px;</string>
+      <string notr="true">color: lightyellow</string>
      </property>
      <property name="text">
       <string>Prefilled Board</string>
@@ -168,27 +204,52 @@
     <widget class="QPushButton" name="playButton">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>200</y>
+       <x>120</x>
+       <y>270</y>
        <width>131</width>
-       <height>24</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>MS Sans Serif</family>
-       <pointsize>16</pointsize>
-       <bold>true</bold>
+       <family>Showcard Gothic</family>
+       <pointsize>18</pointsize>
+       <bold>false</bold>
       </font>
      </property>
      <property name="mouseTracking">
       <bool>true</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: white; background:purple; border-radius: 5px;</string>
+      <string notr="true">color: lightgreen; background:purple; border-radius: 5px; border: 1px solid lightgreen; </string>
      </property>
      <property name="text">
       <string>Play</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>341</width>
+       <height>101</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Showcard Gothic</family>
+       <pointsize>72</pointsize>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color:magenta</string>
+     </property>
+     <property name="text">
+      <string>TETRIS</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
    </widget>
@@ -198,7 +259,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>812</width>
+     <width>750</width>
      <height>17</height>
     </rect>
    </property>

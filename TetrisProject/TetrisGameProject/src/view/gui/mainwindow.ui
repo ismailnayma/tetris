@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>812</width>
-    <height>666</height>
+    <width>750</width>
+    <height>550</height>
    </rect>
   </property>
   <property name="font">
@@ -69,7 +69,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Impact</family>
+      <family>Showcard Gothic</family>
       <pointsize>20</pointsize>
       <bold>false</bold>
       <kerning>true</kerning>
@@ -98,7 +98,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 2px solid purple;</string>
+     <string notr="true">border: 2px solid purple; border-radius: 5px;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_score">
@@ -112,7 +112,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Impact</family>
+      <family>Showcard Gothic</family>
       <pointsize>20</pointsize>
       <kerning>true</kerning>
      </font>
@@ -134,7 +134,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 2px solid purple;</string>
+     <string notr="true">border: 2px solid purple; border-radius: 5px;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_lines">
@@ -148,7 +148,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Impact</family>
+      <family>Showcard Gothic</family>
       <pointsize>20</pointsize>
       <kerning>true</kerning>
      </font>
@@ -170,20 +170,20 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: 2px solid purple</string>
+     <string notr="true">border: 2px solid purple; border-radius: 5px;</string>
     </property>
    </widget>
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
       <x>60</x>
-      <y>340</y>
+      <y>330</y>
       <width>161</width>
       <height>151</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: green;</string>
+     <string notr="true">background-color: lightgreen; border-radius: 5px;</string>
     </property>
     <property name="title">
      <string/>
@@ -193,13 +193,13 @@
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>131</width>
+       <width>111</width>
        <height>16</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <bold>false</bold>
        <kerning>true</kerning>
@@ -209,7 +209,7 @@
       <bool>false</bool>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>Q -  MOVE LEFT</string>
@@ -226,14 +226,14 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <bold>false</bold>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>D -  MOVE RIGHT</string>
@@ -250,14 +250,14 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <bold>false</bold>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>S -  MOVE DOWN</string>
@@ -297,13 +297,13 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>A -  ROTATE LEFT</string>
@@ -320,13 +320,13 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>Z -  ROTATE RIGHT</string>
@@ -343,13 +343,13 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
       <string>E -  DROP</string>
@@ -366,16 +366,16 @@
      </property>
      <property name="font">
       <font>
-       <family>Stencil</family>
+       <family>Showcard Gothic</family>
        <pointsize>12</pointsize>
        <kerning>true</kerning>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color: black;</string>
+      <string notr="true">color: purple;</string>
      </property>
      <property name="text">
-      <string>L  -  LEAVE</string>
+      <string>L  - LEAVE</string>
      </property>
     </widget>
    </widget>
@@ -385,7 +385,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>812</width>
+     <width>750</width>
      <height>17</height>
     </rect>
    </property>
