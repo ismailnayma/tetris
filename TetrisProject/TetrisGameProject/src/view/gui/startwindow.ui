@@ -6,22 +6,28 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>392</width>
-    <height>415</height>
+    <width>812</width>
+    <height>666</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="unifiedTitleAndToolBarOnMac">
+   <bool>false</bool>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>60</y>
+      <x>290</x>
+      <y>170</y>
       <width>251</width>
       <height>261</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background:black;</string>
     </property>
     <property name="title">
      <string/>
@@ -29,16 +35,21 @@
     <widget class="QLabel" name="label">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>80</x>
        <y>100</y>
-       <width>81</width>
-       <height>31</height>
+       <width>51</width>
+       <height>21</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <family>MS Sans Serif</family>
+       <pointsize>10</pointsize>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white;</string>
      </property>
      <property name="text">
       <string>LINES</string>
@@ -48,10 +59,25 @@
      <property name="geometry">
       <rect>
        <x>140</x>
-       <y>40</y>
+       <y>60</y>
        <width>51</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="mouseTracking">
+      <bool>false</bool>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white; background-color: green;</string>
+     </property>
+     <property name="wrapping">
+      <bool>false</bool>
+     </property>
+     <property name="frame">
+      <bool>true</bool>
      </property>
      <property name="minimum">
       <number>10</number>
@@ -66,8 +92,11 @@
        <x>140</x>
        <y>100</y>
        <width>51</width>
-       <height>41</height>
+       <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white; background-color: green</string>
      </property>
      <property name="minimum">
       <number>10</number>
@@ -82,42 +111,81 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>50</y>
+       <x>50</x>
+       <y>70</y>
        <width>81</width>
        <height>20</height>
       </rect>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <family>MS Sans Serif</family>
+       <pointsize>9</pointsize>
+       <bold>true</bold>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white;</string>
      </property>
      <property name="text">
       <string>COLUMNS</string>
      </property>
     </widget>
     <widget class="QCheckBox" name="checkBoxPrefilled">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>170</y>
-       <width>111</width>
-       <height>22</height>
+       <x>60</x>
+       <y>160</y>
+       <width>131</width>
+       <height>21</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
+     <property name="autoFillBackground">
+      <bool>false</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white; border-radius: 5px;</string>
      </property>
      <property name="text">
       <string>Prefilled Board</string>
+     </property>
+     <property name="checkable">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPushButton" name="playButton">
      <property name="geometry">
       <rect>
-       <x>49</x>
+       <x>60</x>
        <y>200</y>
        <width>131</width>
        <height>24</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>MS Sans Serif</family>
+       <pointsize>16</pointsize>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="mouseTracking">
+      <bool>true</bool>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: white; background:purple; border-radius: 5px;</string>
      </property>
      <property name="text">
       <string>Play</string>
@@ -130,8 +198,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>392</width>
-     <height>21</height>
+     <width>812</width>
+     <height>17</height>
     </rect>
    </property>
   </widget>

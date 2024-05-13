@@ -7,6 +7,7 @@ StartWindow::StartWindow(QWidget *parent) :
     _scene(this)
 {
     ui->setupUi(this);
+    ui->groupBox->setAlignment(Qt::AlignCenter);
 }
 
 int StartWindow::getWidthSpinBox() const{
