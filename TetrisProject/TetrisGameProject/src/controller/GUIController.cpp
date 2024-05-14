@@ -38,7 +38,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
             case Qt::Key_A:
                 model.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
                 break;
-            case Qt::Key_E:
+            case Qt::Key_Space:
                 model.dropCurrentBrick();
                 break;
             case Qt::Key_L:
@@ -56,7 +56,7 @@ void GUIController::update() {
     mainWindow.initialize();
     if(levelCurrent != model.getGameLevel().getActualLevel()){
         levelCurrent = model.getGameLevel().getActualLevel();
-        timerInterval.setInterval((1000/60) * levelCurrent);
+        timerInterval.setInterval((1000/60) * model.getGameLevel().getSpeed());
     }
 
 
