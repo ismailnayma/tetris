@@ -1,0 +1,71 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"dependencies" : 
+	[
+		{
+			"id" : "TetrisGameProject_autogen_timestamp_deps::@145eef247bfb46b6828c"
+		}
+	],
+	"id" : "TetrisGameProject_autogen::@145eef247bfb46b6828c",
+	"isGeneratorProvided" : true,
+	"name" : "TetrisGameProject_autogen",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		},
+		{
+			"name" : "CMake Rules",
+			"sourceIndexes" : 
+			[
+				1,
+				2
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/src/CMakeFiles/TetrisGameProject_autogen",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/src/CMakeFiles/TetrisGameProject_autogen.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/src/TetrisGameProject_autogen/timestamp.rule",
+			"sourceGroupIndex" : 1
+		}
+	],
+	"type" : "UTILITY"
+}

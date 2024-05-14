@@ -1,0 +1,14 @@
+# Target labels
+ catch2-populate
+# Source files and their labels
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/CMakeFiles/catch2-populate-complete.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-build.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-configure.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-download.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-install.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-mkdir.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-patch.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-test.rule
+C:/esi_2024/Q4/DEV4/60085_55996_tetris/ConsoleProject/build-TetrisGameProject-Desktop_Qt_6_3_2_MinGW_64_bit-Debug/_deps/catch2-subbuild/catch2-populate-prefix/src/catch2-populate-stamp/catch2-populate-update.rule

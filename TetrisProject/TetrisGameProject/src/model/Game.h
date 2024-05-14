@@ -14,7 +14,7 @@ class Game : public Observable {
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
-    const int duration = 100 * 1000; // The game is stopped after 100 seconds
+    const int duration = 1; // The duration of the game in minutes
 
     void updateGame(int dropDistance);
     void setCurrentBrick();

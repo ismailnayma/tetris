@@ -94,7 +94,7 @@ void GUIController::playButtonHandler(){
 
     timerInterval.setInterval((1000/60) * model.getGameLevel().getSpeed());
     timerInterval.start();
-    timerDuration.start(model.getDuration());
+    timerDuration.start(model.getDuration()*60*1000);
 
     startWindow.close();
     mainWindow.show();
