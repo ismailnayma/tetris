@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     //ConsoleController controller = ConsoleController(model);
     //controller.playTetris();
 
+    //Gui application
     QApplication application(argc, argv);
 
     GUIController guiController;
