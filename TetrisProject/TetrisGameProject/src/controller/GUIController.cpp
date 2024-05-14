@@ -14,46 +14,51 @@ GUIController::GUIController(QObject *parent)
     connect(&timerInterval, &QTimer::timeout, this, &GUIController::intervalAction);
     connect(&timerDuration, &QTimer::timeout, this, &GUIController::stopTimers);
 
+    levelCurrent = model.getGameLevel().getActualLevel();
     startWindow.show();
 }
 
 bool GUIController::eventFilter(QObject *obj, QEvent *event){
 
     if (event->type() == QEvent::KeyPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-        switch (keyEvent->key()) {
-        case Qt::Key_Q:
-            model.moveCurrentBrick(Direction::LEFT);
-            break;
-        case Qt::Key_D:
-            model.moveCurrentBrick(Direction::RIGHT);
-            break;
-        case Qt::Key_S:
-            model.moveCurrentBrick(Direction::DOWN);
-            break;
-        case Qt::Key_Z:
-            model.rotateCurrentBrick(Rotation::CLOCKWISE);
-            break;
-        case Qt::Key_A:
-            model.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
-            break;
-        case Qt::Key_E:
-            model.dropCurrentBrick();
-            break;
-        case Qt::Key_L:
-            handleEndGame("You left the game!");
-        default:
-            break;
+            QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+            switch (keyEvent->key()) {
+            case Qt::Key_Q:
+                model.moveCurrentBrick(Direction::LEFT);
+                break;
+            case Qt::Key_D:
+                model.moveCurrentBrick(Direction::RIGHT);
+                break;
+            case Qt::Key_S:
+                model.moveCurrentBrick(Direction::DOWN);
+                break;
+            case Qt::Key_Z:
+                model.rotateCurrentBrick(Rotation::CLOCKWISE);
+                break;
+            case Qt::Key_A:
+                model.rotateCurrentBrick(Rotation::COUNTERCLOCKWISE);
+                break;
+            case Qt::Key_E:
+                model.dropCurrentBrick();
+                break;
+            case Qt::Key_L:
+                handleEndGame("You left the game!");
+                break;
+            default:
+                break;
+            }
         }
-    }
-
     // Pass the event to the parent object (view) for it to handle as well
     return QObject::eventFilter(obj, event);
 }
 
 void GUIController::update() {
     mainWindow.initialize();
-    timerInterval.setInterval((1000/60) * model.getGameLevel().getSpeed());
+    if(levelCurrent != model.getGameLevel().getActualLevel()){
+        levelCurrent = model.getGameLevel().getActualLevel();
+        timerInterval.setInterval((1000/60) * levelCurrent);
+    }
+
 
     QString message;
     switch(model.getGameState()) {

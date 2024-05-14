@@ -14,7 +14,7 @@ class Game : public Observable {
     BrickBag gameBrickBag;
     Score gameScore;
     Level gameLevel;
-    const int duration = 1; // The duration of the game in minutes
+    const int duration = 10; // The duration of the game in minutes
 
     void updateGame(int dropDistance);
     void setCurrentBrick();

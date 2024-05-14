@@ -8,6 +8,7 @@
 #include "../util/Observer.h"
 #include <QObject>
 #include <QTimer>
+#include <QMutex>
 
 class GUIController : public QObject, public Observer
 {
@@ -20,6 +21,7 @@ private:
     RestartWindow restartWindow;
     QTimer timerInterval;
     QTimer timerDuration;
+    int levelCurrent;
 
     bool eventFilter(QObject *obj, QEvent *event) override;
     void update() override;
