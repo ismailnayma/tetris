@@ -32,7 +32,7 @@ bool GUIController::eventFilter(QObject *obj, QEvent *event){
             case Qt::Key_S:
                 model.moveCurrentBrick(Direction::DOWN);
                 break;
-            case Qt::Key_Z:
+            case Qt::Key_E:
                 model.rotateCurrentBrick(Rotation::CLOCKWISE);
                 break;
             case Qt::Key_A:

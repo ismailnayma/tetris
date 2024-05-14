@@ -329,7 +329,7 @@
       <string notr="true">color: purple;</string>
      </property>
      <property name="text">
-      <string>Z -  ROTATE RIGHT</string>
+      <string>E -  ROTATE RIGHT</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_7">
@@ -352,7 +352,7 @@
       <string notr="true">color: purple;</string>
      </property>
      <property name="text">
-      <string>E -  DROP</string>
+      <string>SPACE -  DROP</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_8">
@@ -386,7 +386,7 @@
      <x>0</x>
      <y>0</y>
      <width>750</width>
-     <height>21</height>
+     <height>17</height>
     </rect>
    </property>
   </widget>

@@ -75,7 +75,7 @@ Level::Level(int level) : actualLevel(level), deletedLines(0) {
 
 void Level::updateLevel(int removedLines) {
     this->deletedLines += removedLines;
-    actualLevel = 1 + (deletedLines / 1);
+    actualLevel = 1 + (deletedLines / 10);
     setSpeed(actualLevel);
 }
 
